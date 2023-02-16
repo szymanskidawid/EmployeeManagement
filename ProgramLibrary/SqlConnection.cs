@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProgramLibrary.Models
+namespace ProgramLibrary
 {
-    internal class CreationModel
+    internal class SqlConnection
     {
+
     }
 }

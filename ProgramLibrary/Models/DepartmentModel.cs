@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProgramLibrary.Models
 {
-    internal class DepartmentModel
+    public class DepartmentModel
     {
+        public int Id { get; set; }
+        public string DepartmentName { get; set; }
+        public List<EmployeeModel> DepartmentEmployees { get; set; } = new List<EmployeeModel>();
     }
 }
