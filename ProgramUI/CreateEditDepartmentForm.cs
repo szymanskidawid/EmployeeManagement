@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProgramUI
 {
-    public partial class CreateEditDepartment : Form
+    public partial class CreateEditDepartmentForm : Form
     {
-        public CreateEditDepartment()
+        public CreateEditDepartmentForm()
         {
             InitializeComponent();
         }

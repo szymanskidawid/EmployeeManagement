@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramLibrary
 {
-    internal class SqlConnection
+    internal class SqlConnector
     {
 
     }

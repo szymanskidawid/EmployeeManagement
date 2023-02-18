@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace ProgramUI
 {
-    public partial class CreateEditEmployee : Form
+    public partial class CreateEditEmployeeForm : Form
     {
-        public CreateEditEmployee()
+        public CreateEditEmployeeForm()
         {
             InitializeComponent();
+        }
+
+        private void employeeSaveButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
