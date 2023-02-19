@@ -40,5 +40,11 @@ namespace ProgramUI
             CreateEditDepartmentForm departmentForm = new CreateEditDepartmentForm();
             departmentForm.Show();
         }
+
+        private void jobTitleManuItem_Click(object sender, EventArgs e)
+        {
+            CreateEditJobTitleForm jobTitleForm = new CreateEditJobTitleForm();
+            jobTitleForm.Show();
+        }
     }
 }

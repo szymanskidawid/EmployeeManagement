@@ -39,6 +39,7 @@
             this.mainDepartmentView = new System.Windows.Forms.DataGridView();
             this.employeesButton = new System.Windows.Forms.Button();
             this.departmentsButton = new System.Windows.Forms.Button();
+            this.jobTitleManuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).BeginInit();
             this.toolStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainDepartmentView)).BeginInit();
@@ -96,7 +97,8 @@
             this.createDropDown.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.createDropDown.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.employeeMenuItem,
-            this.departmentMenuItem});
+            this.departmentMenuItem,
+            this.jobTitleManuItem});
             this.createDropDown.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.createDropDown.ForeColor = System.Drawing.SystemColors.Control;
             this.createDropDown.Image = ((System.Drawing.Image)(resources.GetObject("createDropDown.Image")));
@@ -163,6 +165,13 @@
             this.departmentsButton.UseVisualStyleBackColor = false;
             this.departmentsButton.Click += new System.EventHandler(this.departmentsButton_Click);
             // 
+            // jobTitleManuItem
+            // 
+            this.jobTitleManuItem.Name = "jobTitleManuItem";
+            this.jobTitleManuItem.Size = new System.Drawing.Size(199, 26);
+            this.jobTitleManuItem.Text = "New Job Title";
+            this.jobTitleManuItem.Click += new System.EventHandler(this.jobTitleManuItem_Click);
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -202,5 +211,6 @@
         private DataGridView mainDepartmentView;
         private Button employeesButton;
         private Button departmentsButton;
+        private ToolStripMenuItem jobTitleManuItem;
     }
 }
