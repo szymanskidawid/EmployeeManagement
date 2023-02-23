@@ -20,7 +20,7 @@ namespace ProgramLibrary
         /// </summary>
         public static void CreateEmployee(EmployeeModel model)
         {
-
+            //EmployeeModel em = new();
         }
 
         /// <summary>
@@ -28,7 +28,7 @@ namespace ProgramLibrary
         /// </summary>
         public static void CreateDepartment(DepartmentModel model)
         {
-
+            //DepartmentModel dm = new();
         }
 
         /// <summary>
@@ -36,7 +36,7 @@ namespace ProgramLibrary
         /// </summary>
         public static void CreateJobTitle(JobTitleModel model)
         {
-
+            //JobTitleModel jm = new();
         }
     }
 }

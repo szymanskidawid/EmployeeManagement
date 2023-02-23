@@ -34,6 +34,8 @@
             this.createEditJobTitleLabel = new System.Windows.Forms.Label();
             this.jobTitleDepartmentValue = new System.Windows.Forms.TextBox();
             this.jobTitleNameValue = new System.Windows.Forms.TextBox();
+            this.departmentSupervisorLabel = new System.Windows.Forms.Label();
+            this.jobTitleSupervisorDropDown = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // jobTitleSaveButton
@@ -45,7 +47,7 @@
             this.jobTitleSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.jobTitleSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.jobTitleSaveButton.Location = new System.Drawing.Point(190, 195);
+            this.jobTitleSaveButton.Location = new System.Drawing.Point(199, 244);
             this.jobTitleSaveButton.Name = "jobTitleSaveButton";
             this.jobTitleSaveButton.Size = new System.Drawing.Size(118, 53);
             this.jobTitleSaveButton.TabIndex = 47;
@@ -101,12 +103,33 @@
             this.jobTitleNameValue.Size = new System.Drawing.Size(148, 23);
             this.jobTitleNameValue.TabIndex = 41;
             // 
+            // departmentSupervisorLabel
+            // 
+            this.departmentSupervisorLabel.AutoSize = true;
+            this.departmentSupervisorLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.departmentSupervisorLabel.Location = new System.Drawing.Point(115, 173);
+            this.departmentSupervisorLabel.Name = "departmentSupervisorLabel";
+            this.departmentSupervisorLabel.Size = new System.Drawing.Size(118, 30);
+            this.departmentSupervisorLabel.TabIndex = 48;
+            this.departmentSupervisorLabel.Text = "Supervisor";
+            // 
+            // jobTitleSupervisorDropDown
+            // 
+            this.jobTitleSupervisorDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.jobTitleSupervisorDropDown.FormattingEnabled = true;
+            this.jobTitleSupervisorDropDown.Location = new System.Drawing.Point(255, 180);
+            this.jobTitleSupervisorDropDown.Name = "jobTitleSupervisorDropDown";
+            this.jobTitleSupervisorDropDown.Size = new System.Drawing.Size(121, 23);
+            this.jobTitleSupervisorDropDown.TabIndex = 49;
+            // 
             // CreateEditJobTitleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(482, 277);
+            this.ClientSize = new System.Drawing.Size(482, 324);
+            this.Controls.Add(this.jobTitleSupervisorDropDown);
+            this.Controls.Add(this.departmentSupervisorLabel);
             this.Controls.Add(this.jobTitleSaveButton);
             this.Controls.Add(this.jobTitleDepartmentLabel);
             this.Controls.Add(this.jobTitleNameLabel);
@@ -127,5 +150,7 @@
         private Label createEditJobTitleLabel;
         private TextBox jobTitleDepartmentValue;
         private TextBox jobTitleNameValue;
+        private Label departmentSupervisorLabel;
+        private ComboBox jobTitleSupervisorDropDown;
     }
 }
