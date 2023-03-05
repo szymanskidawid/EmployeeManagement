@@ -42,50 +42,14 @@ namespace ProgramLibrary.Models
         // Stores the list of job titles available for the employee.
         public string JobTitles { get; set; }
 
-    // Stores the contract start date of the employee.
-    public string ContractStart { get; set; }
+        // Stores the contract start date of the employee.
+        public string ContractStart { get; set; }
 
         // Stores the contract end date of the employee.
         public string ContractEnd { get; set; }
 
         // Stores the salary of the employee.
-        public double Salary { get; set; }
+        public string Salary { get; set; }
 
-        /*public EmployeeModel(string firstName, string lastName, string DOB, 
-            string gender, string email, string telephone, string address1, 
-            string address2, string postcode, string town, string country, 
-            string jobTitle, string contractStart, string contractEnd, string salary)
-        {
-            string employeeFirstNameValue = "";
-            FirstName = employeeFirstNameValue;
-            string employeeLastNameValue = "";
-            LastName = employeeLastNameValue;
-            string employeeBirthValue = "";
-            DateOfBirth = employeeBirthValue;
-            string employeeGenderDropDown = "";
-            Gender = employeeGenderDropDown;
-            string employeeEmailValue = "";
-            EmailAddress = employeeEmailValue;
-            string employeeTelephoneValue = "";
-            TelephoneNumber = employeeTelephoneValue;
-            string employeeAddress1Value = "";
-            Address1 = employeeAddress1Value;
-            string employeeAddress2Value = "";
-            Address2 = employeeAddress2Value;
-            string employeePostcodeValue = "";
-            Postcode = employeePostcodeValue;
-            string employeeTownValue = "";
-            Town = employeeTownValue;
-            string employeeCountryDropDown = "";
-            Country = employeeCountryDropDown;
-            string employeeJobTitleDropDown = "";
-            JobTitles = employeeJobTitleDropDown;
-            string employeeContractStartValue = "";
-            ContractStart = employeeContractStartValue;
-            string employeeContractEndValue = "";
-            ContractEnd = employeeContractEndValue;
-            double employeeSalaryValue = 0;
-            Salary = employeeSalaryValue;
-        }*/
     }
 }

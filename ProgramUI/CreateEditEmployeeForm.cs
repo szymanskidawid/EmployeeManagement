@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics.Metrics;
+using System.Net.Mail;
 
 namespace ProgramUI
 {
@@ -21,8 +23,9 @@ namespace ProgramUI
 
         private void employeeSaveButton_Click(object sender, EventArgs e)
         {
-            /*EmployeeModel model = new(
-                employeeFirstNameValue.Text,
+            SqlConnector sql = new();
+
+            sql.CreateEmployee(employeeFirstNameValue.Text,
                 employeeLastNameValue.Text,
                 employeeBirthValue.Text,
                 employeeGenderDropDown.Text,
@@ -36,11 +39,24 @@ namespace ProgramUI
                 employeeJobTitleDropDown.Text,
                 employeeContractStartValue.Text,
                 employeeContractEndValue.Text,
-                employeeSalaryValue.Text);*/
+                employeeSalaryValue.Text);
 
-            SqlConnector sqlSave = new();
-            sqlSave.CreateEmployee(model);
 
+            employeeFirstNameValue.Text = "";
+            employeeLastNameValue.Text = "";
+            employeeBirthValue.Text = "";
+            employeeGenderDropDown.Text = "";
+            employeeEmailValue.Text = "";
+            employeeTelephoneValue.Text = "";
+            employeeAddress1Value.Text = "";
+            employeeAddress2Value.Text = "";
+            employeePostcodeValue.Text = "";
+            employeeTownValue.Text = "";
+            employeeCountryDropDown.Text = "";
+            employeeJobTitleDropDown.Text = "";
+            employeeContractStartValue.Text = "";
+            employeeContractEndValue.Text = "";
+            employeeSalaryValue.Text = "";
 
             this.Close();
         }

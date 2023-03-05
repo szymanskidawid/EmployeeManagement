@@ -13,17 +13,39 @@ namespace ProgramLibrary
     public class SqlConnector
     {
         // Initialize connection to the database.
-        SqlConnection connection = new();
 
-        private const string db = "EmployeeManagement";     
+        private const string db = "EmployeeManagement";
 
         /// <summary>
         /// Create a new employee and save it to the database.
         /// </summary>
-        public void CreateEmployee(EmployeeModel model)
+        /// 
+        public void CreateEmployee(string firstName, string lastName, string DOB,
+            string gender, string email, string telephone, string address1,
+            string address2, string postcode, string town, string country,
+            string jobTitle, string contractStart, string contractEnd, string salary)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(db))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
+                EmployeeModel model = new EmployeeModel
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    DateOfBirth = DOB,
+                    Gender = gender,
+                    EmailAddress = email,
+                    TelephoneNumber = telephone,
+                    Address1 = address1,
+                    Address2 = address2,
+                    Postcode = postcode,
+                    Town = town,
+                    Country = country,
+                    JobTitles = jobTitle,
+                    ContractStart = contractStart,
+                    ContractEnd = contractEnd,
+                    Salary = salary
+                };
+
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
                 p.Add("@LastName", model.LastName);
@@ -53,7 +75,17 @@ namespace ProgramLibrary
         /// </summary>
         public void CreateDepartment(DepartmentModel model)
         {
-            
+            using (IDbConnection connection = new SqlConnection(db))
+            {
+                var p = new DynamicParameters();
+                p.Add("@DepartmentName", model.DepartmentName);
+                p.Add("@DepartmentEmployees", model.DepartmentEmployees);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
+
+                connection.Execute("dbo.spDepartment_Insert", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@id");
+            }
         }
 
         /// <summary>
@@ -63,5 +95,7 @@ namespace ProgramLibrary
         {
             
         }
+
+        
     }
 }
