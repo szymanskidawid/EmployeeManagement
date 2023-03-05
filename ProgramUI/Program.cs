@@ -15,3 +15,10 @@ namespace ProgramUI
         }
     }
 }
+
+
+
+//1) Create a DropDown Class for:
+//- Currency (also create a currency dropdown)
+
+//2) Watch Tom why Id is int and not string

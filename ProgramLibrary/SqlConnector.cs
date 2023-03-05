@@ -12,18 +12,11 @@ namespace ProgramLibrary
 {
     public class SqlConnector
     {
-        // Initialize connection to the database.
-
-        private const string db = "EmployeeManagement";
-
-        /// <summary>
-        /// Create a new employee and save it to the database.
-        /// </summary>
-        /// 
+        // Create a new employee and save it to the database.
         public void CreateEmployee(string firstName, string lastName, string DOB,
             string gender, string email, string telephone, string address1,
             string address2, string postcode, string town, string country,
-            string jobTitle, string contractStart, string contractEnd, string salary)
+            string jobTitle, string contractStart, string contractEnd, string salary, string currency)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
@@ -43,9 +36,11 @@ namespace ProgramLibrary
                     JobTitles = jobTitle,
                     ContractStart = contractStart,
                     ContractEnd = contractEnd,
-                    Salary = salary
+                    Salary = salary,
+                    Currency = currency
                 };
 
+                //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
                 p.Add("@LastName", model.LastName);
@@ -62,6 +57,7 @@ namespace ProgramLibrary
                 p.Add("@ContractStart", model.ContractStart);
                 p.Add("@ContractEnd", model.ContractEnd);
                 p.Add("@Salary", model.Salary);
+                p.Add("@Currency", model.Currency);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
                 connection.Execute("dbo.spEmployees_Insert", p, commandType: CommandType.StoredProcedure);
@@ -70,13 +66,12 @@ namespace ProgramLibrary
             }
         }
 
-        /// <summary>
-        /// Create a new department and save it to the database.
-        /// </summary>
+        // Create a new department and save it to the database.
         public void CreateDepartment(DepartmentModel model)
         {
-            using (IDbConnection connection = new SqlConnection(db))
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
+                //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
                 p.Add("@DepartmentName", model.DepartmentName);
                 p.Add("@DepartmentEmployees", model.DepartmentEmployees);
@@ -88,14 +83,22 @@ namespace ProgramLibrary
             }
         }
 
-        /// <summary>
-        /// Create a new job title and save it to the database.
-        /// </summary>
+        // Create a new job title and save it to the database.
         public void CreateJobTitle(JobTitleModel model)
         {
-            
-        }
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                //Save data from C# variables into SQL variables
+                var p = new DynamicParameters();
+                p.Add("@JobTitleNamee", model.JobTitleName);
+                p.Add("@JobTitleDepartment", model.JobTitleDepartment);
+                p.Add("@IsSupervisor", model.IsSupervisor);
+                p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-        
+                connection.Execute("dbo.spDepartment_Insert", p, commandType: CommandType.StoredProcedure);
+
+                model.Id = p.Get<int>("@id");
+            }
+        }
     }
 }

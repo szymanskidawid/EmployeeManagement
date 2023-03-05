@@ -8,13 +8,9 @@ namespace ProgramLibrary.Models
 {
     public class DepartmentModel
     {
-        // Stores the id of the department.
+        // Stores the id, name and employees of the department.
         public int Id { get; set; }
-
-        // Stores the name of the department.
         public string DepartmentName { get; set; }
-
-        // Stors the list of all employees working in this department.
         public List<EmployeeModel> DepartmentEmployees { get; set; } = new List<EmployeeModel>();
     }
 }

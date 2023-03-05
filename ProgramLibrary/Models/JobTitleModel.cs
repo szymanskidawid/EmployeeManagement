@@ -8,13 +8,10 @@ namespace ProgramLibrary.Models
 {
     public class JobTitleModel
     {
-        // Stores the id of the job title.
+        // Stores the id, name and a department for the Job Title.
         public int Id { get; set; }
-
-        // Stores the name of the job title.
-        public string Name { get; set; }
-
-        // Stores the department applicable for this job title.
+        public string JobTitleName { get; set; }
         public DepartmentModel JobTitleDepartment = new();
+        public string[] IsSupervisor = { "Yes", "No" };
     }
 }

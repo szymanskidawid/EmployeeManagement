@@ -60,7 +60,7 @@
             this.employeePostcodeValue = new System.Windows.Forms.TextBox();
             this.employeeCountryLabel = new System.Windows.Forms.Label();
             this.employeeCountryDropDown = new System.Windows.Forms.ComboBox();
-            this.salarySignLabel = new System.Windows.Forms.Label();
+            this.employeeCurrencyDropDown = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // employeeFirstNameValue
@@ -407,16 +407,15 @@
             this.employeeCountryDropDown.Size = new System.Drawing.Size(171, 33);
             this.employeeCountryDropDown.TabIndex = 37;
             // 
-            // salarySignLabel
+            // employeeCurrencyDropDown
             // 
-            this.salarySignLabel.AutoSize = true;
-            this.salarySignLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.salarySignLabel.Location = new System.Drawing.Point(791, 760);
-            this.salarySignLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.salarySignLabel.Name = "salarySignLabel";
-            this.salarySignLabel.Size = new System.Drawing.Size(45, 45);
-            this.salarySignLabel.TabIndex = 38;
-            this.salarySignLabel.Text = "zł";
+            this.employeeCurrencyDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeeCurrencyDropDown.FormattingEnabled = true;
+            this.employeeCurrencyDropDown.Location = new System.Drawing.Point(808, 767);
+            this.employeeCurrencyDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.employeeCurrencyDropDown.Name = "employeeCurrencyDropDown";
+            this.employeeCurrencyDropDown.Size = new System.Drawing.Size(69, 33);
+            this.employeeCurrencyDropDown.TabIndex = 38;
             // 
             // CreateEditEmployeeForm
             // 
@@ -424,7 +423,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1134, 983);
-            this.Controls.Add(this.salarySignLabel);
+            this.Controls.Add(this.employeeCurrencyDropDown);
             this.Controls.Add(this.employeeCountryDropDown);
             this.Controls.Add(this.employeeCountryLabel);
             this.Controls.Add(this.employeeTownLabel);
@@ -498,6 +497,6 @@
         private TextBox employeePostcodeValue;
         private Label employeeCountryLabel;
         private ComboBox employeeCountryDropDown;
-        private Label salarySignLabel;
+        private ComboBox employeeCurrencyDropDown;
     }
 }
