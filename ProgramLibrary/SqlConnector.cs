@@ -18,7 +18,7 @@ namespace ProgramLibrary
             string address2, string postcode, string town, string country,
             string jobTitle, string contractStart, string contractEnd, string salary, string currency)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
                 EmployeeModel model = new EmployeeModel
                 {
@@ -69,7 +69,7 @@ namespace ProgramLibrary
         // Create a new department and save it to the database.
         public void CreateDepartment(DepartmentModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
                 //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
@@ -86,7 +86,7 @@ namespace ProgramLibrary
         // Create a new job title and save it to the database.
         public void CreateJobTitle(JobTitleModel model)
         {
-            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
                 //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
@@ -98,6 +98,34 @@ namespace ProgramLibrary
                 connection.Execute("dbo.spDepartment_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
+            }
+        }
+
+        //Displays an Employees table from SQL into a DataGridView
+        public DataTable DisplayEmployees()
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                SqlDataAdapter adapter = new();
+                adapter.SelectCommand = new SqlCommand("SELECT * FROM dbo.Employees", connection);
+                DataTable dtbl = new();
+                adapter.Fill(dtbl);
+
+                return dtbl;
+            }
+        }
+
+        //Displays a Departments table from SQL into a DataGridView
+        public DataTable DisplayDepartments()
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                SqlDataAdapter adapter = new();
+                adapter.SelectCommand = new SqlCommand("SELECT * FROM dbo.Departments", connection);
+                DataTable dtbl = new();
+                adapter.Fill(dtbl);
+
+                return dtbl;
             }
         }
     }

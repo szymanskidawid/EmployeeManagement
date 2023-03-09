@@ -1,7 +1,9 @@
-﻿using System;
+﻿using ProgramLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,21 +14,27 @@ namespace ProgramUI
 {
     public partial class MainForm : Form
     {
+        SqlConnector sql = new();
+
         public MainForm()
         {
             InitializeComponent();
         }
 
         private void employeesButton_Click(object sender, EventArgs e)
-        {       
+        {
+  
             mainDepartmentView.Hide();
             mainEmployeeView.Show();
+            mainEmployeeView.DataSource = sql.DisplayEmployees();
+
         }
 
         private void departmentsButton_Click(object sender, EventArgs e)
         {
             mainEmployeeView.Hide();
             mainDepartmentView.Show();
+            mainDepartmentView.DataSource = sql.DisplayDepartments();
         }
 
         private void employeeMenuItem_Click(object sender, EventArgs e)
