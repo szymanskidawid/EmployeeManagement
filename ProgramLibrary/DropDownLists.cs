@@ -36,6 +36,8 @@ namespace ProgramLibrary
 
         // Get a  string array of Currency symbols that can be added into a DropDown
         public static string[] CurrencyList = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(culture => culture.NumberFormat.CurrencySymbol).Distinct().ToArray(); // TODO - Learn more
+
+        public static string[] IsSupervisorList = { "No", "Yes" };
     }
 }
 

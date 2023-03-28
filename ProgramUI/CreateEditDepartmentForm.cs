@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProgramLibrary;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,22 @@ namespace ProgramUI
     {
         public CreateEditDepartmentForm()
         {
-            InitializeComponent();
+            InitializeComponent();     
+        }
+
+        private void departmentSaveButton_Click(object sender, EventArgs e)
+        {
+            //Save/Edit department using values in the form fields
+            SqlConnector.CreateDepartment(departmentNameValue.Text,
+                departmentLocationValue.Text);
+
+            //Values will be set back to default after department is created/edited
+            departmentNameValue.Text = "";
+            departmentLocationValue.Text = "";
+
+
+            //Closes the form
+            this.Close();
         }
     }
 }

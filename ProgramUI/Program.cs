@@ -18,7 +18,8 @@ namespace ProgramUI
 
 
 
-//1) Create a DropDown Class for:
-//- Currency (also create a currency dropdown)
 
-//2) Watch Tom why Id is int and not string
+// Watch Tom why Id is int and not string
+
+
+//1) Add Pay Grade to Job Title, then show reference in Employee Table

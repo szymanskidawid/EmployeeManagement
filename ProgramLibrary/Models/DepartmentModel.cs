@@ -11,6 +11,6 @@ namespace ProgramLibrary.Models
         // Stores the id, name and employees of the department.
         public int Id { get; set; }
         public string DepartmentName { get; set; }
-        public List<EmployeeModel> DepartmentEmployees { get; set; } = new List<EmployeeModel>();
+        public string DepartmentLocation { get; set; }
     }
 }

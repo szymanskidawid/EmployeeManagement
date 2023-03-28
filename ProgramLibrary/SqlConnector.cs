@@ -7,20 +7,22 @@ using System.Data.SqlClient;
 using ProgramLibrary.Models;
 using System.Data;
 using Dapper;
+using System.Diagnostics.Metrics;
+using System.Reflection;
 
 namespace ProgramLibrary
 {
     public class SqlConnector
     {
         // Create a new employee and save it to the database.
-        public void CreateEmployee(string firstName, string lastName, string DOB,
+        public static void CreateEmployee(string firstName, string lastName, string DOB,
             string gender, string email, string telephone, string address1,
             string address2, string postcode, string town, string country,
             string jobTitle, string contractStart, string contractEnd, string salary, string currency)
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
-                EmployeeModel model = new EmployeeModel
+                EmployeeModel model = new()
                 {
                     FirstName = firstName,
                     LastName = lastName,
@@ -67,38 +69,75 @@ namespace ProgramLibrary
         }
 
         // Create a new department and save it to the database.
-        public void CreateDepartment(DepartmentModel model)
+        public static void CreateDepartment(string departmentName, string departmentLocation)
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
+                DepartmentModel model = new()
+                {
+                    DepartmentName = departmentName,
+                    DepartmentLocation = departmentLocation,
+                };
                 //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
                 p.Add("@DepartmentName", model.DepartmentName);
-                p.Add("@DepartmentEmployees", model.DepartmentEmployees);
+                p.Add("@DepartmentLocation", model.DepartmentLocation);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                connection.Execute("dbo.spDepartment_Insert", p, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spDepartments_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
             }
         }
 
         // Create a new job title and save it to the database.
-        public void CreateJobTitle(JobTitleModel model)
+        public static void CreateJobTitle(string jobTitleName, string jobTitleDepartment, string isSupervisor)
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
+                JobTitleModel model = new()
+                {
+                    JobTitleName = jobTitleName,
+                    JobTitleDepartment = jobTitleDepartment,
+                    IsSupervisor = isSupervisor
+                };
                 //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
-                p.Add("@JobTitleNamee", model.JobTitleName);
+                p.Add("@JobTitleName", model.JobTitleName);
                 p.Add("@JobTitleDepartment", model.JobTitleDepartment);
                 p.Add("@IsSupervisor", model.IsSupervisor);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
 
-                connection.Execute("dbo.spDepartment_Insert", p, commandType: CommandType.StoredProcedure);
+                connection.Execute("dbo.spJobTitles_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
             }
+        }
+
+        // Get a list of all Departments from the database.
+        public static List<DepartmentModel> GetDepartments_All()
+        {
+            List<DepartmentModel> list = new List<DepartmentModel>();
+
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                list = connection.Query<DepartmentModel>("dbo.spDepartments_GetAll").ToList();
+            }
+
+            return list;
+        }
+
+        // Get a list of all Job Titles from the database.
+        public static List<JobTitleModel> GetJobTitles_All()
+        {
+            List<JobTitleModel> list = new List<JobTitleModel>();
+
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                list = connection.Query<JobTitleModel>("dbo.spJobTitles_GetAll").ToList();
+            }
+
+            return list;
         }
 
         //Displays an Employees table from SQL into a DataGridView

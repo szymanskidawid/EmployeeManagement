@@ -16,22 +16,31 @@ namespace ProgramUI
 {
     public partial class CreateEditEmployeeForm : Form
     {
+        private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
+
         public CreateEditEmployeeForm()
         {
             InitializeComponent();
 
-            //Fills DropDowns with information from the DropDownLists class
+            EmployeeLoadLists();
+        }
+
+        //Fills DropDowns with information from the DropDownLists class
+        private void EmployeeLoadLists()
+        {
+            employeeJobTitleDropDown.DataSource = availableJobTitles;
+            employeeJobTitleDropDown.DisplayMember = "JobTitleName";
+
             employeeCountryDropDown.DataSource = DropDownLists.CountryList();
             employeeGenderDropDown.DataSource = DropDownLists.GenderList;
             employeeCurrencyDropDown.DataSource = DropDownLists.CurrencyList;
         }
 
+        //Save/Edit employee using values in the form fields
         private void employeeSaveButton_Click(object sender, EventArgs e)
         {
-            SqlConnector sql = new();
-
-            //Save/Edit employee using values in the form fields
-            sql.CreateEmployee(employeeFirstNameValue.Text,
+            
+            SqlConnector.CreateEmployee(employeeFirstNameValue.Text,
                 employeeLastNameValue.Text,
                 employeeBirthValue.Text,
                 employeeGenderDropDown.Text,
@@ -52,19 +61,16 @@ namespace ProgramUI
             employeeFirstNameValue.Text = "";
             employeeLastNameValue.Text = "";
             employeeBirthValue.Text = "";
-            employeeGenderDropDown.DataSource = DropDownLists.GenderList;
             employeeEmailValue.Text = "";
             employeeTelephoneValue.Text = "";
             employeeAddress1Value.Text = "";
             employeeAddress2Value.Text = "";
             employeePostcodeValue.Text = "";
             employeeTownValue.Text = "";
-            employeeCountryDropDown.DataSource = DropDownLists.CountryList();
-            employeeJobTitleDropDown.Text = "";
             employeeContractStartValue.Text = "";
             employeeContractEndValue.Text = "";
             employeeSalaryValue.Text = "";
-            employeeCurrencyDropDown.DataSource = DropDownLists.CurrencyList;
+            EmployeeLoadLists();
 
             //Closes the form
             this.Close();

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProgramLibrary;
+using ProgramLibrary.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,13 +14,37 @@ namespace ProgramUI
 {
     public partial class CreateEditJobTitleForm : Form
     {
+        private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
+
         public CreateEditJobTitleForm()
         {
             InitializeComponent();
+
+            JobTitleLoadLists();
         }
 
+        //Fills DropDowns with information from the SqlConnector and DropDownLists classes
+        private void JobTitleLoadLists()
+        {
+            jobTitleDepartmentDropDown.DataSource = availableDepartments;
+            jobTitleDepartmentDropDown.DisplayMember = "DepartmentName";
+
+            jobTitleSupervisorDropDown.DataSource = DropDownLists.IsSupervisorList;
+        }
+
+        //Save/Edit job title using values in the form fields
         private void jobTitleSaveButton_Click(object sender, EventArgs e)
         {
+            
+            SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
+                jobTitleDepartmentDropDown.Text,
+                jobTitleSupervisorDropDown.Text);
+
+            //Values will be set back to default after job title is created/edited
+            jobTitleNameValue.Text = "";
+            JobTitleLoadLists();
+
+            //Closes the form
             this.Close();
         }
     }

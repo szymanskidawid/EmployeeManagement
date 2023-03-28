@@ -11,7 +11,7 @@ namespace ProgramLibrary.Models
         // Stores the id, name and a department for the Job Title.
         public int Id { get; set; }
         public string JobTitleName { get; set; }
-        public DepartmentModel JobTitleDepartment = new();
-        public string[] IsSupervisor = { "Yes", "No" };
+        public string JobTitleDepartment { get; set; }
+        public string IsSupervisor;
     }
 }
