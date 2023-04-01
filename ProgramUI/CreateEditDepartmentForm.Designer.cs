@@ -34,6 +34,8 @@
             this.createEditDepartmentLabel = new System.Windows.Forms.Label();
             this.departmentLocationValue = new System.Windows.Forms.TextBox();
             this.departmentNameValue = new System.Windows.Forms.TextBox();
+            this.departmentLocationError = new System.Windows.Forms.Label();
+            this.departmentNameError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // departmentSaveButton
@@ -101,11 +103,38 @@
             // 
             this.departmentNameValue.BackColor = System.Drawing.SystemColors.Window;
             this.departmentNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.departmentNameValue.ForeColor = System.Drawing.SystemColors.WindowText;
             this.departmentNameValue.Location = new System.Drawing.Point(384, 135);
             this.departmentNameValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentNameValue.Name = "departmentNameValue";
             this.departmentNameValue.Size = new System.Drawing.Size(211, 31);
             this.departmentNameValue.TabIndex = 22;
+            // 
+            // departmentLocationError
+            // 
+            this.departmentLocationError.AutoSize = true;
+            this.departmentLocationError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.departmentLocationError.ForeColor = System.Drawing.Color.Red;
+            this.departmentLocationError.Location = new System.Drawing.Point(384, 235);
+            this.departmentLocationError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.departmentLocationError.Name = "departmentLocationError";
+            this.departmentLocationError.Size = new System.Drawing.Size(264, 21);
+            this.departmentLocationError.TabIndex = 40;
+            this.departmentLocationError.Text = "Max 20 chars (letters, spaces and \"-\")";
+            this.departmentLocationError.Visible = false;
+            // 
+            // departmentNameError
+            // 
+            this.departmentNameError.AutoSize = true;
+            this.departmentNameError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.departmentNameError.ForeColor = System.Drawing.Color.Red;
+            this.departmentNameError.Location = new System.Drawing.Point(384, 167);
+            this.departmentNameError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.departmentNameError.Name = "departmentNameError";
+            this.departmentNameError.Size = new System.Drawing.Size(333, 21);
+            this.departmentNameError.TabIndex = 41;
+            this.departmentNameError.Text = "Max 20 chars (letters, numbers, spaces and \"-\")";
+            this.departmentNameError.Visible = false;
             // 
             // CreateEditDepartmentForm
             // 
@@ -113,6 +142,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(743, 450);
+            this.Controls.Add(this.departmentNameError);
+            this.Controls.Add(this.departmentLocationError);
             this.Controls.Add(this.departmentSaveButton);
             this.Controls.Add(this.departmentLocationLabel);
             this.Controls.Add(this.departmentNameLabel);
@@ -134,5 +165,8 @@
         private Label createEditDepartmentLabel;
         private TextBox departmentLocationValue;
         private TextBox departmentNameValue;
+        private Label error1;
+        private Label departmentLocationError;
+        private Label departmentNameError;
     }
 }

@@ -35,17 +35,49 @@ namespace ProgramUI
         //Save/Edit job title using values in the form fields
         private void jobTitleSaveButton_Click(object sender, EventArgs e)
         {
-            
-            SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
-                jobTitleDepartmentDropDown.Text,
-                jobTitleSupervisorDropDown.Text);
+            if (JobTitleValidation())
+            {
+                SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
+                        jobTitleDepartmentDropDown.Text,
+                        jobTitleSupervisorDropDown.Text);
 
-            //Values will be set back to default after job title is created/edited
-            jobTitleNameValue.Text = "";
-            JobTitleLoadLists();
+                //Values will be set back to default after job title is created/edited
+                jobTitleNameValue.Text = "";
+                JobTitleLoadLists();
 
-            //Closes the form
-            this.Close();
+                //Closes the form
+                this.Close(); 
+            }
+
+            else
+            {
+                MessageBox.Show("Invalid information provided, please check comments and try again.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private bool JobTitleValidation()
+        {
+            bool result = true;
+
+            string nameValue = jobTitleNameValue.Text;
+            bool letSpaceDash = nameValue.All(c => Char.IsLetter(c) || c == ' ' || c == '-');
+
+
+            if (jobTitleNameValue.Text.Length == 0 || jobTitleNameValue.Text.Length > 20 || !letSpaceDash)
+            {
+                result = false;
+                jobTitleNameValue.BackColor = Color.Red;
+                jobTitleNameError.Show();
+            }
+
+            else
+            {
+                jobTitleNameValue.BackColor = Color.White;
+                jobTitleNameError.Hide();
+            }
+
+            return result;
         }
     }
 }

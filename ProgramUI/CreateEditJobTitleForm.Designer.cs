@@ -36,6 +36,7 @@
             this.departmentSupervisorLabel = new System.Windows.Forms.Label();
             this.jobTitleSupervisorDropDown = new System.Windows.Forms.ComboBox();
             this.jobTitleDepartmentDropDown = new System.Windows.Forms.ComboBox();
+            this.jobTitleNameError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // jobTitleSaveButton
@@ -130,12 +131,26 @@
             this.jobTitleDepartmentDropDown.Size = new System.Drawing.Size(171, 33);
             this.jobTitleDepartmentDropDown.TabIndex = 50;
             // 
+            // jobTitleNameError
+            // 
+            this.jobTitleNameError.AutoSize = true;
+            this.jobTitleNameError.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.jobTitleNameError.ForeColor = System.Drawing.Color.Red;
+            this.jobTitleNameError.Location = new System.Drawing.Point(364, 183);
+            this.jobTitleNameError.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.jobTitleNameError.Name = "jobTitleNameError";
+            this.jobTitleNameError.Size = new System.Drawing.Size(264, 21);
+            this.jobTitleNameError.TabIndex = 51;
+            this.jobTitleNameError.Text = "Max 20 chars (letters, spaces and \"-\")";
+            this.jobTitleNameError.Visible = false;
+            // 
             // CreateEditJobTitleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(689, 540);
+            this.Controls.Add(this.jobTitleNameError);
             this.Controls.Add(this.jobTitleDepartmentDropDown);
             this.Controls.Add(this.jobTitleSupervisorDropDown);
             this.Controls.Add(this.departmentSupervisorLabel);
@@ -161,5 +176,6 @@
         private Label departmentSupervisorLabel;
         private ComboBox jobTitleSupervisorDropDown;
         private ComboBox jobTitleDepartmentDropDown;
+        private Label jobTitleNameError;
     }
 }
