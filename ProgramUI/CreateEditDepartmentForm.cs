@@ -20,6 +20,7 @@ namespace ProgramUI
             InitializeComponent();     
         }
 
+        //Save/Edit department using values in the form fields
         private void departmentSaveButton_Click(object sender, EventArgs e)
         {
             if (DepartmentValidation())
@@ -42,43 +43,37 @@ namespace ProgramUI
             }
         }
 
+        //Function responsible for validation of data provided by user.
         private bool DepartmentValidation()
         {
-            bool result = true;
+            bool isValid = true;
 
             string nameValue = departmentNameValue.Text;
-            bool letDigSpaceDash = nameValue.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-');
             string locationValue = departmentLocationValue.Text;
-            bool letSpaceDash = locationValue.All(c => Char.IsLetter(c) || c == ' ' || c == '-');
 
-
-            if (departmentNameValue.Text.Length == 0 || departmentNameValue.Text.Length > 20 || !letDigSpaceDash)
+            if (departmentNameValue.Text.Length == 0 || departmentNameValue.Text.Length > 20 || !ValidationHelper.AllowLetterDigitSpaceDash(nameValue))
             {
-                result = false;
-                departmentNameValue.BackColor = Color.Red;
-                departmentNameError.Show();
+                isValid = false;
+                ValidationHelper.SetTextboxState(departmentNameValue, departmentNameErrorLabel, true);
             }
 
             else
             {
-                departmentNameValue.BackColor = Color.White;
-                departmentNameError.Hide();
+                ValidationHelper.SetTextboxState(departmentNameValue, departmentNameErrorLabel, false);
             }
 
-            if (departmentLocationValue.TextLength == 0 || departmentLocationValue.TextLength > 20 || !letSpaceDash)
+            if (departmentLocationValue.TextLength == 0 || departmentLocationValue.TextLength > 20 || !ValidationHelper.AllowLetterSpaceDash(locationValue))
             {
-                result = false;
-                departmentLocationValue.BackColor = Color.Red;
-                departmentLocationError.Show();
+                isValid = false;
+                ValidationHelper.SetTextboxState(departmentLocationValue, departmentLocationErrorLabel, true);
             }
 
             else
             {
-                departmentLocationValue.BackColor = Color.White;
-                departmentLocationError.Hide();
+                ValidationHelper.SetTextboxState(departmentLocationValue, departmentLocationErrorLabel, false);
             }
 
-            return result;
+            return isValid;
         }
     }
 }

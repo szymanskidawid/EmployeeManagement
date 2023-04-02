@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProgramLibrary
 {
-    public static class ConnectionHelper
+    internal static class ConnectionHelper
     {
         //Contains code that runs a connection string from app.config and connecting the program to SQL database.
         public static string CnnString(string name)

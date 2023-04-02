@@ -56,28 +56,25 @@ namespace ProgramUI
 
         }
 
+        //Function responsible for validation of data provided by user.
         private bool JobTitleValidation()
         {
-            bool result = true;
+            bool isValid = true;
 
             string nameValue = jobTitleNameValue.Text;
-            bool letSpaceDash = nameValue.All(c => Char.IsLetter(c) || c == ' ' || c == '-');
 
-
-            if (jobTitleNameValue.Text.Length == 0 || jobTitleNameValue.Text.Length > 20 || !letSpaceDash)
+            if (jobTitleNameValue.Text.Length == 0 || jobTitleNameValue.Text.Length > 20 || !ValidationHelper.AllowLetterSpaceDash(nameValue))
             {
-                result = false;
-                jobTitleNameValue.BackColor = Color.Red;
-                jobTitleNameError.Show();
+                isValid = false;
+                ValidationHelper.SetTextboxState(jobTitleNameValue, jobTitleNameErrorLabel, true);
             }
 
             else
             {
-                jobTitleNameValue.BackColor = Color.White;
-                jobTitleNameError.Hide();
+                ValidationHelper.SetTextboxState(jobTitleNameValue, jobTitleNameErrorLabel, false);
             }
 
-            return result;
+            return isValid;
         }
     }
 }
