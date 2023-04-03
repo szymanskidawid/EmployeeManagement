@@ -32,7 +32,7 @@ namespace ProgramUI
             jobTitleSupervisorDropDown.DataSource = DropDownLists.IsSupervisorList;
         }
 
-        //Save/Edit job title using values in the form fields
+        //Save job title using values in the form fields
         private void jobTitleSaveButton_Click(object sender, EventArgs e)
         {
             if (JobTitleValidation())

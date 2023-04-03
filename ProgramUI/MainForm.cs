@@ -14,7 +14,6 @@ namespace ProgramUI
 {
     public partial class MainForm : Form
     {
-        SqlConnector sql = new();
 
         public MainForm()
         {
@@ -26,7 +25,7 @@ namespace ProgramUI
   
             mainDepartmentView.Hide();
             mainEmployeeView.Show();
-            mainEmployeeView.DataSource = sql.DisplayEmployees();
+            mainEmployeeView.DataSource = SqlConnector.DisplayEmployees();
 
         }
 
@@ -34,25 +33,35 @@ namespace ProgramUI
         {
             mainEmployeeView.Hide();
             mainDepartmentView.Show();
-            mainDepartmentView.DataSource = sql.DisplayDepartments();
+            mainDepartmentView.DataSource = SqlConnector.DisplayDepartments();
         }
 
-        private void employeeMenuItem_Click(object sender, EventArgs e)
+        //Opens up Create Employee Form.
+        private void createEmployeeMenuItem_Click(object sender, EventArgs e)
         {
-            CreateEditEmployeeForm employerForm = new CreateEditEmployeeForm();
+            CreateEditEmployeeForm employerForm = new();
             employerForm.Show();
         }
 
-        private void departmentMenuItem_Click(object sender, EventArgs e)
+        //Opens up Create Department Form.
+        private void createDepartmentMenuItem_Click(object sender, EventArgs e)
         {
-            CreateEditDepartmentForm departmentForm = new CreateEditDepartmentForm();
+            CreateEditDepartmentForm departmentForm = new();
             departmentForm.Show();
         }
 
-        private void jobTitleManuItem_Click(object sender, EventArgs e)
+        //Opens up Create Job Title Form.
+        private void createJobTitleManuItem_Click(object sender, EventArgs e)
         {
-            CreateEditJobTitleForm jobTitleForm = new CreateEditJobTitleForm();
+            CreateEditJobTitleForm jobTitleForm = new();
             jobTitleForm.Show();
+        }
+
+        //Opens up Edit Menu SubForm.
+        private void toolStripEditButton_Click(object sender, EventArgs e)
+        {
+            EditMenuSubForm employeeSubForm = new();
+            employeeSubForm.Show();
         }
     }
 }

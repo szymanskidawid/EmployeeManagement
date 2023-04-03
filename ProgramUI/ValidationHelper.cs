@@ -48,5 +48,23 @@ namespace ProgramUI
                 error.Hide();
             }
         }
+
+        /*internal static bool ValidAssist(TextBox text, int min, int max, Label label, string s, bool b)
+        {
+            b = true;
+
+            if (text.Text.Length == 0 || text.Text.Length > 20 || !ValidationHelper.AllowLetterDigitSpaceDash(s))
+            {
+                b = false;
+                ValidationHelper.SetTextboxState(text, label, true);
+            }
+
+            else
+            {
+                ValidationHelper.SetTextboxState(text, label, false);
+            }
+
+            return b;
+        }*/
     }
 }

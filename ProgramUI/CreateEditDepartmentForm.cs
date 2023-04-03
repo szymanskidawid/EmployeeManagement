@@ -20,7 +20,7 @@ namespace ProgramUI
             InitializeComponent();     
         }
 
-        //Save/Edit department using values in the form fields
+        //Save department using values in the form fields
         private void departmentSaveButton_Click(object sender, EventArgs e)
         {
             if (DepartmentValidation())
@@ -73,7 +73,10 @@ namespace ProgramUI
                 ValidationHelper.SetTextboxState(departmentLocationValue, departmentLocationErrorLabel, false);
             }
 
+            //ValidationHelper.ValidAssist(departmentNameValue, 0, 20, departmentNameErrorLabel, nameValue, isValid);
+            //ValidationHelper.ValidAssist(departmentLocationValue, 0, 20, departmentLocationErrorLabel, locationValue, isValid);
+
             return isValid;
-        }
+        }    
     }
 }

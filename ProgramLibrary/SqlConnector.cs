@@ -114,10 +114,23 @@ namespace ProgramLibrary
             }
         }
 
+        // Get a list of all Employees from the database.
+        public static List<EmployeeModel> GetEmployees_All()
+        {
+            List<EmployeeModel> list = new();
+
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                list = connection.Query<EmployeeModel>("dbo.spEmployees_GetAll").ToList();
+            }
+
+            return list;
+        }
+
         // Get a list of all Departments from the database.
         public static List<DepartmentModel> GetDepartments_All()
         {
-            List<DepartmentModel> list = new List<DepartmentModel>();
+            List<DepartmentModel> list = new();
 
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
@@ -130,7 +143,7 @@ namespace ProgramLibrary
         // Get a list of all Job Titles from the database.
         public static List<JobTitleModel> GetJobTitles_All()
         {
-            List<JobTitleModel> list = new List<JobTitleModel>();
+            List<JobTitleModel> list = new();
 
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
@@ -141,30 +154,30 @@ namespace ProgramLibrary
         }
 
         //Displays an Employees table from SQL into a DataGridView
-        public DataTable DisplayEmployees()
+        public static DataTable DisplayEmployees()
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
                 SqlDataAdapter adapter = new();
                 adapter.SelectCommand = new SqlCommand("SELECT * FROM dbo.Employees", connection);
-                DataTable dtbl = new();
-                adapter.Fill(dtbl);
+                DataTable table = new();
+                adapter.Fill(table);
 
-                return dtbl;
+                return table;
             }
         }
 
         //Displays a Departments table from SQL into a DataGridView
-        public DataTable DisplayDepartments()
+        public static DataTable DisplayDepartments()
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
                 SqlDataAdapter adapter = new();
                 adapter.SelectCommand = new SqlCommand("SELECT * FROM dbo.Departments", connection);
-                DataTable dtbl = new();
-                adapter.Fill(dtbl);
+                DataTable table = new();
+                adapter.Fill(table);
 
-                return dtbl;
+                return table;
             }
         }
     }

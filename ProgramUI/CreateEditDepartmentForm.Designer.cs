@@ -165,7 +165,6 @@
         private Label createEditDepartmentLabel;
         private TextBox departmentLocationValue;
         private TextBox departmentNameValue;
-        private Label error1;
         private Label departmentLocationErrorLabel;
         private Label departmentNameErrorLabel;
     }

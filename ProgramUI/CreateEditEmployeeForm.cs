@@ -36,7 +36,7 @@ namespace ProgramUI
             employeeCurrencyDropDown.DataSource = DropDownLists.CurrencyList;
         }
 
-        //Save/Edit employee using values in the form fields
+        //Save employee using values in the form fields
         private void employeeSaveButton_Click(object sender, EventArgs e)
         {
 

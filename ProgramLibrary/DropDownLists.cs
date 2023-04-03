@@ -34,11 +34,15 @@ namespace ProgramLibrary
         // String array of Genders that can be added into a DropDown
         public static string[] GenderList = { "Male", "Female", "Other" };
 
-        // Get a  string array of Currency symbols that can be added into a DropDown
+        // String array of Currency symbols that can be added into a DropDown
         public static string[] CurrencyList = { "zł", "$", "€", "£", "CHF", "kr", };
         //public static string[] CurrencyList = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(culture => culture.NumberFormat.CurrencySymbol).Distinct().ToArray();
 
+        // String array of Supervisors that can be added into a DropDown
         public static string[] IsSupervisorList = { "No", "Yes" };
+
+        // String array of Categories to edit that can be added into a DropDown
+        public static string[] EditCategoryList = { "Employee", "Department", "Job Title" };
     }
 }
 
