@@ -25,7 +25,7 @@ namespace ProgramUI
             EmployeeLoadLists();
         }
 
-        //Fills DropDowns with information from the DropDownLists class
+        //Fills DropDowns with information from the DropDownLists class.
         private void EmployeeLoadLists()
         {
             employeeJobTitleDropDown.DataSource = availableJobTitles;
@@ -36,11 +36,11 @@ namespace ProgramUI
             employeeCurrencyDropDown.DataSource = DropDownLists.CurrencyList;
         }
 
-        //Save employee using values in the form fields
+        //Save employee using values in the form fields.
         private void employeeSaveButton_Click(object sender, EventArgs e)
         {
 
-            if (EmployeeValidation())
+            if (EmployeeFormValidation())
             {
                 SqlConnector.CreateEmployee(employeeFirstNameValue.Text,
                         employeeLastNameValue.Text,
@@ -84,8 +84,8 @@ namespace ProgramUI
             }
         }
 
-        //Function responsible for validation of data provided by user.
-        private bool EmployeeValidation()
+        //Function responsible for validating the form.
+        private bool EmployeeFormValidation()
         {
             bool isValid = true;
 

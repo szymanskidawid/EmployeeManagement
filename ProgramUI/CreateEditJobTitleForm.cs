@@ -23,7 +23,7 @@ namespace ProgramUI
             JobTitleLoadLists();
         }
 
-        //Fills DropDowns with information from the SqlConnector and DropDownLists classes
+        //Fills DropDowns with information from the SqlConnector and DropDownLists classes.
         private void JobTitleLoadLists()
         {
             jobTitleDepartmentDropDown.DataSource = availableDepartments;
@@ -32,10 +32,10 @@ namespace ProgramUI
             jobTitleSupervisorDropDown.DataSource = DropDownLists.IsSupervisorList;
         }
 
-        //Save job title using values in the form fields
+        //Save job title using values in the form fields.
         private void jobTitleSaveButton_Click(object sender, EventArgs e)
         {
-            if (JobTitleValidation())
+            if (JobTitleFormValidation())
             {
                 SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
                         jobTitleDepartmentDropDown.Text,
@@ -56,8 +56,8 @@ namespace ProgramUI
 
         }
 
-        //Function responsible for validation of data provided by user.
-        private bool JobTitleValidation()
+        //Function responsible for validating the form.
+        private bool JobTitleFormValidation()
         {
             bool isValid = true;
 
