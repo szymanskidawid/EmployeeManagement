@@ -131,9 +131,9 @@
             this.departmentNameErrorLabel.Location = new System.Drawing.Point(384, 167);
             this.departmentNameErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentNameErrorLabel.Name = "departmentNameErrorLabel";
-            this.departmentNameErrorLabel.Size = new System.Drawing.Size(333, 21);
+            this.departmentNameErrorLabel.Size = new System.Drawing.Size(309, 21);
             this.departmentNameErrorLabel.TabIndex = 41;
-            this.departmentNameErrorLabel.Text = "Max 20 chars (letters, numbers, spaces and \"-\")";
+            this.departmentNameErrorLabel.Text = "Max 20 chars (letters, digits, spaces and \"-\")";
             this.departmentNameErrorLabel.Visible = false;
             // 
             // CreateEditDepartmentForm

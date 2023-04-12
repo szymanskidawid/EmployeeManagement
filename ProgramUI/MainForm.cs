@@ -27,6 +27,12 @@ namespace ProgramUI
             mainEmployeeView.Show();
             mainEmployeeView.DataSource = SqlConnector.DisplayEmployees();
 
+            //Allows to sort each column in the table
+            foreach (DataGridViewColumn column in mainEmployeeView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+            }
+
         }
 
         private void departmentsButton_Click(object sender, EventArgs e)
@@ -34,6 +40,12 @@ namespace ProgramUI
             mainEmployeeView.Hide();
             mainDepartmentView.Show();
             mainDepartmentView.DataSource = SqlConnector.DisplayDepartments();
+
+            //Allows to sort each column in the table
+            foreach (DataGridViewColumn column in mainEmployeeView.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.Automatic;
+            }
         }
 
         //Opens up Create Employee Form.

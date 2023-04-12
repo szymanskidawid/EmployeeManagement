@@ -63,17 +63,6 @@ namespace ProgramUI
 
             string nameValue = jobTitleNameValue.Text;
 
-            if (jobTitleNameValue.Text.Length == 0 || jobTitleNameValue.Text.Length > 20 || !ValidationHelper.AllowLetterSpaceDash(nameValue))
-            {
-                isValid = false;
-                ValidationHelper.SetTextboxState(jobTitleNameValue, jobTitleNameErrorLabel, true);
-            }
-
-            else
-            {
-                ValidationHelper.SetTextboxState(jobTitleNameValue, jobTitleNameErrorLabel, false);
-            }
-
             return isValid;
         }
     }

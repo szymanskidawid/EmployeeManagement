@@ -41,7 +41,7 @@ namespace ProgramUI
             else
             {
                 MessageBox.Show("Invalid information provided, please check comments and try again.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ValidationHelper.SetValidationState(true);
+                ValidationApprover.SetIsValid(true);
             }
         }
 
@@ -52,13 +52,13 @@ namespace ProgramUI
 
             string nameValue = departmentNameValue.Text;
             string locationValue = departmentLocationValue.Text;
-           
 
-            ValidationHelper.UserInputValidation(departmentNameValue, 0, 20, departmentNameErrorLabel, nameValue);
-            ValidationHelper.UserInputValidation(departmentLocationValue, 0, 20, departmentLocationErrorLabel, locationValue);
+            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
+            ValidationApprover.UserInputValidation(departmentNameValue, 0, 20, departmentNameErrorLabel, nameValue, "LetterDigitSpaceDash");
+            ValidationApprover.UserInputValidation(departmentLocationValue, 0, 20, departmentLocationErrorLabel, locationValue, "LetterSpaceDash");
 
 
-            return isValid = ValidationHelper.GetValidationState();
+            return isValid = ValidationApprover.GetIsValid();
         }
     }
 }
