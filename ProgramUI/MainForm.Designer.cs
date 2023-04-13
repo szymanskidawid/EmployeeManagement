@@ -38,12 +38,8 @@
             this.createDepartmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createJobTitleManuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripEditButton = new System.Windows.Forms.ToolStripButton();
-            this.mainDepartmentView = new System.Windows.Forms.DataGridView();
-            this.employeesButton = new System.Windows.Forms.Button();
-            this.departmentsButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).BeginInit();
             this.toolStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDepartmentView)).BeginInit();
             this.SuspendLayout();
             // 
             // mainEmployeeView
@@ -57,6 +53,8 @@
             this.mainEmployeeView.RowTemplate.Height = 25;
             this.mainEmployeeView.Size = new System.Drawing.Size(1431, 802);
             this.mainEmployeeView.TabIndex = 0;
+            this.mainEmployeeView.ForeColor = Color.Black;
+            this.mainEmployeeView.DefaultCellStyle.SelectionBackColor = Color.Black;               
             // 
             // searchValue
             // 
@@ -83,6 +81,7 @@
             this.searchButton.TabIndex = 5;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = false;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // toolStrip
             // 
@@ -147,54 +146,6 @@
             this.toolStripEditButton.Text = "Edit";
             this.toolStripEditButton.Click += new System.EventHandler(this.toolStripEditButton_Click);
             // 
-            // mainDepartmentView
-            // 
-            this.mainDepartmentView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
-            this.mainDepartmentView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.mainDepartmentView.Location = new System.Drawing.Point(204, 203);
-            this.mainDepartmentView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.mainDepartmentView.Name = "mainDepartmentView";
-            this.mainDepartmentView.RowHeadersWidth = 62;
-            this.mainDepartmentView.RowTemplate.Height = 25;
-            this.mainDepartmentView.Size = new System.Drawing.Size(1431, 802);
-            this.mainDepartmentView.TabIndex = 7;
-            // 
-            // employeesButton
-            // 
-            this.employeesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.employeesButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.employeesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.employeesButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.employeesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.employeesButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeesButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.employeesButton.Location = new System.Drawing.Point(204, 138);
-            this.employeesButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.employeesButton.Name = "employeesButton";
-            this.employeesButton.Size = new System.Drawing.Size(236, 65);
-            this.employeesButton.TabIndex = 8;
-            this.employeesButton.Text = "Employees";
-            this.employeesButton.UseVisualStyleBackColor = false;
-            this.employeesButton.Click += new System.EventHandler(this.employeesButton_Click);
-            // 
-            // departmentsButton
-            // 
-            this.departmentsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.departmentsButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.departmentsButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
-            this.departmentsButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
-            this.departmentsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.departmentsButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.departmentsButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.departmentsButton.Location = new System.Drawing.Point(449, 138);
-            this.departmentsButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.departmentsButton.Name = "departmentsButton";
-            this.departmentsButton.Size = new System.Drawing.Size(236, 65);
-            this.departmentsButton.TabIndex = 9;
-            this.departmentsButton.Text = "Departments";
-            this.departmentsButton.UseVisualStyleBackColor = false;
-            this.departmentsButton.Click += new System.EventHandler(this.departmentsButton_Click);
-            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -202,9 +153,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1819, 1107);
-            this.Controls.Add(this.departmentsButton);
-            this.Controls.Add(this.employeesButton);
-            this.Controls.Add(this.mainDepartmentView);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchValue);
@@ -215,7 +163,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mainDepartmentView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,9 +177,6 @@
         private ToolStripMenuItem createEmployeeMenuItem;
         private ToolStripMenuItem createDepartmentMenuItem;
         private DataGridView mainEmployeeView;
-        private DataGridView mainDepartmentView;
-        private Button employeesButton;
-        private Button departmentsButton;
         private ToolStripMenuItem createJobTitleManuItem;
         private ToolStripButton toolStripEditButton;
     }
