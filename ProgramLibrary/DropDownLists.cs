@@ -39,7 +39,7 @@ namespace ProgramLibrary
         //public static string[] CurrencyList = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(culture => culture.NumberFormat.CurrencySymbol).Distinct().ToArray();
 
         // String array of Supervisors that can be added into a DropDown
-        public static string[] IsSupervisorList = { "No", "Yes" };
+        public static string[] IsSupervisorList = { "Yes", "No" };
 
         // String array of Categories to edit that can be added into a DropDown
         public static string[] EditCategoryList = { "Employee", "Department", "Job Title" };

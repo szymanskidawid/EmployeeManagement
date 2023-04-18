@@ -13,18 +13,18 @@ namespace ProgramUI
     internal class ValidationApprover
     {
         //Sets a state of a textbox depeding if the field was valid or not.
-        private static void SetTextboxState(TextBox value, Label error, bool isValid)
+        private static void SetTextboxState(TextBox value, Label info, bool isValid)
         {
             if (isValid)
             {
-                value.BackColor = Color.White;
-                error.Hide();            
+                value.BackColor = Color.Green;
+                info.ForeColor = Color.Green;           
             }
 
             else
             {
                 value.BackColor = Color.Red;
-                error.Show();
+                info.ForeColor = Color.Red;
             }
         }
 
@@ -44,17 +44,20 @@ namespace ProgramUI
         }
 
         //Function validating user input for each TextBox.
-        internal static void UserInputValidation(TextBox text, int minCharacters, int maxCharacters, Label errorLabel, string textboxToString, string allow)
+        internal static async void UserInputValidation(TextBox text, int minCharacters, int maxCharacters, 
+            Label infoLabel, string textboxToString, string allow, string require)
         {
-            if (text.Text.Length == minCharacters || text.Text.Length > maxCharacters || !ValidationAllowedCharacters.SetAllowFunction(allow, textboxToString))
-            {
+            if (text.Text.Length < minCharacters || text.Text.Length > maxCharacters || 
+                !ValidationAllowedCharacters.SetAllowFunction(allow, textboxToString) ||
+                !ValidationRequiredCharacters.SetRequireFunction(require, textboxToString))
+            {    
                 SetIsValid(false);
-                SetTextboxState(text, errorLabel, false);               
+                SetTextboxState(text, infoLabel, false);
             }
 
             else
             {
-                SetTextboxState(text, errorLabel, true);
+                SetTextboxState(text, infoLabel, true);
             }
         }
     }

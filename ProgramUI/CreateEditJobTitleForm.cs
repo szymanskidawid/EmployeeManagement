@@ -23,6 +23,13 @@ namespace ProgramUI
             JobTitleLoadLists();
         }
 
+        //Function that can be attached to automatically force input to start with capital letter
+        private void JobTitle_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            UserInputModifier.CapitalizeFirstLetter(textBox);
+        }
+
         //Fills DropDowns with information from the SqlConnector and DropDownLists classes.
         private void JobTitleLoadLists()
         {
@@ -52,6 +59,7 @@ namespace ProgramUI
             else
             {
                 MessageBox.Show("Invalid information provided, please check comments and try again.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ValidationApprover.SetIsValid(true);
             }
 
         }
@@ -63,7 +71,11 @@ namespace ProgramUI
 
             string nameValue = jobTitleNameValue.Text;
 
-            return isValid;
+            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
+            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
+            ValidationApprover.UserInputValidation(jobTitleNameValue, 5, 15, jobTitleNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
+
+            return isValid = ValidationApprover.GetIsValid();
         }
     }
 }

@@ -36,7 +36,7 @@
             this.departmentSupervisorLabel = new System.Windows.Forms.Label();
             this.jobTitleSupervisorDropDown = new System.Windows.Forms.ComboBox();
             this.jobTitleDepartmentDropDown = new System.Windows.Forms.ComboBox();
-            this.jobTitleNameErrorLabel = new System.Windows.Forms.Label();
+            this.jobTitleNameInfoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // jobTitleSaveButton
@@ -48,7 +48,7 @@
             this.jobTitleSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.jobTitleSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.jobTitleSaveButton.Location = new System.Drawing.Point(284, 407);
+            this.jobTitleSaveButton.Location = new System.Drawing.Point(288, 407);
             this.jobTitleSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleSaveButton.Name = "jobTitleSaveButton";
             this.jobTitleSaveButton.Size = new System.Drawing.Size(169, 88);
@@ -61,7 +61,7 @@
             // 
             this.jobTitleDepartmentLabel.AutoSize = true;
             this.jobTitleDepartmentLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.jobTitleDepartmentLabel.Location = new System.Drawing.Point(146, 215);
+            this.jobTitleDepartmentLabel.Location = new System.Drawing.Point(150, 232);
             this.jobTitleDepartmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleDepartmentLabel.Name = "jobTitleDepartmentLabel";
             this.jobTitleDepartmentLabel.Size = new System.Drawing.Size(201, 45);
@@ -72,7 +72,7 @@
             // 
             this.jobTitleNameLabel.AutoSize = true;
             this.jobTitleNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.jobTitleNameLabel.Location = new System.Drawing.Point(231, 140);
+            this.jobTitleNameLabel.Location = new System.Drawing.Point(235, 140);
             this.jobTitleNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleNameLabel.Name = "jobTitleNameLabel";
             this.jobTitleNameLabel.Size = new System.Drawing.Size(108, 45);
@@ -94,17 +94,18 @@
             // 
             this.jobTitleNameValue.BackColor = System.Drawing.SystemColors.Window;
             this.jobTitleNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.jobTitleNameValue.Location = new System.Drawing.Point(364, 152);
+            this.jobTitleNameValue.Location = new System.Drawing.Point(368, 152);
             this.jobTitleNameValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleNameValue.Name = "jobTitleNameValue";
-            this.jobTitleNameValue.Size = new System.Drawing.Size(211, 31);
+            this.jobTitleNameValue.Size = new System.Drawing.Size(276, 31);
             this.jobTitleNameValue.TabIndex = 41;
+            this.jobTitleNameValue.TextChanged += new System.EventHandler(this.JobTitle_TextChanged);
             // 
             // departmentSupervisorLabel
             // 
             this.departmentSupervisorLabel.AutoSize = true;
             this.departmentSupervisorLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.departmentSupervisorLabel.Location = new System.Drawing.Point(164, 288);
+            this.departmentSupervisorLabel.Location = new System.Drawing.Point(168, 305);
             this.departmentSupervisorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentSupervisorLabel.Name = "departmentSupervisorLabel";
             this.departmentSupervisorLabel.Size = new System.Drawing.Size(181, 45);
@@ -115,7 +116,7 @@
             // 
             this.jobTitleSupervisorDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleSupervisorDropDown.FormattingEnabled = true;
-            this.jobTitleSupervisorDropDown.Location = new System.Drawing.Point(364, 300);
+            this.jobTitleSupervisorDropDown.Location = new System.Drawing.Point(368, 317);
             this.jobTitleSupervisorDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleSupervisorDropDown.Name = "jobTitleSupervisorDropDown";
             this.jobTitleSupervisorDropDown.Size = new System.Drawing.Size(171, 33);
@@ -125,32 +126,31 @@
             // 
             this.jobTitleDepartmentDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleDepartmentDropDown.FormattingEnabled = true;
-            this.jobTitleDepartmentDropDown.Location = new System.Drawing.Point(364, 227);
+            this.jobTitleDepartmentDropDown.Location = new System.Drawing.Point(368, 244);
             this.jobTitleDepartmentDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleDepartmentDropDown.Name = "jobTitleDepartmentDropDown";
             this.jobTitleDepartmentDropDown.Size = new System.Drawing.Size(171, 33);
             this.jobTitleDepartmentDropDown.TabIndex = 50;
             // 
-            // jobTitleNameErrorLabel
+            // jobTitleNameInfoLabel
             // 
-            this.jobTitleNameErrorLabel.AutoSize = true;
-            this.jobTitleNameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.jobTitleNameErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.jobTitleNameErrorLabel.Location = new System.Drawing.Point(364, 183);
-            this.jobTitleNameErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.jobTitleNameErrorLabel.Name = "jobTitleNameErrorLabel";
-            this.jobTitleNameErrorLabel.Size = new System.Drawing.Size(264, 21);
-            this.jobTitleNameErrorLabel.TabIndex = 51;
-            this.jobTitleNameErrorLabel.Text = "Max 20 chars (letters, spaces and \"-\")";
-            this.jobTitleNameErrorLabel.Visible = false;
+            this.jobTitleNameInfoLabel.AutoSize = true;
+            this.jobTitleNameInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.jobTitleNameInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.jobTitleNameInfoLabel.Location = new System.Drawing.Point(368, 188);
+            this.jobTitleNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.jobTitleNameInfoLabel.Name = "jobTitleNameInfoLabel";
+            this.jobTitleNameInfoLabel.Size = new System.Drawing.Size(341, 42);
+            this.jobTitleNameInfoLabel.TabIndex = 51;
+            this.jobTitleNameInfoLabel.Text = "5-15 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
             // 
             // CreateEditJobTitleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(689, 540);
-            this.Controls.Add(this.jobTitleNameErrorLabel);
+            this.ClientSize = new System.Drawing.Size(736, 540);
+            this.Controls.Add(this.jobTitleNameInfoLabel);
             this.Controls.Add(this.jobTitleDepartmentDropDown);
             this.Controls.Add(this.jobTitleSupervisorDropDown);
             this.Controls.Add(this.departmentSupervisorLabel);
@@ -176,6 +176,6 @@
         private Label departmentSupervisorLabel;
         private ComboBox jobTitleSupervisorDropDown;
         private ComboBox jobTitleDepartmentDropDown;
-        private Label jobTitleNameErrorLabel;
+        private Label jobTitleNameInfoLabel;
     }
 }

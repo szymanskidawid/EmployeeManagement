@@ -19,6 +19,14 @@ namespace ProgramUI
         public CreateEditDepartmentForm()
         {
             InitializeComponent();
+           
+        }
+
+        //Function that can be attached to automatically force input to start with capital letter
+        private void Department_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            UserInputModifier.CapitalizeFirstLetter(textBox);
         }
 
         //Save department using values in the form fields.
@@ -54,9 +62,9 @@ namespace ProgramUI
             string locationValue = departmentLocationValue.Text;
 
             //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
-            ValidationApprover.UserInputValidation(departmentNameValue, 0, 20, departmentNameErrorLabel, nameValue, "LetterDigitSpaceDash");
-            ValidationApprover.UserInputValidation(departmentLocationValue, 0, 20, departmentLocationErrorLabel, locationValue, "LetterSpaceDash");
-
+            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
+            ValidationApprover.UserInputValidation(departmentNameValue, 5, 15, departmentNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
+            ValidationApprover.UserInputValidation(departmentLocationValue, 5, 15, departmentLocationInfoLabel, locationValue, "LetterSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();
         }

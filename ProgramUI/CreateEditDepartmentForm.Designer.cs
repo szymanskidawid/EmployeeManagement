@@ -34,8 +34,8 @@
             this.createEditDepartmentLabel = new System.Windows.Forms.Label();
             this.departmentLocationValue = new System.Windows.Forms.TextBox();
             this.departmentNameValue = new System.Windows.Forms.TextBox();
-            this.departmentLocationErrorLabel = new System.Windows.Forms.Label();
-            this.departmentNameErrorLabel = new System.Windows.Forms.Label();
+            this.departmentLocationInfoLabel = new System.Windows.Forms.Label();
+            this.departmentNameInfoLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // departmentSaveButton
@@ -47,7 +47,7 @@
             this.departmentSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.departmentSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.departmentSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.departmentSaveButton.Location = new System.Drawing.Point(295, 289);
+            this.departmentSaveButton.Location = new System.Drawing.Point(298, 325);
             this.departmentSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentSaveButton.Name = "departmentSaveButton";
             this.departmentSaveButton.Size = new System.Drawing.Size(169, 88);
@@ -60,7 +60,7 @@
             // 
             this.departmentLocationLabel.AutoSize = true;
             this.departmentLocationLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.departmentLocationLabel.Location = new System.Drawing.Point(216, 197);
+            this.departmentLocationLabel.Location = new System.Drawing.Point(212, 216);
             this.departmentLocationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentLocationLabel.Name = "departmentLocationLabel";
             this.departmentLocationLabel.Size = new System.Drawing.Size(148, 45);
@@ -71,7 +71,7 @@
             // 
             this.departmentNameLabel.AutoSize = true;
             this.departmentNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.departmentNameLabel.Location = new System.Drawing.Point(77, 127);
+            this.departmentNameLabel.Location = new System.Drawing.Point(71, 127);
             this.departmentNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentNameLabel.Name = "departmentNameLabel";
             this.departmentNameLabel.Size = new System.Drawing.Size(298, 45);
@@ -93,48 +93,48 @@
             // 
             this.departmentLocationValue.BackColor = System.Drawing.SystemColors.Window;
             this.departmentLocationValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.departmentLocationValue.Location = new System.Drawing.Point(384, 205);
+            this.departmentLocationValue.Location = new System.Drawing.Point(380, 224);
             this.departmentLocationValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentLocationValue.Name = "departmentLocationValue";
-            this.departmentLocationValue.Size = new System.Drawing.Size(211, 31);
+            this.departmentLocationValue.Size = new System.Drawing.Size(280, 31);
             this.departmentLocationValue.TabIndex = 23;
+            this.departmentLocationValue.TextChanged += new System.EventHandler(this.Department_TextChanged);
             // 
             // departmentNameValue
             // 
             this.departmentNameValue.BackColor = System.Drawing.SystemColors.Window;
             this.departmentNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.departmentNameValue.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.departmentNameValue.Location = new System.Drawing.Point(384, 135);
+            this.departmentNameValue.Location = new System.Drawing.Point(378, 135);
             this.departmentNameValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentNameValue.Name = "departmentNameValue";
-            this.departmentNameValue.Size = new System.Drawing.Size(211, 31);
+            this.departmentNameValue.Size = new System.Drawing.Size(280, 31);
             this.departmentNameValue.TabIndex = 22;
+            this.departmentNameValue.TextChanged += new System.EventHandler(this.Department_TextChanged);
             // 
-            // departmentLocationErrorLabel
+            // departmentLocationInfoLabel
             // 
-            this.departmentLocationErrorLabel.AutoSize = true;
-            this.departmentLocationErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.departmentLocationErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.departmentLocationErrorLabel.Location = new System.Drawing.Point(384, 235);
-            this.departmentLocationErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.departmentLocationErrorLabel.Name = "departmentLocationErrorLabel";
-            this.departmentLocationErrorLabel.Size = new System.Drawing.Size(264, 21);
-            this.departmentLocationErrorLabel.TabIndex = 40;
-            this.departmentLocationErrorLabel.Text = "Max 20 chars (letters, spaces and \"-\")";
-            this.departmentLocationErrorLabel.Visible = false;
+            this.departmentLocationInfoLabel.AutoSize = true;
+            this.departmentLocationInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.departmentLocationInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.departmentLocationInfoLabel.Location = new System.Drawing.Point(380, 254);
+            this.departmentLocationInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.departmentLocationInfoLabel.Name = "departmentLocationInfoLabel";
+            this.departmentLocationInfoLabel.Size = new System.Drawing.Size(292, 42);
+            this.departmentLocationInfoLabel.TabIndex = 40;
+            this.departmentLocationInfoLabel.Text = "5-15 characters (letters, spaces and \"-\")\r\nRequire at least one letter";
             // 
-            // departmentNameErrorLabel
+            // departmentNameInfoLabel
             // 
-            this.departmentNameErrorLabel.AutoSize = true;
-            this.departmentNameErrorLabel.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.departmentNameErrorLabel.ForeColor = System.Drawing.Color.Red;
-            this.departmentNameErrorLabel.Location = new System.Drawing.Point(384, 167);
-            this.departmentNameErrorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.departmentNameErrorLabel.Name = "departmentNameErrorLabel";
-            this.departmentNameErrorLabel.Size = new System.Drawing.Size(309, 21);
-            this.departmentNameErrorLabel.TabIndex = 41;
-            this.departmentNameErrorLabel.Text = "Max 20 chars (letters, digits, spaces and \"-\")";
-            this.departmentNameErrorLabel.Visible = false;
+            this.departmentNameInfoLabel.AutoSize = true;
+            this.departmentNameInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.departmentNameInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.departmentNameInfoLabel.Location = new System.Drawing.Point(378, 167);
+            this.departmentNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.departmentNameInfoLabel.Name = "departmentNameInfoLabel";
+            this.departmentNameInfoLabel.Size = new System.Drawing.Size(341, 42);
+            this.departmentNameInfoLabel.TabIndex = 41;
+            this.departmentNameInfoLabel.Text = "5-15 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
             // 
             // CreateEditDepartmentForm
             // 
@@ -142,8 +142,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(743, 450);
-            this.Controls.Add(this.departmentNameErrorLabel);
-            this.Controls.Add(this.departmentLocationErrorLabel);
+            this.Controls.Add(this.departmentNameInfoLabel);
+            this.Controls.Add(this.departmentLocationInfoLabel);
             this.Controls.Add(this.departmentSaveButton);
             this.Controls.Add(this.departmentLocationLabel);
             this.Controls.Add(this.departmentNameLabel);
@@ -165,7 +165,7 @@
         private Label createEditDepartmentLabel;
         private TextBox departmentLocationValue;
         private TextBox departmentNameValue;
-        private Label departmentLocationErrorLabel;
-        private Label departmentNameErrorLabel;
+        private Label departmentLocationInfoLabel;
+        private Label departmentNameInfoLabel;
     }
 }
