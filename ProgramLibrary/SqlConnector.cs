@@ -167,18 +167,5 @@ namespace ProgramLibrary
             }
         }
 
-        //Displays a Departments table from SQL into a DataGridView
-        public static DataTable DisplayDepartments()
-        {
-            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
-            {
-                SqlDataAdapter adapter = new();
-                adapter.SelectCommand = new SqlCommand("SELECT * FROM dbo.Departments", connection);
-                DataTable table = new();
-                adapter.Fill(table);
-
-                return table;
-            }
-        }
     }
 }

@@ -49,6 +49,14 @@ namespace ProgramUI
             return letSpaceDash;
         }
 
+        //Only allow letters and dashes in a field.
+        internal static bool AllowLetterDash(string value)
+        {
+            bool letDigSpaceDash = value.All(c => Char.IsLetter(c) || c == '-');
+
+            return letDigSpaceDash;
+        }
+
         //Only allow letters, digits, spaces and dashes in a field.
         internal static bool AllowDigitSpace(string value)
         {
@@ -83,6 +91,11 @@ namespace ProgramUI
             if (allow == "LetterSpaceDash")
             {
                 return AllowLetterSpaceDash(textboxValue);
+            }
+
+            if (allow == "LetterDash")
+            {
+                return AllowLetterDash(textboxValue);
             }
 
             if (allow == "DigitSpace")

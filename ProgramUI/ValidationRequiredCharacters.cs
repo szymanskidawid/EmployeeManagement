@@ -17,12 +17,24 @@ namespace ProgramUI
             return let;
         }
 
+        internal static bool RequireDigit(string value)
+        {
+            bool dig = value.Any(c => Char.IsDigit(c));
+
+            return dig;
+        }
+
         //Function allowing to choose a specific Require function inside other functions.
         internal static bool SetRequireFunction(string require, string textboxValue)
         {
             if (require == "Letter")
             {
                 return RequireLetter(textboxValue);
+            }
+
+            if (require == "Digit")
+            {
+                return RequireDigit(textboxValue);
             }
 
             else
