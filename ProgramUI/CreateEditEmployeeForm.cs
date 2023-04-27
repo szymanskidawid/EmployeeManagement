@@ -24,14 +24,18 @@ namespace ProgramUI
 
             EmployeeLoadLists();
 
-            //Code that modifies min/max values of date pickers.
+            //Code that modifies min/max value of Date Time Pickers.
             employeeBirthTimePicker.MaxDate = DateTime.Now.AddYears(-18);
 
             employeeContractStartTimePicker.MinDate = DateTime.Today;
             employeeContractStartTimePicker.MaxDate = DateTime.Now.AddMonths(1);
+        }
 
-            employeeContractEndTimePicker.MinDate = DateTime.Today;
-            employeeContractEndTimePicker.MaxDate = DateTime.Now.AddYears(1);
+        //Contract End rules will update each time Contract Start changes
+        private void employeeContractStartTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            employeeContractEndTimePicker.MinDate = employeeContractStartTimePicker.Value.AddMonths(3);
+            employeeContractEndTimePicker.MaxDate = employeeContractStartTimePicker.Value.AddYears(1);
         }
 
         //Function that can be attached to automatically force input to start with capital letter
@@ -65,7 +69,6 @@ namespace ProgramUI
                         employeeEmailValue.Text,
                         employeeTelephoneValue.Text,
                         employeeAddress1Value.Text,
-                        employeeAddress2Value.Text,
                         employeePostcodeValue.Text,
                         employeeTownValue.Text,
                         employeeCountryDropDown.Text,
@@ -82,7 +85,6 @@ namespace ProgramUI
                 employeeEmailValue.Text = "";
                 employeeTelephoneValue.Text = "";
                 employeeAddress1Value.Text = "";
-                employeeAddress2Value.Text = "";
                 employeePostcodeValue.Text = "";
                 employeeTownValue.Text = "";
                 employeeContractStartTimePicker.Text = "";
@@ -111,7 +113,6 @@ namespace ProgramUI
             string emailValue = employeeEmailValue.Text;
             string telephoneValue = employeeTelephoneValue.Text;
             string address1Value = employeeAddress1Value.Text;
-            string address2Value = employeeAddress2Value.Text;
             string postcodeValue = employeePostcodeValue.Text;
             string townValue = employeeTownValue.Text;
             string salaryValue = employeeSalaryValue.Text;
@@ -120,15 +121,16 @@ namespace ProgramUI
             //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
             ValidationApprover.UserInputValidation(employeeFirstNameValue, 2, 15, employeeNameInfoLabel, firstNameValue, "LetterDash", "Letter");
             ValidationApprover.UserInputValidation(employeeLastNameValue, 2, 15, employeeSurnameInfoLabel, lastNameValue, "LetterDash", "Letter");
-            ValidationApprover.UserInputValidation(employeeEmailValue, 7, 30, employeeEmailInfoLabel, emailValue, "LetterDigitSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeeTelephoneValue, 10, 20, employeeTelephoneInfoLabel, telephoneValue, "LetterDigitSpaceDash", "Digit");
+            ValidationApprover.UserInputValidation(employeeEmailValue, 7, 30, employeeEmailInfoLabel, emailValue, "LetterDigitSpaceDashDotAt", "LetterAtDot");
+            ValidationApprover.UserInputValidation(employeeTelephoneValue, 10, 20, employeeTelephoneInfoLabel, telephoneValue, "DigitPlus", "Digit");
             ValidationApprover.UserInputValidation(employeeAddress1Value, 5, 20, employeeAddress1InfoLabel, address1Value, "LetterDigitSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeeAddress2Value, 5, 20, employeeAddress2InfoLabel, address2Value, "LetterDigitSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeePostcodeValue, 4, 10, employeePostcodeInfoLabel, postcodeValue, "LetterDigitSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeeTownValue, 3, 20, employeeTownInfoLabel, townValue, "LetterDigitSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeeSalaryValue, 6, 10, employeeSalaryInfoLabel, salaryValue, "LetterDigitSpaceDash", "Digit");
+            ValidationApprover.UserInputValidation(employeePostcodeValue, 4, 10, employeePostcodeInfoLabel, postcodeValue, "LetterDigitSpace", "Digit");
+            ValidationApprover.UserInputValidation(employeeTownValue, 3, 20, employeeTownInfoLabel, townValue, "LetterSpaceDash", "Letter"); 
+            ValidationApprover.UserInputValidation(employeeSalaryValue, 6, 10, employeeSalaryInfoLabel, salaryValue, "Digit", "Digit");
 
             return isValid = ValidationApprover.GetIsValid();
         }
+
+        
     }
 }

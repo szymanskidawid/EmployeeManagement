@@ -17,8 +17,8 @@ namespace ProgramLibrary
         // Create a new employee and save it to the database.
         public static void CreateEmployee(string firstName, string lastName, string DOB,
             string gender, string email, string telephone, string address1,
-            string address2, string postcode, string town, string country,
-            string jobTitle, string contractStart, string contractEnd, string salary, string currency)
+            string postcode, string town, string country,string jobTitle, 
+            string contractStart, string contractEnd, string salary, string currency)
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
@@ -31,7 +31,6 @@ namespace ProgramLibrary
                     EmailAddress = email,
                     TelephoneNumber = telephone,
                     Address1 = address1,
-                    Address2 = address2,
                     Postcode = postcode,
                     Town = town,
                     Country = country,
@@ -51,7 +50,6 @@ namespace ProgramLibrary
                 p.Add("@EmailAddress", model.EmailAddress);
                 p.Add("@TelephoneNumber", model.TelephoneNumber);
                 p.Add("@Address1", model.Address1);
-                p.Add("@Address2", model.Address2);
                 p.Add("@Postcode", model.Postcode);
                 p.Add("@Town", model.Town);
                 p.Add("@Country", model.Country);

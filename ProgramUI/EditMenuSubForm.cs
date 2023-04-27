@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -38,13 +39,13 @@ namespace ProgramUI
             }
             else if (editCategoryDropDown.Text == "Department")
             {
-                editListBox.DataSource = availableJobTitles;
-                editListBox.DisplayMember = "JobTitleName";
+                editListBox.DataSource = availableDepartments;
+                editListBox.DisplayMember = "DepartmentName";
             }
             else if (editCategoryDropDown.Text == "Job Title")
             {
-                editListBox.DataSource = availableDepartments;
-                editListBox.DisplayMember = "DepartmentName";
+                editListBox.DataSource = availableJobTitles;
+                editListBox.DisplayMember = "JobTitleName";
             }
         }
 
@@ -63,6 +64,17 @@ namespace ProgramUI
             }
             else if (editCategoryDropDown.Text == "Department")
             {
+                DepartmentModel department = new DepartmentModel();
+
+                //WORK IN PROGRESS
+                for (int i = 0; i < availableDepartments.Count; i++)
+                {
+                    if (editListBox.SelectedItem.ToString() == availableDepartments[i].DepartmentName.ToString())
+                    {
+                        department = availableDepartments[i];
+                    }
+                }
+
                 CreateEditDepartmentForm departmentForm = new();
                 departmentForm.Show();
             }

@@ -17,6 +17,15 @@ namespace ProgramUI
             return let;
         }
 
+        //Require at least one letter, @ symbol and a dot in a field.
+        internal static bool RequireLetterAtDot(string value)
+        {
+            bool letAtDot = value.Any(c => Char.IsLetter(c) || c == '@' || c == '.');
+
+            return letAtDot;
+        }
+
+        //Require at least one digit in a field.
         internal static bool RequireDigit(string value)
         {
             bool dig = value.Any(c => Char.IsDigit(c));
@@ -30,6 +39,11 @@ namespace ProgramUI
             if (require == "Letter")
             {
                 return RequireLetter(textboxValue);
+            }
+
+            if (require == "LetterAtDot")
+            {
+                return RequireLetterAtDot(textboxValue);
             }
 
             if (require == "Digit")

@@ -41,6 +41,14 @@ namespace ProgramUI
             return letDigSpaceDash;
         }
 
+        //Only allow letters, digits, spaces, dashes, dots and @ symbol in a field (for email address).
+        internal static bool AllowLetterDigitSpaceDashDotAt(string value)
+        {
+            bool letDigSpaceDashDotAt = value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-' || c == '.' || c == '@');
+
+            return letDigSpaceDashDotAt;
+        }
+
         //Only allow letters, spaces and dashes in a field.
         internal static bool AllowLetterSpaceDash(string value)
         {
@@ -57,12 +65,20 @@ namespace ProgramUI
             return letDigSpaceDash;
         }
 
-        //Only allow letters, digits, spaces and dashes in a field.
+        //Only allow digits and spaces in a field.
         internal static bool AllowDigitSpace(string value)
         {
             bool digSpace = value.All(c => Char.IsDigit(c) || c == ' ');
 
             return digSpace;
+        }
+
+        //Only allow digits and pluses in a field.
+        internal static bool AllowDigitPlus(string value)
+        {
+            bool digPlus = value.All(c => Char.IsDigit(c) || c == '+');
+
+            return digPlus;
         }
 
         //Function allowing to choose a specific Allow function inside other functions.
@@ -88,6 +104,11 @@ namespace ProgramUI
                 return AllowLetterDigitSpaceDash(textboxValue);
             }
 
+            if (allow == "LetterDigitSpaceDashDotAt")
+            {
+                return AllowLetterDigitSpaceDashDotAt(textboxValue);
+            }
+
             if (allow == "LetterSpaceDash")
             {
                 return AllowLetterSpaceDash(textboxValue);
@@ -101,6 +122,11 @@ namespace ProgramUI
             if (allow == "DigitSpace")
             {
                 return AllowDigitSpace(textboxValue);
+            }
+
+            if (allow == "DigitPlus")
+            {
+                return AllowDigitPlus(textboxValue);
             }
 
             else

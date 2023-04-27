@@ -47,9 +47,7 @@
             this.employeeGenderDropDown = new System.Windows.Forms.ComboBox();
             this.employeeJobTitleDropDown = new System.Windows.Forms.ComboBox();
             this.employeeJobTitleLabel = new System.Windows.Forms.Label();
-            this.employeeAddress2Label = new System.Windows.Forms.Label();
             this.employeeAddress1Label = new System.Windows.Forms.Label();
-            this.employeeAddress2Value = new System.Windows.Forms.TextBox();
             this.employeeAddress1Value = new System.Windows.Forms.TextBox();
             this.employeeTownLabel = new System.Windows.Forms.Label();
             this.employeePostcodeLabel = new System.Windows.Forms.Label();
@@ -61,7 +59,6 @@
             this.employeeNameInfoLabel = new System.Windows.Forms.Label();
             this.employeeSurnameInfoLabel = new System.Windows.Forms.Label();
             this.employeeAddress1InfoLabel = new System.Windows.Forms.Label();
-            this.employeeAddress2InfoLabel = new System.Windows.Forms.Label();
             this.employeePostcodeInfoLabel = new System.Windows.Forms.Label();
             this.employeeTownInfoLabel = new System.Windows.Forms.Label();
             this.employeeEmailInfoLabel = new System.Windows.Forms.Label();
@@ -70,6 +67,11 @@
             this.employeeBirthTimePicker = new System.Windows.Forms.DateTimePicker();
             this.employeeContractStartTimePicker = new System.Windows.Forms.DateTimePicker();
             this.employeeContractEndTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.employeeBirthInfoLabel = new System.Windows.Forms.Label();
+            this.employeeContractStartInfoLabel = new System.Windows.Forms.Label();
+            this.employeeContractEndInfoLabel = new System.Windows.Forms.Label();
+            this.employeeIdLabel = new System.Windows.Forms.Label();
+            this.employeeIdValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // employeeFirstNameValue
@@ -98,7 +100,7 @@
             // 
             this.employeeEmailValue.BackColor = System.Drawing.SystemColors.Window;
             this.employeeEmailValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeeEmailValue.Location = new System.Drawing.Point(264, 461);
+            this.employeeEmailValue.Location = new System.Drawing.Point(261, 449);
             this.employeeEmailValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeEmailValue.Name = "employeeEmailValue";
             this.employeeEmailValue.Size = new System.Drawing.Size(211, 31);
@@ -108,7 +110,7 @@
             // 
             this.employeeTelephoneValue.BackColor = System.Drawing.SystemColors.Window;
             this.employeeTelephoneValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeeTelephoneValue.Location = new System.Drawing.Point(264, 547);
+            this.employeeTelephoneValue.Location = new System.Drawing.Point(261, 535);
             this.employeeTelephoneValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeTelephoneValue.Name = "employeeTelephoneValue";
             this.employeeTelephoneValue.Size = new System.Drawing.Size(211, 31);
@@ -118,7 +120,7 @@
             // 
             this.employeeSalaryValue.BackColor = System.Drawing.SystemColors.Window;
             this.employeeSalaryValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeeSalaryValue.Location = new System.Drawing.Point(1386, 377);
+            this.employeeSalaryValue.Location = new System.Drawing.Point(1387, 369);
             this.employeeSalaryValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeSalaryValue.Name = "employeeSalaryValue";
             this.employeeSalaryValue.Size = new System.Drawing.Size(211, 31);
@@ -161,7 +163,7 @@
             // 
             this.employeeEmailLabel.AutoSize = true;
             this.employeeEmailLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeEmailLabel.Location = new System.Drawing.Point(144, 453);
+            this.employeeEmailLabel.Location = new System.Drawing.Point(141, 441);
             this.employeeEmailLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeEmailLabel.Name = "employeeEmailLabel";
             this.employeeEmailLabel.Size = new System.Drawing.Size(101, 45);
@@ -172,7 +174,7 @@
             // 
             this.employeeTelephoneLabel.AutoSize = true;
             this.employeeTelephoneLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeTelephoneLabel.Location = new System.Drawing.Point(74, 538);
+            this.employeeTelephoneLabel.Location = new System.Drawing.Point(71, 526);
             this.employeeTelephoneLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeTelephoneLabel.Name = "employeeTelephoneLabel";
             this.employeeTelephoneLabel.Size = new System.Drawing.Size(174, 45);
@@ -194,7 +196,7 @@
             // 
             this.employeeContractStartLabel.AutoSize = true;
             this.employeeContractStartLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeContractStartLabel.Location = new System.Drawing.Point(1143, 192);
+            this.employeeContractStartLabel.Location = new System.Drawing.Point(1143, 183);
             this.employeeContractStartLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeContractStartLabel.Name = "employeeContractStartLabel";
             this.employeeContractStartLabel.Size = new System.Drawing.Size(229, 45);
@@ -205,7 +207,7 @@
             // 
             this.employeeContractEndLabel.AutoSize = true;
             this.employeeContractEndLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeContractEndLabel.Location = new System.Drawing.Point(1159, 284);
+            this.employeeContractEndLabel.Location = new System.Drawing.Point(1159, 275);
             this.employeeContractEndLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeContractEndLabel.Name = "employeeContractEndLabel";
             this.employeeContractEndLabel.Size = new System.Drawing.Size(213, 45);
@@ -216,7 +218,7 @@
             // 
             this.employeeSalaryLabel.AutoSize = true;
             this.employeeSalaryLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeSalaryLabel.Location = new System.Drawing.Point(1255, 369);
+            this.employeeSalaryLabel.Location = new System.Drawing.Point(1256, 361);
             this.employeeSalaryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeSalaryLabel.Name = "employeeSalaryLabel";
             this.employeeSalaryLabel.Size = new System.Drawing.Size(112, 45);
@@ -232,7 +234,7 @@
             this.employeeSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.employeeSaveButton.Location = new System.Drawing.Point(806, 648);
+            this.employeeSaveButton.Location = new System.Drawing.Point(797, 616);
             this.employeeSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeSaveButton.Name = "employeeSaveButton";
             this.employeeSaveButton.Size = new System.Drawing.Size(169, 88);
@@ -245,7 +247,7 @@
             // 
             this.employeeGenderLabel.AutoSize = true;
             this.employeeGenderLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeGenderLabel.Location = new System.Drawing.Point(116, 374);
+            this.employeeGenderLabel.Location = new System.Drawing.Point(113, 362);
             this.employeeGenderLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeGenderLabel.Name = "employeeGenderLabel";
             this.employeeGenderLabel.Size = new System.Drawing.Size(129, 45);
@@ -256,7 +258,7 @@
             // 
             this.employeeGenderDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeGenderDropDown.FormattingEnabled = true;
-            this.employeeGenderDropDown.Location = new System.Drawing.Point(263, 386);
+            this.employeeGenderDropDown.Location = new System.Drawing.Point(260, 374);
             this.employeeGenderDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeGenderDropDown.Name = "employeeGenderDropDown";
             this.employeeGenderDropDown.Size = new System.Drawing.Size(171, 33);
@@ -283,17 +285,6 @@
             this.employeeJobTitleLabel.TabIndex = 25;
             this.employeeJobTitleLabel.Text = "Job Title";
             // 
-            // employeeAddress2Label
-            // 
-            this.employeeAddress2Label.AutoSize = true;
-            this.employeeAddress2Label.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeAddress2Label.Location = new System.Drawing.Point(611, 192);
-            this.employeeAddress2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.employeeAddress2Label.Name = "employeeAddress2Label";
-            this.employeeAddress2Label.Size = new System.Drawing.Size(168, 45);
-            this.employeeAddress2Label.TabIndex = 30;
-            this.employeeAddress2Label.Text = "Address 2";
-            // 
             // employeeAddress1Label
             // 
             this.employeeAddress1Label.AutoSize = true;
@@ -304,17 +295,6 @@
             this.employeeAddress1Label.Size = new System.Drawing.Size(168, 45);
             this.employeeAddress1Label.TabIndex = 29;
             this.employeeAddress1Label.Text = "Address 1";
-            // 
-            // employeeAddress2Value
-            // 
-            this.employeeAddress2Value.BackColor = System.Drawing.SystemColors.Window;
-            this.employeeAddress2Value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeeAddress2Value.Location = new System.Drawing.Point(792, 200);
-            this.employeeAddress2Value.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.employeeAddress2Value.Name = "employeeAddress2Value";
-            this.employeeAddress2Value.Size = new System.Drawing.Size(211, 31);
-            this.employeeAddress2Value.TabIndex = 28;
-            this.employeeAddress2Value.TextChanged += new System.EventHandler(this.Employee_TextChanged);
             // 
             // employeeAddress1Value
             // 
@@ -331,7 +311,7 @@
             // 
             this.employeeTownLabel.AutoSize = true;
             this.employeeTownLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeTownLabel.Location = new System.Drawing.Point(673, 369);
+            this.employeeTownLabel.Location = new System.Drawing.Point(673, 274);
             this.employeeTownLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeTownLabel.Name = "employeeTownLabel";
             this.employeeTownLabel.Size = new System.Drawing.Size(101, 45);
@@ -342,7 +322,7 @@
             // 
             this.employeePostcodeLabel.AutoSize = true;
             this.employeePostcodeLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeePostcodeLabel.Location = new System.Drawing.Point(622, 284);
+            this.employeePostcodeLabel.Location = new System.Drawing.Point(622, 189);
             this.employeePostcodeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeePostcodeLabel.Name = "employeePostcodeLabel";
             this.employeePostcodeLabel.Size = new System.Drawing.Size(157, 45);
@@ -353,7 +333,7 @@
             // 
             this.employeeTownValue.BackColor = System.Drawing.SystemColors.Window;
             this.employeeTownValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeeTownValue.Location = new System.Drawing.Point(795, 381);
+            this.employeeTownValue.Location = new System.Drawing.Point(795, 286);
             this.employeeTownValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeTownValue.Name = "employeeTownValue";
             this.employeeTownValue.Size = new System.Drawing.Size(211, 31);
@@ -364,7 +344,7 @@
             // 
             this.employeePostcodeValue.BackColor = System.Drawing.SystemColors.Window;
             this.employeePostcodeValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.employeePostcodeValue.Location = new System.Drawing.Point(796, 290);
+            this.employeePostcodeValue.Location = new System.Drawing.Point(796, 195);
             this.employeePostcodeValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeePostcodeValue.Name = "employeePostcodeValue";
             this.employeePostcodeValue.Size = new System.Drawing.Size(211, 31);
@@ -374,7 +354,7 @@
             // 
             this.employeeCountryLabel.AutoSize = true;
             this.employeeCountryLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeCountryLabel.Location = new System.Drawing.Point(636, 454);
+            this.employeeCountryLabel.Location = new System.Drawing.Point(636, 361);
             this.employeeCountryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeCountryLabel.Name = "employeeCountryLabel";
             this.employeeCountryLabel.Size = new System.Drawing.Size(141, 45);
@@ -385,7 +365,7 @@
             // 
             this.employeeCountryDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeCountryDropDown.FormattingEnabled = true;
-            this.employeeCountryDropDown.Location = new System.Drawing.Point(795, 466);
+            this.employeeCountryDropDown.Location = new System.Drawing.Point(795, 373);
             this.employeeCountryDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeCountryDropDown.Name = "employeeCountryDropDown";
             this.employeeCountryDropDown.Size = new System.Drawing.Size(171, 33);
@@ -395,7 +375,7 @@
             // 
             this.employeeCurrencyDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeCurrencyDropDown.FormattingEnabled = true;
-            this.employeeCurrencyDropDown.Location = new System.Drawing.Point(1611, 376);
+            this.employeeCurrencyDropDown.Location = new System.Drawing.Point(1612, 368);
             this.employeeCurrencyDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeCurrencyDropDown.Name = "employeeCurrencyDropDown";
             this.employeeCurrencyDropDown.Size = new System.Drawing.Size(69, 33);
@@ -409,9 +389,9 @@
             this.employeeNameInfoLabel.Location = new System.Drawing.Point(259, 141);
             this.employeeNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeNameInfoLabel.Name = "employeeNameInfoLabel";
-            this.employeeNameInfoLabel.Size = new System.Drawing.Size(235, 21);
+            this.employeeNameInfoLabel.Size = new System.Drawing.Size(235, 42);
             this.employeeNameInfoLabel.TabIndex = 42;
-            this.employeeNameInfoLabel.Text = "2-15 characters (letters and \"-\")\r";
+            this.employeeNameInfoLabel.Text = "2-15 characters (letters and \"-\")\r\nRequires at least one letter";
             // 
             // employeeSurnameInfoLabel
             // 
@@ -421,9 +401,9 @@
             this.employeeSurnameInfoLabel.Location = new System.Drawing.Point(260, 234);
             this.employeeSurnameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeSurnameInfoLabel.Name = "employeeSurnameInfoLabel";
-            this.employeeSurnameInfoLabel.Size = new System.Drawing.Size(235, 21);
+            this.employeeSurnameInfoLabel.Size = new System.Drawing.Size(235, 42);
             this.employeeSurnameInfoLabel.TabIndex = 43;
-            this.employeeSurnameInfoLabel.Text = "2-15 characters (letters and \"-\")";
+            this.employeeSurnameInfoLabel.Text = "2-15 characters (letters and \"-\")\r\nRequires at least one letter";
             // 
             // employeeAddress1InfoLabel
             // 
@@ -435,80 +415,70 @@
             this.employeeAddress1InfoLabel.Name = "employeeAddress1InfoLabel";
             this.employeeAddress1InfoLabel.Size = new System.Drawing.Size(344, 42);
             this.employeeAddress1InfoLabel.TabIndex = 45;
-            this.employeeAddress1InfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
-            // 
-            // employeeAddress2InfoLabel
-            // 
-            this.employeeAddress2InfoLabel.AutoSize = true;
-            this.employeeAddress2InfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeAddress2InfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.employeeAddress2InfoLabel.Location = new System.Drawing.Point(792, 234);
-            this.employeeAddress2InfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.employeeAddress2InfoLabel.Name = "employeeAddress2InfoLabel";
-            this.employeeAddress2InfoLabel.Size = new System.Drawing.Size(344, 42);
-            this.employeeAddress2InfoLabel.TabIndex = 46;
-            this.employeeAddress2InfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.employeeAddress1InfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequires at least one letter\r\n" +
+    "";
             // 
             // employeePostcodeInfoLabel
             // 
             this.employeePostcodeInfoLabel.AutoSize = true;
             this.employeePostcodeInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeePostcodeInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.employeePostcodeInfoLabel.Location = new System.Drawing.Point(796, 323);
+            this.employeePostcodeInfoLabel.Location = new System.Drawing.Point(796, 228);
             this.employeePostcodeInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeePostcodeInfoLabel.Name = "employeePostcodeInfoLabel";
-            this.employeePostcodeInfoLabel.Size = new System.Drawing.Size(341, 42);
+            this.employeePostcodeInfoLabel.Size = new System.Drawing.Size(313, 42);
             this.employeePostcodeInfoLabel.TabIndex = 47;
-            this.employeePostcodeInfoLabel.Text = "4-10 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.employeePostcodeInfoLabel.Text = "4-10 characters (letters, digits and spaces)\r\nRequires at least one digit\r\n";
             // 
             // employeeTownInfoLabel
             // 
             this.employeeTownInfoLabel.AutoSize = true;
             this.employeeTownInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeTownInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.employeeTownInfoLabel.Location = new System.Drawing.Point(795, 414);
+            this.employeeTownInfoLabel.Location = new System.Drawing.Point(795, 319);
             this.employeeTownInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeTownInfoLabel.Name = "employeeTownInfoLabel";
             this.employeeTownInfoLabel.Size = new System.Drawing.Size(344, 42);
             this.employeeTownInfoLabel.TabIndex = 48;
-            this.employeeTownInfoLabel.Text = "3-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.employeeTownInfoLabel.Text = "3-20 characters (letters, digits, spaces and \"-\")\r\nRequires at least one letter\r\n" +
+    "";
             // 
             // employeeEmailInfoLabel
             // 
             this.employeeEmailInfoLabel.AutoSize = true;
             this.employeeEmailInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeEmailInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.employeeEmailInfoLabel.Location = new System.Drawing.Point(261, 493);
+            this.employeeEmailInfoLabel.Location = new System.Drawing.Point(258, 481);
             this.employeeEmailInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeEmailInfoLabel.Name = "employeeEmailInfoLabel";
-            this.employeeEmailInfoLabel.Size = new System.Drawing.Size(344, 42);
+            this.employeeEmailInfoLabel.Size = new System.Drawing.Size(407, 42);
             this.employeeEmailInfoLabel.TabIndex = 49;
-            this.employeeEmailInfoLabel.Text = "7-30 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.employeeEmailInfoLabel.Text = "7-30 characters (letters, digits, spaces, \"-\", \"@\" and \".\")\r\nRequires at least on" +
+    "e letter, \"@\" and \".\"\r\n";
             // 
             // employeeTelephoneInfoLabel
             // 
             this.employeeTelephoneInfoLabel.AutoSize = true;
             this.employeeTelephoneInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeTelephoneInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.employeeTelephoneInfoLabel.Location = new System.Drawing.Point(261, 580);
+            this.employeeTelephoneInfoLabel.Location = new System.Drawing.Point(258, 566);
             this.employeeTelephoneInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeTelephoneInfoLabel.Name = "employeeTelephoneInfoLabel";
-            this.employeeTelephoneInfoLabel.Size = new System.Drawing.Size(350, 42);
+            this.employeeTelephoneInfoLabel.Size = new System.Drawing.Size(247, 42);
             this.employeeTelephoneInfoLabel.TabIndex = 50;
-            this.employeeTelephoneInfoLabel.Text = "10-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n" +
-    "";
+            this.employeeTelephoneInfoLabel.Text = "10-20 characters (digits, and \"+\")\r\nRequires at least one digit\r\n";
             // 
             // employeeSalaryInfoLabel
             // 
             this.employeeSalaryInfoLabel.AutoSize = true;
             this.employeeSalaryInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeSalaryInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.employeeSalaryInfoLabel.Location = new System.Drawing.Point(1384, 412);
+            this.employeeSalaryInfoLabel.Location = new System.Drawing.Point(1385, 404);
             this.employeeSalaryInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeSalaryInfoLabel.Name = "employeeSalaryInfoLabel";
-            this.employeeSalaryInfoLabel.Size = new System.Drawing.Size(341, 42);
+            this.employeeSalaryInfoLabel.Size = new System.Drawing.Size(154, 42);
             this.employeeSalaryInfoLabel.TabIndex = 54;
-            this.employeeSalaryInfoLabel.Text = "6-10 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.employeeSalaryInfoLabel.Text = "6-10 characters\r\nRequires digits only\r\n";
             // 
             // employeeBirthTimePicker
             // 
@@ -516,36 +486,101 @@
             this.employeeBirthTimePicker.Location = new System.Drawing.Point(262, 292);
             this.employeeBirthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.employeeBirthTimePicker.Name = "employeeBirthTimePicker";
-            this.employeeBirthTimePicker.Size = new System.Drawing.Size(300, 31);
+            this.employeeBirthTimePicker.Size = new System.Drawing.Size(211, 31);
             this.employeeBirthTimePicker.TabIndex = 55;
             this.employeeBirthTimePicker.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             // 
             // employeeContractStartTimePicker
             // 
             this.employeeContractStartTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.employeeContractStartTimePicker.Location = new System.Drawing.Point(1385, 200);
+            this.employeeContractStartTimePicker.Location = new System.Drawing.Point(1385, 191);
             this.employeeContractStartTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.employeeContractStartTimePicker.Name = "employeeContractStartTimePicker";
-            this.employeeContractStartTimePicker.Size = new System.Drawing.Size(300, 31);
+            this.employeeContractStartTimePicker.Size = new System.Drawing.Size(212, 31);
             this.employeeContractStartTimePicker.TabIndex = 56;
             this.employeeContractStartTimePicker.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            this.employeeContractStartTimePicker.ValueChanged += new System.EventHandler(this.employeeContractStartTimePicker_ValueChanged);
             // 
             // employeeContractEndTimePicker
             // 
             this.employeeContractEndTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.employeeContractEndTimePicker.Location = new System.Drawing.Point(1385, 292);
+            this.employeeContractEndTimePicker.Location = new System.Drawing.Point(1385, 283);
             this.employeeContractEndTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.employeeContractEndTimePicker.Name = "employeeContractEndTimePicker";
-            this.employeeContractEndTimePicker.Size = new System.Drawing.Size(300, 31);
+            this.employeeContractEndTimePicker.Size = new System.Drawing.Size(212, 31);
             this.employeeContractEndTimePicker.TabIndex = 57;
             this.employeeContractEndTimePicker.Value = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
+            // 
+            // employeeBirthInfoLabel
+            // 
+            this.employeeBirthInfoLabel.AutoSize = true;
+            this.employeeBirthInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.employeeBirthInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.employeeBirthInfoLabel.Location = new System.Drawing.Point(259, 326);
+            this.employeeBirthInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.employeeBirthInfoLabel.Name = "employeeBirthInfoLabel";
+            this.employeeBirthInfoLabel.Size = new System.Drawing.Size(322, 21);
+            this.employeeBirthInfoLabel.TabIndex = 58;
+            this.employeeBirthInfoLabel.Text = "Employee needs to be at least 18 years old.";
+            // 
+            // employeeContractStartInfoLabel
+            // 
+            this.employeeContractStartInfoLabel.AutoSize = true;
+            this.employeeContractStartInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.employeeContractStartInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.employeeContractStartInfoLabel.Location = new System.Drawing.Point(1382, 225);
+            this.employeeContractStartInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.employeeContractStartInfoLabel.Name = "employeeContractStartInfoLabel";
+            this.employeeContractStartInfoLabel.Size = new System.Drawing.Size(257, 42);
+            this.employeeContractStartInfoLabel.TabIndex = 59;
+            this.employeeContractStartInfoLabel.Text = "Contract can start between today \r\nand one month from now";
+            // 
+            // employeeContractEndInfoLabel
+            // 
+            this.employeeContractEndInfoLabel.AutoSize = true;
+            this.employeeContractEndInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.employeeContractEndInfoLabel.ForeColor = System.Drawing.Color.Black;
+            this.employeeContractEndInfoLabel.Location = new System.Drawing.Point(1382, 317);
+            this.employeeContractEndInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.employeeContractEndInfoLabel.Name = "employeeContractEndInfoLabel";
+            this.employeeContractEndInfoLabel.Size = new System.Drawing.Size(285, 21);
+            this.employeeContractEndInfoLabel.TabIndex = 60;
+            this.employeeContractEndInfoLabel.Text = "Contract length between 3-12 months";
+            // 
+            // employeeIdLabel
+            // 
+            this.employeeIdLabel.AutoSize = true;
+            this.employeeIdLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.employeeIdLabel.ForeColor = System.Drawing.Color.DarkRed;
+            this.employeeIdLabel.Location = new System.Drawing.Point(636, 9);
+            this.employeeIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.employeeIdLabel.Name = "employeeIdLabel";
+            this.employeeIdLabel.Size = new System.Drawing.Size(227, 45);
+            this.employeeIdLabel.TabIndex = 61;
+            this.employeeIdLabel.Text = "Employee ID: ";
+            // 
+            // employeeIdValue
+            // 
+            this.employeeIdValue.AutoSize = true;
+            this.employeeIdValue.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.employeeIdValue.ForeColor = System.Drawing.Color.DarkRed;
+            this.employeeIdValue.Location = new System.Drawing.Point(902, 9);
+            this.employeeIdValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.employeeIdValue.Name = "employeeIdValue";
+            this.employeeIdValue.Size = new System.Drawing.Size(0, 45);
+            this.employeeIdValue.TabIndex = 62;
             // 
             // CreateEditEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1758, 777);
+            this.ClientSize = new System.Drawing.Size(1758, 737);
+            this.Controls.Add(this.employeeIdValue);
+            this.Controls.Add(this.employeeIdLabel);
+            this.Controls.Add(this.employeeContractEndInfoLabel);
+            this.Controls.Add(this.employeeContractStartInfoLabel);
+            this.Controls.Add(this.employeeBirthInfoLabel);
             this.Controls.Add(this.employeeContractEndTimePicker);
             this.Controls.Add(this.employeeContractStartTimePicker);
             this.Controls.Add(this.employeeBirthTimePicker);
@@ -554,7 +589,6 @@
             this.Controls.Add(this.employeeEmailInfoLabel);
             this.Controls.Add(this.employeeTownInfoLabel);
             this.Controls.Add(this.employeePostcodeInfoLabel);
-            this.Controls.Add(this.employeeAddress2InfoLabel);
             this.Controls.Add(this.employeeAddress1InfoLabel);
             this.Controls.Add(this.employeeSurnameInfoLabel);
             this.Controls.Add(this.employeeNameInfoLabel);
@@ -565,9 +599,7 @@
             this.Controls.Add(this.employeePostcodeLabel);
             this.Controls.Add(this.employeeTownValue);
             this.Controls.Add(this.employeePostcodeValue);
-            this.Controls.Add(this.employeeAddress2Label);
             this.Controls.Add(this.employeeAddress1Label);
-            this.Controls.Add(this.employeeAddress2Value);
             this.Controls.Add(this.employeeAddress1Value);
             this.Controls.Add(this.employeeJobTitleDropDown);
             this.Controls.Add(this.employeeJobTitleLabel);
@@ -616,9 +648,7 @@
         private ComboBox employeeGenderDropDown;
         private ComboBox employeeJobTitleDropDown;
         private Label employeeJobTitleLabel;
-        private Label employeeAddress2Label;
         private Label employeeAddress1Label;
-        private TextBox employeeAddress2Value;
         private TextBox employeeAddress1Value;
         private Label employeeTownLabel;
         private Label employeePostcodeLabel;
@@ -630,7 +660,6 @@
         private Label employeeNameInfoLabel;
         private Label employeeSurnameInfoLabel;
         private Label employeeAddress1InfoLabel;
-        private Label employeeAddress2InfoLabel;
         private Label employeePostcodeInfoLabel;
         private Label employeeTownInfoLabel;
         private Label employeeEmailInfoLabel;
@@ -639,5 +668,10 @@
         private DateTimePicker employeeContractStartTimePicker;
         private DateTimePicker employeeBirthTimePicker;
         private DateTimePicker employeeContractEndTimePicker;
+        private Label employeeBirthInfoLabel;
+        private Label employeeContractStartInfoLabel;
+        private Label employeeContractEndInfoLabel;
+        private Label employeeIdLabel;
+        private Label employeeIdValue;
     }
 }
