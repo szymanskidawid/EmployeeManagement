@@ -1,4 +1,5 @@
 ﻿using ProgramLibrary;
+using ProgramLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,10 +17,17 @@ namespace ProgramUI
 {
     public partial class CreateEditDepartmentForm : Form
     {
+        private DepartmentModel loadedDepartment = EditMenuSubForm.GetLoadedDepartment();
+
         public CreateEditDepartmentForm()
         {
             InitializeComponent();
-           
+
+            if (loadedDepartment != null)
+            {
+                LoadDepartment(loadedDepartment);
+                loadedDepartment = null;
+            }
         }
 
         //Function that can be attached to automatically force input to start with capital letter
@@ -38,9 +46,7 @@ namespace ProgramUI
                 SqlConnector.CreateDepartment(departmentNameValue.Text,
                     departmentLocationValue.Text);
 
-                //Values will be set back to default after department is created/edited.
-                departmentNameValue.Text = "";
-                departmentLocationValue.Text = "";
+                ResetDepartmentFormValues();
 
                 //Closes the form
                 this.Close();
@@ -51,6 +57,13 @@ namespace ProgramUI
                 MessageBox.Show("Invalid information provided, please check comments and try again.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ValidationApprover.SetIsValid(true);
             }
+        }
+
+        //Values will be set back to default after department is created/edited.
+        private void ResetDepartmentFormValues()
+        { 
+            departmentNameValue.Text = "";
+            departmentLocationValue.Text = "";
         }
 
         //Function responsible for validating the form.
@@ -67,6 +80,14 @@ namespace ProgramUI
             ValidationApprover.UserInputValidation(departmentLocationValue, 5, 15, departmentLocationInfoLabel, locationValue, "LetterSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();
+        }
+
+        //Loads a department into fields when Edit is chosen.
+        private void LoadDepartment(DepartmentModel model)
+        {
+            departmentIdValue.Text = model.Id.ToString();
+            departmentNameValue.Text = model.DepartmentName;
+            departmentLocationValue.Text = model.DepartmentLocation;
         }
     }
 }

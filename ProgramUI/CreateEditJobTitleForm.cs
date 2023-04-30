@@ -14,6 +14,8 @@ namespace ProgramUI
 {
     public partial class CreateEditJobTitleForm : Form
     {
+        private JobTitleModel loadedJobTitle = EditMenuSubForm.GetLoadedJobTitle();
+
         private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
 
         public CreateEditJobTitleForm()
@@ -21,6 +23,12 @@ namespace ProgramUI
             InitializeComponent();
 
             JobTitleLoadLists();
+
+            if (loadedJobTitle != null)
+            {
+                LoadJobTitle(loadedJobTitle);
+                loadedJobTitle = null;
+            }
         }
 
         //Function that can be attached to automatically force input to start with capital letter
@@ -48,8 +56,8 @@ namespace ProgramUI
                         jobTitleDepartmentDropDown.Text,
                         jobTitleSupervisorDropDown.Text);
 
-                //Values will be set back to default after job title is created/edited
-                jobTitleNameValue.Text = "";
+                ResetJobTitleFormValues();
+
                 JobTitleLoadLists();
 
                 //Closes the form
@@ -61,7 +69,12 @@ namespace ProgramUI
                 MessageBox.Show("Invalid information provided, please check comments and try again.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ValidationApprover.SetIsValid(true);
             }
+        }
 
+        //Values will be set back to default after department is created/edited.
+        private void ResetJobTitleFormValues()
+        {
+            jobTitleNameValue.Text = "";
         }
 
         //Function responsible for validating the form.
@@ -76,6 +89,15 @@ namespace ProgramUI
             ValidationApprover.UserInputValidation(jobTitleNameValue, 5, 15, jobTitleNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();
+        }
+
+        //Loads a department into fields when Edit is chosen.
+        private void LoadJobTitle(JobTitleModel model)
+        {
+            jobTitleIdValue.Text = model.Id.ToString();
+            jobTitleNameValue.Text = model.JobTitleName;
+            jobTitleDepartmentDropDown.Text = model.JobTitleName;
+            jobTitleSupervisorDropDown.Text = model.IsSupervisor;
         }
     }
 }

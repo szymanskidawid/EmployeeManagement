@@ -20,6 +20,11 @@ namespace ProgramUI
         private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
+        //Creates variables that will get a chosen entry to edit.
+        private static EmployeeModel loadedEmployee = new();
+        private static DepartmentModel loadedDepartment = new();
+        private static JobTitleModel loadedJobTitle = new();
+
         public EditMenuSubForm()
         {
             InitializeComponent();
@@ -59,30 +64,64 @@ namespace ProgramUI
         {
             if (editCategoryDropDown.Text == "Employee")
             {
+                EmployeeModel selectedEmployee = editListBox.SelectedItem as EmployeeModel;
+                SetLoadedEmployee(selectedEmployee);
+
                 CreateEditEmployeeForm employerForm = new();
                 employerForm.Show();
+
+                SetLoadedEmployee(null); //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
             }
             else if (editCategoryDropDown.Text == "Department")
             {
-                DepartmentModel department = new DepartmentModel();
-
-                //WORK IN PROGRESS
-                for (int i = 0; i < availableDepartments.Count; i++)
-                {
-                    if (editListBox.SelectedItem.ToString() == availableDepartments[i].DepartmentName.ToString())
-                    {
-                        department = availableDepartments[i];
-                    }
-                }
+                DepartmentModel selectedDepartment = editListBox.SelectedItem as DepartmentModel;
+                SetLoadedDepartment(selectedDepartment);
 
                 CreateEditDepartmentForm departmentForm = new();
                 departmentForm.Show();
+
+                SetLoadedDepartment(null); 
             }
             else if (editCategoryDropDown.Text == "Job Title")
             {
+                JobTitleModel selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
+                SetLoadedJobTitle(selectedJobTitle);
+
                 CreateEditJobTitleForm jobTitleForm = new();
                 jobTitleForm.Show();
+
+                SetLoadedJobTitle(null);
             }   
+        }
+        internal void SetLoadedEmployee(EmployeeModel model)
+        {
+            loadedEmployee = model;
+        }
+
+        //Below functions are setters and getters for use in a CreateEdit forms.
+        internal static EmployeeModel GetLoadedEmployee()
+        {
+            return loadedEmployee;
+        }
+
+        internal void SetLoadedDepartment(DepartmentModel model)
+        {
+            loadedDepartment = model;
+        }
+
+        internal static DepartmentModel GetLoadedDepartment()
+        {
+            return loadedDepartment;
+        }
+
+        internal void SetLoadedJobTitle(JobTitleModel model)
+        {
+            loadedJobTitle = model;
+        }
+
+        internal static JobTitleModel GetLoadedJobTitle()
+        {
+            return loadedJobTitle;
         }
     }
 }

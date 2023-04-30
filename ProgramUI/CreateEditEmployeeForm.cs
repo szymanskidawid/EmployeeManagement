@@ -16,6 +16,8 @@ namespace ProgramUI
 {
     public partial class CreateEditEmployeeForm : Form
     {
+        private EmployeeModel loadedEmployee = EditMenuSubForm.GetLoadedEmployee();
+
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
         public CreateEditEmployeeForm()
@@ -24,18 +26,34 @@ namespace ProgramUI
 
             EmployeeLoadLists();
 
-            //Code that modifies min/max value of Date Time Pickers.
-            employeeBirthTimePicker.MaxDate = DateTime.Now.AddYears(-18);
+            if (loadedEmployee != null)
+            {
+                LoadEmployee(loadedEmployee);
+                loadedEmployee = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
+            }
+            else
+            {
+                //Code that modifies min/max value of Date Time Pickers.
+                employeeBirthTimePicker.MaxDate = DateTime.Now.AddYears(-18);
 
-            employeeContractStartTimePicker.MinDate = DateTime.Today;
-            employeeContractStartTimePicker.MaxDate = DateTime.Now.AddMonths(1);
+                employeeContractStartTimePicker.MinDate = DateTime.Today;
+                employeeContractStartTimePicker.MaxDate = DateTime.Now.AddMonths(1);
+            }
         }
 
         //Contract End rules will update each time Contract Start changes
         private void employeeContractStartTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            employeeContractEndTimePicker.MinDate = employeeContractStartTimePicker.Value.AddMonths(3);
-            employeeContractEndTimePicker.MaxDate = employeeContractStartTimePicker.Value.AddYears(1);
+            if (loadedEmployee != null)
+            {
+
+            }
+            else
+            {
+                employeeContractEndTimePicker.MinDate = employeeContractStartTimePicker.Value.AddMonths(3);
+                employeeContractEndTimePicker.MaxDate = employeeContractStartTimePicker.Value.AddYears(1);
+            }
+
         }
 
         //Function that can be attached to automatically force input to start with capital letter
@@ -59,7 +77,6 @@ namespace ProgramUI
         //Save employee using values in the form fields.
         private void employeeSaveButton_Click(object sender, EventArgs e)
         {
-
             if (EmployeeFormValidation())
             {
                 SqlConnector.CreateEmployee(employeeFirstNameValue.Text,
@@ -78,22 +95,12 @@ namespace ProgramUI
                         employeeSalaryValue.Text,
                         employeeCurrencyDropDown.Text);
 
-                //Values will be set back to default after employee is created/edited
-                employeeFirstNameValue.Text = "";
-                employeeLastNameValue.Text = "";
-                employeeBirthTimePicker.Text = "";
-                employeeEmailValue.Text = "";
-                employeeTelephoneValue.Text = "";
-                employeeAddress1Value.Text = "";
-                employeePostcodeValue.Text = "";
-                employeeTownValue.Text = "";
-                employeeContractStartTimePicker.Text = "";
-                employeeContractEndTimePicker.Text = "";
-                employeeSalaryValue.Text = "";
+                ResetEmployeeFormValues();
+
                 EmployeeLoadLists();
 
                 //Closes the form
-                this.Close(); 
+                this.Close();
             }
 
             else
@@ -101,6 +108,22 @@ namespace ProgramUI
                 MessageBox.Show("Invalid information provided, please check comments and try again.", "Error Occured", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 ValidationApprover.SetIsValid(true);
             }
+        }
+
+        //Values will be set back to default after employee is created/edited
+        private void ResetEmployeeFormValues()
+        {
+            employeeFirstNameValue.Text = "";
+            employeeLastNameValue.Text = "";
+            employeeBirthTimePicker.Text = "";
+            employeeEmailValue.Text = "";
+            employeeTelephoneValue.Text = "";
+            employeeAddress1Value.Text = "";
+            employeePostcodeValue.Text = "";
+            employeeTownValue.Text = "";
+            employeeContractStartTimePicker.Text = "";
+            employeeContractEndTimePicker.Text = "";
+            employeeSalaryValue.Text = "";
         }
 
         //Function responsible for validating the form.
@@ -125,12 +148,31 @@ namespace ProgramUI
             ValidationApprover.UserInputValidation(employeeTelephoneValue, 10, 20, employeeTelephoneInfoLabel, telephoneValue, "DigitPlus", "Digit");
             ValidationApprover.UserInputValidation(employeeAddress1Value, 5, 20, employeeAddress1InfoLabel, address1Value, "LetterDigitSpaceDash", "Letter");
             ValidationApprover.UserInputValidation(employeePostcodeValue, 4, 10, employeePostcodeInfoLabel, postcodeValue, "LetterDigitSpace", "Digit");
-            ValidationApprover.UserInputValidation(employeeTownValue, 3, 20, employeeTownInfoLabel, townValue, "LetterSpaceDash", "Letter"); 
+            ValidationApprover.UserInputValidation(employeeTownValue, 3, 20, employeeTownInfoLabel, townValue, "LetterSpaceDash", "Letter");
             ValidationApprover.UserInputValidation(employeeSalaryValue, 6, 10, employeeSalaryInfoLabel, salaryValue, "Digit", "Digit");
 
             return isValid = ValidationApprover.GetIsValid();
         }
 
-        
+        //Loads an employee into fields when Edit is chosen.
+        private void LoadEmployee(EmployeeModel model)
+        {
+            employeeIdValue.Text = model.Id.ToString();
+            employeeFirstNameValue.Text = model.FirstName;
+            employeeLastNameValue.Text = model.LastName;
+            employeeBirthTimePicker.Text = model.DateOfBirth;
+            employeeGenderDropDown.Text = model.Gender;
+            employeeEmailValue.Text = model.EmailAddress;
+            employeeTelephoneValue.Text = model.TelephoneNumber;
+            employeeAddress1Value.Text = model.Address1;
+            employeePostcodeValue.Text = model.Postcode;
+            employeeTownValue.Text = model.Town;
+            employeeCountryDropDown.Text = model.Country;
+            employeeJobTitleDropDown.Text = model.JobTitles;
+            employeeContractStartTimePicker.Text = model.ContractStart;
+            employeeContractEndTimePicker.Text = model.ContractEnd;
+            employeeSalaryValue.Text = model.Salary;
+            employeeCurrencyDropDown.Text = model.Currency;
+        }
     }
 }
