@@ -29,7 +29,7 @@ namespace ProgramUI
         }
 
         //Boolean used to set Validation State.
-        private static bool isValid = new();
+        private static bool isValid = true;
 
         //Sets a state of a Validation State boolean.
         internal static void SetIsValid(bool state)

@@ -14,10 +14,12 @@ using System.Net.Mail;
 
 namespace ProgramUI
 {
-    public partial class CreateEditEmployeeForm : Form
+    public partial class CreateEditEmployeeForm : Form 
     {
+        //Gets a value of a chosen employee from EditMenuSubForm.
         private EmployeeModel loadedEmployee = EditMenuSubForm.GetLoadedEmployee();
 
+        //Variable that gets values of  all available job titles from Sql Departments table.
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
         public CreateEditEmployeeForm()
@@ -26,16 +28,17 @@ namespace ProgramUI
 
             EmployeeLoadLists();
 
+            //Sets a MaxDate of D.O.B. so that employee needs to be at least 18 years old.
+            employeeBirthTimePicker.MaxDate = DateTime.Now.AddYears(-18);
+
+            //This code will load an existing department ONLY if user accesses Edit mode.
             if (loadedEmployee != null)
             {
                 LoadEmployee(loadedEmployee);
-                loadedEmployee = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
             }
             else
             {
-                //Code that modifies min/max value of Date Time Pickers.
-                employeeBirthTimePicker.MaxDate = DateTime.Now.AddYears(-18);
-
+                //Code that modifies min/max value of Contract Start Time.            
                 employeeContractStartTimePicker.MinDate = DateTime.Today;
                 employeeContractStartTimePicker.MaxDate = DateTime.Now.AddMonths(1);
             }
@@ -44,16 +47,8 @@ namespace ProgramUI
         //Contract End rules will update each time Contract Start changes
         private void employeeContractStartTimePicker_ValueChanged(object sender, EventArgs e)
         {
-            if (loadedEmployee != null)
-            {
-
-            }
-            else
-            {
-                employeeContractEndTimePicker.MinDate = employeeContractStartTimePicker.Value.AddMonths(3);
-                employeeContractEndTimePicker.MaxDate = employeeContractStartTimePicker.Value.AddYears(1);
-            }
-
+            employeeContractEndTimePicker.MinDate = employeeContractStartTimePicker.Value.AddMonths(3);
+            employeeContractEndTimePicker.MaxDate = employeeContractStartTimePicker.Value.AddYears(1);
         }
 
         //Function that can be attached to automatically force input to start with capital letter
@@ -79,7 +74,10 @@ namespace ProgramUI
         {
             if (EmployeeFormValidation())
             {
-                SqlConnector.CreateEmployee(employeeFirstNameValue.Text,
+                if (!EditMenuSubForm.GetEditState())
+                {
+                    //Save employee using values in the form fields.
+                    SqlConnector.CreateEmployee(employeeFirstNameValue.Text,
                         employeeLastNameValue.Text,
                         employeeBirthTimePicker.Text,
                         employeeGenderDropDown.Text,
@@ -94,10 +92,35 @@ namespace ProgramUI
                         employeeContractEndTimePicker.Text,
                         employeeSalaryValue.Text,
                         employeeCurrencyDropDown.Text);
+                }
+
+                else
+                {
+                    //Edit employee using values in the form fields.
+                    SqlConnector.EditEmployee(loadedEmployee.Id, employeeFirstNameValue.Text,
+                        employeeLastNameValue.Text,
+                        employeeBirthTimePicker.Text,
+                        employeeGenderDropDown.Text,
+                        employeeEmailValue.Text,
+                        employeeTelephoneValue.Text,
+                        employeeAddress1Value.Text,
+                        employeePostcodeValue.Text,
+                        employeeTownValue.Text,
+                        employeeCountryDropDown.Text,
+                        employeeJobTitleDropDown.Text,
+                        employeeContractStartTimePicker.Text,
+                        employeeContractEndTimePicker.Text,
+                        employeeSalaryValue.Text,
+                        employeeCurrencyDropDown.Text);
+                } 
 
                 ResetEmployeeFormValues();
 
-                EmployeeLoadLists();
+                loadedEmployee = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
+
+                EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
+
+                //EmployeeLoadLists();
 
                 //Closes the form
                 this.Close();
@@ -121,6 +144,7 @@ namespace ProgramUI
             employeeAddress1Value.Text = "";
             employeePostcodeValue.Text = "";
             employeeTownValue.Text = "";
+            employeeJobTitleDropDown.Text = "";
             employeeContractStartTimePicker.Text = "";
             employeeContractEndTimePicker.Text = "";
             employeeSalaryValue.Text = "";
@@ -147,9 +171,9 @@ namespace ProgramUI
             ValidationApprover.UserInputValidation(employeeEmailValue, 7, 30, employeeEmailInfoLabel, emailValue, "LetterDigitSpaceDashDotAt", "LetterAtDot");
             ValidationApprover.UserInputValidation(employeeTelephoneValue, 10, 20, employeeTelephoneInfoLabel, telephoneValue, "DigitPlus", "Digit");
             ValidationApprover.UserInputValidation(employeeAddress1Value, 5, 20, employeeAddress1InfoLabel, address1Value, "LetterDigitSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeePostcodeValue, 4, 10, employeePostcodeInfoLabel, postcodeValue, "LetterDigitSpace", "Digit");
+            ValidationApprover.UserInputValidation(employeePostcodeValue, 4, 10, employeePostcodeInfoLabel, postcodeValue, "LetterDigitSpaceDash", "Digit");
             ValidationApprover.UserInputValidation(employeeTownValue, 3, 20, employeeTownInfoLabel, townValue, "LetterSpaceDash", "Letter");
-            ValidationApprover.UserInputValidation(employeeSalaryValue, 6, 10, employeeSalaryInfoLabel, salaryValue, "Digit", "Digit");
+            ValidationApprover.UserInputValidation(employeeSalaryValue, 4, 8, employeeSalaryInfoLabel, salaryValue, "Digit", "Digit");
 
             return isValid = ValidationApprover.GetIsValid();
         }
@@ -168,7 +192,7 @@ namespace ProgramUI
             employeePostcodeValue.Text = model.Postcode;
             employeeTownValue.Text = model.Town;
             employeeCountryDropDown.Text = model.Country;
-            employeeJobTitleDropDown.Text = model.JobTitles;
+            employeeJobTitleDropDown.Text = model.JobTitle;
             employeeContractStartTimePicker.Text = model.ContractStart;
             employeeContractEndTimePicker.Text = model.ContractEnd;
             employeeSalaryValue.Text = model.Salary;

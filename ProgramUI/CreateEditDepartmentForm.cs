@@ -17,16 +17,17 @@ namespace ProgramUI
 {
     public partial class CreateEditDepartmentForm : Form
     {
+        //Gets a value of a chosen department from EditMenuSubForm.
         private DepartmentModel loadedDepartment = EditMenuSubForm.GetLoadedDepartment();
 
         public CreateEditDepartmentForm()
         {
             InitializeComponent();
 
+            //This code will load an existing department ONLY if user accesses Edit mode.
             if (loadedDepartment != null)
             {
                 LoadDepartment(loadedDepartment);
-                loadedDepartment = null;
             }
         }
 
@@ -42,11 +43,25 @@ namespace ProgramUI
         {
             if (DepartmentFormValidation())
             {
-                //Save/Edit department using values in the form fields.
-                SqlConnector.CreateDepartment(departmentNameValue.Text,
-                    departmentLocationValue.Text);
+                if (!EditMenuSubForm.GetEditState())
+                {
+                    //Save department using values in the form fields.
+                    SqlConnector.CreateDepartment(departmentNameValue.Text,
+                        departmentLocationValue.Text); 
+                }
+
+                else
+                {
+                    //Edit department using values in the form fields.
+                    SqlConnector.EditDepartment(loadedDepartment.Id, departmentNameValue.Text,
+                        departmentLocationValue.Text);
+                }
 
                 ResetDepartmentFormValues();
+
+                loadedDepartment = null; //Sets value back to null so that this IF does not trigger automatically when form is opened again.
+
+                EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
 
                 //Closes the form
                 this.Close();
@@ -76,7 +91,7 @@ namespace ProgramUI
 
             //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
             //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
-            ValidationApprover.UserInputValidation(departmentNameValue, 5, 15, departmentNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
+            ValidationApprover.UserInputValidation(departmentNameValue, 5, 20, departmentNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
             ValidationApprover.UserInputValidation(departmentLocationValue, 5, 15, departmentLocationInfoLabel, locationValue, "LetterSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();

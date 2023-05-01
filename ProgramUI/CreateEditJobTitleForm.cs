@@ -14,8 +14,10 @@ namespace ProgramUI
 {
     public partial class CreateEditJobTitleForm : Form
     {
+        //Gets a value of a chosen job title from EditMenuSubForm.
         private JobTitleModel loadedJobTitle = EditMenuSubForm.GetLoadedJobTitle();
 
+        //Variable that gets values of  all available departments from Sql Departments table.
         private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
 
         public CreateEditJobTitleForm()
@@ -24,10 +26,10 @@ namespace ProgramUI
 
             JobTitleLoadLists();
 
+            //This code will load an existing department ONLY if user accesses Edit mode.
             if (loadedJobTitle != null)
             {
                 LoadJobTitle(loadedJobTitle);
-                loadedJobTitle = null;
             }
         }
 
@@ -52,13 +54,28 @@ namespace ProgramUI
         {
             if (JobTitleFormValidation())
             {
-                SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
+                if (!EditMenuSubForm.GetEditState())
+                {
+                    //Save job title using values in the form fields.
+                    SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
                         jobTitleDepartmentDropDown.Text,
                         jobTitleSupervisorDropDown.Text);
+                }
+
+                else
+                {
+                    //Edit job title using values in the form fields.
+                    SqlConnector.EditJobTitle(loadedJobTitle.Id, jobTitleNameValue.Text,
+                        jobTitleDepartmentDropDown.Text, jobTitleSupervisorDropDown.Text);
+                }
 
                 ResetJobTitleFormValues();
 
-                JobTitleLoadLists();
+                loadedJobTitle = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
+
+                EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
+
+                //JobTitleLoadLists();
 
                 //Closes the form
                 this.Close(); 
@@ -86,7 +103,7 @@ namespace ProgramUI
 
             //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
             //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
-            ValidationApprover.UserInputValidation(jobTitleNameValue, 5, 15, jobTitleNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
+            ValidationApprover.UserInputValidation(jobTitleNameValue, 5, 20, jobTitleNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();
         }

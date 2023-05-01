@@ -34,7 +34,7 @@ namespace ProgramLibrary
                     Postcode = postcode,
                     Town = town,
                     Country = country,
-                    JobTitles = jobTitle,
+                    JobTitle = jobTitle,
                     ContractStart = contractStart,
                     ContractEnd = contractEnd,
                     Salary = salary,
@@ -53,7 +53,7 @@ namespace ProgramLibrary
                 p.Add("@Postcode", model.Postcode);
                 p.Add("@Town", model.Town);
                 p.Add("@Country", model.Country);
-                p.Add("@JobTitle", model.JobTitles);
+                p.Add("@JobTitle", model.JobTitle);
                 p.Add("@ContractStart", model.ContractStart);
                 p.Add("@ContractEnd", model.ContractEnd);
                 p.Add("@Salary", model.Salary);
@@ -63,6 +63,57 @@ namespace ProgramLibrary
                 connection.Execute("dbo.spEmployees_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
+            }
+        }
+
+        // Edit an existing employee and save it to the database.
+        public static void EditEmployee(int id, string firstName, string lastName, string DOB,
+            string gender, string email, string telephone, string address1,
+            string postcode, string town, string country, string jobTitle,
+            string contractStart, string contractEnd, string salary, string currency)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                EmployeeModel model = new()
+                {
+                    Id = id,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    DateOfBirth = DOB,
+                    Gender = gender,
+                    EmailAddress = email,
+                    TelephoneNumber = telephone,
+                    Address1 = address1,
+                    Postcode = postcode,
+                    Town = town,
+                    Country = country,
+                    JobTitle = jobTitle,
+                    ContractStart = contractStart,
+                    ContractEnd = contractEnd,
+                    Salary = salary,
+                    Currency = currency
+                };
+
+                //Save data from C# variables into SQL variables
+                var p = new DynamicParameters();
+                p.Add("@Id", id);
+                p.Add("@FirstName", firstName);
+                p.Add("@LastName", lastName);
+                p.Add("@DateOfBirth", DOB);
+                p.Add("@Gender", gender);
+                p.Add("@EmailAddress", email);
+                p.Add("@TelephoneNumber", telephone);
+                p.Add("@Address1", address1);
+                p.Add("@Postcode", postcode);
+                p.Add("@Town", town);
+                p.Add("@Country", country);
+                p.Add("@JobTitle", jobTitle);
+                p.Add("@ContractStart", contractStart);
+                p.Add("@ContractEnd", contractEnd);
+                p.Add("@Salary", salary);
+                p.Add("@Currency", currency);
+
+                connection.Execute("dbo.spEmployees_Update", p, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -81,10 +132,32 @@ namespace ProgramLibrary
                 p.Add("@DepartmentName", model.DepartmentName);
                 p.Add("@DepartmentLocation", model.DepartmentLocation);
                 p.Add("@id", 0, dbType: DbType.Int32, direction: ParameterDirection.Output);
-
+                
                 connection.Execute("dbo.spDepartments_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
+            }
+        }
+
+        // Edit an existing department and save it to the database.
+        public static void EditDepartment(int id, string departmentName, string departmentLocation)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                DepartmentModel model = new()
+                {
+                    Id = id,
+                    DepartmentName = departmentName,
+                    DepartmentLocation = departmentLocation
+                };
+
+                //Edit data from C# variables into SQL variables
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                p.Add("@DepartmentName", model.DepartmentName);
+                p.Add("@DepartmentLocation", model.DepartmentLocation);
+
+                connection.Execute("dbo.spDepartments_Update", p, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -99,6 +172,7 @@ namespace ProgramLibrary
                     JobTitleDepartment = jobTitleDepartment,
                     IsSupervisor = isSupervisor
                 };
+
                 //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
                 p.Add("@JobTitleName", model.JobTitleName);
@@ -109,6 +183,30 @@ namespace ProgramLibrary
                 connection.Execute("dbo.spJobTitles_Insert", p, commandType: CommandType.StoredProcedure);
 
                 model.Id = p.Get<int>("@id");
+            }
+        }
+
+        // Edit an existing job title and save it to the database.
+        public static void EditJobTitle(int id, string jobTitleName, string jobTitleDepartment, string isSupervisor)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                JobTitleModel model = new JobTitleModel
+                {
+                    Id = id,
+                    JobTitleName = jobTitleName,
+                    JobTitleDepartment = jobTitleDepartment,
+                    IsSupervisor = isSupervisor
+                };
+
+                //Edit data from C# variables into SQL variables
+                var p = new DynamicParameters();
+                p.Add("@Id", model.Id);
+                p.Add("@JobTitleName", model.JobTitleName);
+                p.Add("@JobTitleDepartment", model.JobTitleDepartment);
+                p.Add("@IsSupervisor", model.IsSupervisor);
+
+                connection.Execute("dbo.spJobTitles_Update", p, commandType: CommandType.StoredProcedure);
             }
         }
 

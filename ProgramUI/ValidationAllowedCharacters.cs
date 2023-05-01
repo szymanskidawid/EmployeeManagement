@@ -25,7 +25,7 @@ namespace ProgramUI
             return letDig;
         }
 
-        //Only allow letters, spaces and dashes in a field.
+        //Only allow letters, digits and spaces in a field.
         internal static bool AllowLetterDigitSpace(string value)
         {
             bool letDigSpace = value.All(c => Char.IsLetterOrDigit(c) || c == ' ');
@@ -63,6 +63,14 @@ namespace ProgramUI
             bool letDigSpaceDash = value.All(c => Char.IsLetter(c) || c == '-');
 
             return letDigSpaceDash;
+        }
+
+        //Only allow digits in a field.
+        internal static bool AllowDigit(string value)
+        {
+            bool dig = value.All(c => Char.IsDigit(c));
+
+            return dig;
         }
 
         //Only allow digits and spaces in a field.
@@ -117,6 +125,11 @@ namespace ProgramUI
             if (allow == "LetterDash")
             {
                 return AllowLetterDash(textboxValue);
+            }
+
+            if (allow == "Digit")
+            {
+                return AllowDigit(textboxValue);
             }
 
             if (allow == "DigitSpace")

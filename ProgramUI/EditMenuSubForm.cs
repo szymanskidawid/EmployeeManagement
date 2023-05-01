@@ -25,6 +25,8 @@ namespace ProgramUI
         private static DepartmentModel loadedDepartment = new();
         private static JobTitleModel loadedJobTitle = new();
 
+        private static bool editState = false;
+
         public EditMenuSubForm()
         {
             InitializeComponent();
@@ -66,6 +68,7 @@ namespace ProgramUI
             {
                 EmployeeModel selectedEmployee = editListBox.SelectedItem as EmployeeModel;
                 SetLoadedEmployee(selectedEmployee);
+                SetEditState(true);
 
                 CreateEditEmployeeForm employerForm = new();
                 employerForm.Show();
@@ -76,6 +79,7 @@ namespace ProgramUI
             {
                 DepartmentModel selectedDepartment = editListBox.SelectedItem as DepartmentModel;
                 SetLoadedDepartment(selectedDepartment);
+                SetEditState(true);
 
                 CreateEditDepartmentForm departmentForm = new();
                 departmentForm.Show();
@@ -86,6 +90,7 @@ namespace ProgramUI
             {
                 JobTitleModel selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
                 SetLoadedJobTitle(selectedJobTitle);
+                SetEditState(true);
 
                 CreateEditJobTitleForm jobTitleForm = new();
                 jobTitleForm.Show();
@@ -122,6 +127,17 @@ namespace ProgramUI
         internal static JobTitleModel GetLoadedJobTitle()
         {
             return loadedJobTitle;
+        }
+
+        //Functions below will determine whether Save button in a CreateEdit forms will save new entries into SQL or update existing ones.
+        internal static void SetEditState(bool state)
+        {
+            editState = state;
+        }
+
+        internal static bool GetEditState()
+        {
+            return editState;
         }
     }
 }

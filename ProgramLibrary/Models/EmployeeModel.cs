@@ -20,7 +20,7 @@ namespace ProgramLibrary.Models
         public string Postcode { get; set; }
         public string Town { get; set; }
         public string Country { get; set; }
-        public string JobTitles { get; set; }
+        public string JobTitle { get; set; }
         public string ContractStart { get; set; }
         public string ContractEnd { get; set; }
         public string Salary { get; set; }

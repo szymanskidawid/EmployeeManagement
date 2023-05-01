@@ -426,9 +426,9 @@
             this.employeePostcodeInfoLabel.Location = new System.Drawing.Point(796, 228);
             this.employeePostcodeInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeePostcodeInfoLabel.Name = "employeePostcodeInfoLabel";
-            this.employeePostcodeInfoLabel.Size = new System.Drawing.Size(313, 42);
+            this.employeePostcodeInfoLabel.Size = new System.Drawing.Size(341, 42);
             this.employeePostcodeInfoLabel.TabIndex = 47;
-            this.employeePostcodeInfoLabel.Text = "4-10 characters (letters, digits and spaces)\r\nRequires at least one digit\r\n";
+            this.employeePostcodeInfoLabel.Text = "4-10 characters (letters, digits, spaces and \"-\")\r\nRequires at least one digit\r\n";
             // 
             // employeeTownInfoLabel
             // 
@@ -478,12 +478,13 @@
             this.employeeSalaryInfoLabel.Name = "employeeSalaryInfoLabel";
             this.employeeSalaryInfoLabel.Size = new System.Drawing.Size(154, 42);
             this.employeeSalaryInfoLabel.TabIndex = 54;
-            this.employeeSalaryInfoLabel.Text = "6-10 characters\r\nRequires digits only\r\n";
+            this.employeeSalaryInfoLabel.Text = "4-8 characters\r\nRequires digits only\r\n";
             // 
             // employeeBirthTimePicker
             // 
             this.employeeBirthTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.employeeBirthTimePicker.Location = new System.Drawing.Point(262, 292);
+            this.employeeBirthTimePicker.MaxDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.employeeBirthTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.employeeBirthTimePicker.Name = "employeeBirthTimePicker";
             this.employeeBirthTimePicker.Size = new System.Drawing.Size(211, 31);

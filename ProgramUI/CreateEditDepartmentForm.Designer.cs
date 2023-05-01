@@ -134,9 +134,9 @@
             this.departmentNameInfoLabel.Location = new System.Drawing.Point(377, 253);
             this.departmentNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentNameInfoLabel.Name = "departmentNameInfoLabel";
-            this.departmentNameInfoLabel.Size = new System.Drawing.Size(341, 42);
+            this.departmentNameInfoLabel.Size = new System.Drawing.Size(344, 42);
             this.departmentNameInfoLabel.TabIndex = 41;
-            this.departmentNameInfoLabel.Text = "5-15 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.departmentNameInfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
             // 
             // departmentIdValue
             // 

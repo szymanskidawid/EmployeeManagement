@@ -142,9 +142,9 @@
             this.jobTitleNameInfoLabel.Location = new System.Drawing.Point(363, 280);
             this.jobTitleNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleNameInfoLabel.Name = "jobTitleNameInfoLabel";
-            this.jobTitleNameInfoLabel.Size = new System.Drawing.Size(341, 42);
+            this.jobTitleNameInfoLabel.Size = new System.Drawing.Size(344, 42);
             this.jobTitleNameInfoLabel.TabIndex = 51;
-            this.jobTitleNameInfoLabel.Text = "5-15 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.jobTitleNameInfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
             // 
             // jobTitleIdValue
             // 
