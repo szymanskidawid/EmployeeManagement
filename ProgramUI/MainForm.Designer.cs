@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainEmployeeView = new System.Windows.Forms.DataGridView();
             this.searchValue = new System.Windows.Forms.TextBox();
@@ -46,6 +47,14 @@
             // 
             this.mainEmployeeView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.mainEmployeeView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mainEmployeeView.DefaultCellStyle = dataGridViewCellStyle1;
             this.mainEmployeeView.Location = new System.Drawing.Point(204, 203);
             this.mainEmployeeView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainEmployeeView.Name = "mainEmployeeView";
@@ -53,8 +62,6 @@
             this.mainEmployeeView.RowTemplate.Height = 25;
             this.mainEmployeeView.Size = new System.Drawing.Size(1431, 802);
             this.mainEmployeeView.TabIndex = 0;
-            this.mainEmployeeView.ForeColor = Color.Black;
-            this.mainEmployeeView.DefaultCellStyle.SelectionBackColor = Color.Black;               
             // 
             // searchValue
             // 
@@ -160,6 +167,7 @@
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "MainForm";
             this.Text = "Main View";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).EndInit();
             this.toolStrip.ResumeLayout(false);
             this.toolStrip.PerformLayout();

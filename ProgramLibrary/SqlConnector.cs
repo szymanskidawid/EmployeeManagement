@@ -14,6 +14,26 @@ namespace ProgramLibrary
 {
     public class SqlConnector
     {
+        // Login system that accepts user input and returns whether it matches available logins in SQL table.
+        public static bool LoginSystem(string login, string password)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                string query = "SELECT COUNT(*) FROM dbo.LoginTable WHERE username = @username AND password = @password";
+
+                var p = new DynamicParameters();
+                p.Add("@username", login);
+                p.Add("@password", password);
+
+                //count value increases to 1 if passed variables match with any dbo.LoginTable entry
+                int count = (int)connection.ExecuteScalar(query, p); 
+
+                bool isValid = (count > 0);
+
+                return isValid;
+            }
+        }
+
         // Create a new employee and save it to the database.
         public static void CreateEmployee(string firstName, string lastName, string DOB,
             string gender, string email, string telephone, string address1,
@@ -96,22 +116,22 @@ namespace ProgramLibrary
 
                 //Save data from C# variables into SQL variables
                 var p = new DynamicParameters();
-                p.Add("@Id", id);
-                p.Add("@FirstName", firstName);
-                p.Add("@LastName", lastName);
-                p.Add("@DateOfBirth", DOB);
-                p.Add("@Gender", gender);
-                p.Add("@EmailAddress", email);
-                p.Add("@TelephoneNumber", telephone);
-                p.Add("@Address1", address1);
-                p.Add("@Postcode", postcode);
-                p.Add("@Town", town);
-                p.Add("@Country", country);
-                p.Add("@JobTitle", jobTitle);
-                p.Add("@ContractStart", contractStart);
-                p.Add("@ContractEnd", contractEnd);
-                p.Add("@Salary", salary);
-                p.Add("@Currency", currency);
+                p.Add("@Id", model.Id);
+                p.Add("@FirstName", model.FirstName);
+                p.Add("@LastName", model.LastName);
+                p.Add("@DateOfBirth", model.DateOfBirth);
+                p.Add("@Gender", model.Gender);
+                p.Add("@EmailAddress", model.EmailAddress);
+                p.Add("@TelephoneNumber", model.TelephoneNumber);
+                p.Add("@Address1", model.Address1);
+                p.Add("@Postcode", model.Postcode);
+                p.Add("@Town", model.Town);
+                p.Add("@Country", model.Country);
+                p.Add("@JobTitle", model.JobTitle);
+                p.Add("@ContractStart", model.ContractStart);
+                p.Add("@ContractEnd", model.ContractEnd);
+                p.Add("@Salary", model.Salary);
+                p.Add("@Currency", model.Currency);
 
                 connection.Execute("dbo.spEmployees_Update", p, commandType: CommandType.StoredProcedure);
             }

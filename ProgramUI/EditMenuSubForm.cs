@@ -21,9 +21,9 @@ namespace ProgramUI
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
         //Creates variables that will get a chosen entry to edit.
-        private static EmployeeModel loadedEmployee = new();
-        private static DepartmentModel loadedDepartment = new();
-        private static JobTitleModel loadedJobTitle = new();
+        private static EmployeeModel selectedEmployee = new();
+        private static DepartmentModel selectedDepartment = new();
+        private static JobTitleModel selectedJobTitle = new();
 
         private static bool editState = false;
 
@@ -66,67 +66,53 @@ namespace ProgramUI
         {
             if (editCategoryDropDown.Text == "Employee")
             {
-                EmployeeModel selectedEmployee = editListBox.SelectedItem as EmployeeModel;
-                SetLoadedEmployee(selectedEmployee);
+                selectedEmployee = editListBox.SelectedItem as EmployeeModel;
                 SetEditState(true);
 
+                this.Close();
                 CreateEditEmployeeForm employerForm = new();
                 employerForm.Show();
 
-                SetLoadedEmployee(null); //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
+                selectedEmployee = null; //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
             }
             else if (editCategoryDropDown.Text == "Department")
             {
-                DepartmentModel selectedDepartment = editListBox.SelectedItem as DepartmentModel;
-                SetLoadedDepartment(selectedDepartment);
+                selectedDepartment = editListBox.SelectedItem as DepartmentModel;
                 SetEditState(true);
 
+                this.Close();
                 CreateEditDepartmentForm departmentForm = new();
                 departmentForm.Show();
 
-                SetLoadedDepartment(null); 
+                selectedDepartment = null;
             }
             else if (editCategoryDropDown.Text == "Job Title")
             {
-                JobTitleModel selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
-                SetLoadedJobTitle(selectedJobTitle);
+                selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
                 SetEditState(true);
 
+                this.Close();
                 CreateEditJobTitleForm jobTitleForm = new();
                 jobTitleForm.Show();
 
-                SetLoadedJobTitle(null);
+                selectedJobTitle = null;
             }   
         }
-        internal void SetLoadedEmployee(EmployeeModel model)
+
+        //Below functions are getters for use in a CreateEdit forms.
+        internal static EmployeeModel GetSelectedEmployee()
         {
-            loadedEmployee = model;
+            return selectedEmployee;
         }
 
-        //Below functions are setters and getters for use in a CreateEdit forms.
-        internal static EmployeeModel GetLoadedEmployee()
+        internal static DepartmentModel GetSelectedDepartment()
         {
-            return loadedEmployee;
+            return selectedDepartment;
         }
 
-        internal void SetLoadedDepartment(DepartmentModel model)
+        internal static JobTitleModel GetSelectedJobTitle()
         {
-            loadedDepartment = model;
-        }
-
-        internal static DepartmentModel GetLoadedDepartment()
-        {
-            return loadedDepartment;
-        }
-
-        internal void SetLoadedJobTitle(JobTitleModel model)
-        {
-            loadedJobTitle = model;
-        }
-
-        internal static JobTitleModel GetLoadedJobTitle()
-        {
-            return loadedJobTitle;
+            return selectedJobTitle;
         }
 
         //Functions below will determine whether Save button in a CreateEdit forms will save new entries into SQL or update existing ones.

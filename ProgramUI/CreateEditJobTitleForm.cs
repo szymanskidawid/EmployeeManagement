@@ -15,7 +15,7 @@ namespace ProgramUI
     public partial class CreateEditJobTitleForm : Form
     {
         //Gets a value of a chosen job title from EditMenuSubForm.
-        private JobTitleModel loadedJobTitle = EditMenuSubForm.GetLoadedJobTitle();
+        private JobTitleModel loadedJobTitle = EditMenuSubForm.GetSelectedJobTitle();
 
         //Variable that gets values of  all available departments from Sql Departments table.
         private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
@@ -47,6 +47,10 @@ namespace ProgramUI
             jobTitleDepartmentDropDown.DisplayMember = "DepartmentName";
 
             jobTitleSupervisorDropDown.DataSource = DropDownLists.IsSupervisorList;
+
+            //Sets all DropDowns to "" when user chooses new job title.
+            jobTitleDepartmentDropDown.SelectedIndex = -1;
+            jobTitleSupervisorDropDown.SelectedIndex = -1;
         }
 
         //Save job title using values in the form fields.
@@ -71,7 +75,7 @@ namespace ProgramUI
 
                 ResetJobTitleFormValues();
 
-                loadedJobTitle = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
+                //loadedJobTitle = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
 
                 EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
 

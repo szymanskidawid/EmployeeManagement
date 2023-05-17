@@ -17,7 +17,7 @@ namespace ProgramUI
     public partial class CreateEditEmployeeForm : Form 
     {
         //Gets a value of a chosen employee from EditMenuSubForm.
-        private EmployeeModel loadedEmployee = EditMenuSubForm.GetLoadedEmployee();
+        private EmployeeModel loadedEmployee = EditMenuSubForm.GetSelectedEmployee();
 
         //Variable that gets values of  all available job titles from Sql Departments table.
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
@@ -67,6 +67,12 @@ namespace ProgramUI
             employeeCountryDropDown.DataSource = DropDownLists.CountryList();
             employeeGenderDropDown.DataSource = DropDownLists.GenderList;
             employeeCurrencyDropDown.DataSource = DropDownLists.CurrencyList;
+
+            //Sets all DropDowns to "" when user chooses new employee.
+            employeeJobTitleDropDown.SelectedIndex = -1;
+            employeeCountryDropDown.SelectedIndex = -1;
+            employeeGenderDropDown.SelectedIndex = -1;
+            employeeCurrencyDropDown.SelectedIndex = -1;
         }
 
         //Save employee using values in the form fields.
@@ -112,15 +118,13 @@ namespace ProgramUI
                         employeeContractEndTimePicker.Text,
                         employeeSalaryValue.Text,
                         employeeCurrencyDropDown.Text);
-                } 
+                }
 
                 ResetEmployeeFormValues();
 
-                loadedEmployee = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
+                //loadedEmployee = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
 
                 EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
-
-                //EmployeeLoadLists();
 
                 //Closes the form
                 this.Close();
@@ -144,7 +148,6 @@ namespace ProgramUI
             employeeAddress1Value.Text = "";
             employeePostcodeValue.Text = "";
             employeeTownValue.Text = "";
-            employeeJobTitleDropDown.Text = "";
             employeeContractStartTimePicker.Text = "";
             employeeContractEndTimePicker.Text = "";
             employeeSalaryValue.Text = "";

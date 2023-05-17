@@ -18,7 +18,7 @@ namespace ProgramUI
     public partial class CreateEditDepartmentForm : Form
     {
         //Gets a value of a chosen department from EditMenuSubForm.
-        private DepartmentModel loadedDepartment = EditMenuSubForm.GetLoadedDepartment();
+        private DepartmentModel loadedDepartment = EditMenuSubForm.GetSelectedDepartment();
 
         public CreateEditDepartmentForm()
         {
@@ -59,7 +59,7 @@ namespace ProgramUI
 
                 ResetDepartmentFormValues();
 
-                loadedDepartment = null; //Sets value back to null so that this IF does not trigger automatically when form is opened again.
+                //loadedDepartment = null; //Sets value back to null so that this IF does not trigger automatically when form is opened again.
 
                 EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
 

@@ -29,7 +29,7 @@ namespace ProgramUI
             }
         }
 
-        //Function responsible for search engine of DataGridView.
+        // Function responsible for search engine of DataGridView.
         private void searchButton_Click(object sender, EventArgs e)
         {
             //Remove selection box from a current cell.
@@ -44,7 +44,7 @@ namespace ProgramUI
                 }
             }
 
-            //Loops through all rows inside DataGridView
+            // Loops through all rows inside DataGridView
             foreach (DataGridViewRow row in mainEmployeeView.Rows)
             {
                 //Loops through all cells in a row inside DataGridView.
@@ -60,34 +60,38 @@ namespace ProgramUI
             }
         }
 
-        //Opens up Create Employee Form.
+        // Opens up Create Employee Form.
         private void createEmployeeMenuItem_Click(object sender, EventArgs e)
         {
             CreateEditEmployeeForm employerForm = new();
             employerForm.Show();
         }
 
-        //Opens up Create Department Form.
+        // Opens up Create Department Form.
         private void createDepartmentMenuItem_Click(object sender, EventArgs e)
         {
             CreateEditDepartmentForm departmentForm = new();
             departmentForm.Show();
         }
 
-        //Opens up Create Job Title Form.
+        // Opens up Create Job Title Form.
         private void createJobTitleManuItem_Click(object sender, EventArgs e)
         {
             CreateEditJobTitleForm jobTitleForm = new();
             jobTitleForm.Show();
         }
 
-        //Opens up Edit Menu SubForm.
+        // Opens up Edit Menu SubForm.
         private void toolStripEditButton_Click(object sender, EventArgs e)
         {
             EditMenuSubForm employeeSubForm = new();
             employeeSubForm.Show();
         }
 
-        
+        // Closes the application when MainForm is closed.
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
