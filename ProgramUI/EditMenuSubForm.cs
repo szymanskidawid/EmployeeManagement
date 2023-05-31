@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,12 +16,12 @@ namespace ProgramUI
 {
     public partial class EditMenuSubForm : Form
     {
-        //Creates lists of available entries in each category.
+        // Creates lists of available entries in each category.
         private List<EmployeeModel> availableEmployees = SqlConnector.GetEmployees_All();
         private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
-        //Creates variables that will get a chosen entry to edit.
+        // Creates variables that will get a chosen entry to edit.
         private static EmployeeModel selectedEmployee = new();
         private static DepartmentModel selectedDepartment = new();
         private static JobTitleModel selectedJobTitle = new();
@@ -34,7 +35,7 @@ namespace ProgramUI
             EditLoadLists();
         }
 
-        //Fills ListBox with available results depending on a category.
+        // Fills ListBox with available results depending on a category.
         private void EditLoadLists()
         {
             editCategoryDropDown.DataSource = DropDownLists.EditCategoryList;
@@ -56,7 +57,7 @@ namespace ProgramUI
             }
         }
 
-        //Displayed results in ListBox will change depending on selected item in DropDown.
+        // Displayed results in ListBox will change depending on selected item in DropDown.
         private void editCategoryDropDown_SelectedIndexChanged(object sender, EventArgs e)
         {
             EditLoadLists();
@@ -99,7 +100,75 @@ namespace ProgramUI
             }   
         }
 
-        //Below functions are getters for use in a CreateEdit forms.
+
+        private void deleteMenuButton_Click(object sender, EventArgs e)
+        {
+            if (editCategoryDropDown.Text == "Employee")
+            {
+                selectedEmployee = editListBox.SelectedItem as EmployeeModel;
+
+                if (ConfirmMessageBox(selectedEmployee))
+                {
+                    SqlConnector.DeleteEmployee(selectedEmployee);
+
+                    this.Close();
+
+                    selectedEmployee = null;
+                }
+            }
+
+            else if (editCategoryDropDown.Text == "Department")
+            {
+                selectedDepartment = editListBox.SelectedItem as DepartmentModel;
+
+                if (ConfirmMessageBox(selectedDepartment))
+                {
+                    SqlConnector.DeleteDepartment(selectedDepartment);
+
+                    this.Close();
+
+                    selectedDepartment = null;
+                }
+            }
+
+            else if (editCategoryDropDown.Text == "Job Title")
+            {
+                selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
+                
+                if (ConfirmMessageBox(selectedJobTitle))
+                {
+                    SqlConnector.DeleteJobTitle(selectedJobTitle);
+
+                    this.Close();
+
+                    selectedJobTitle = null;
+                }
+            }
+        }
+
+        internal static bool ConfirmMessageBox<T>(T selectedEntry)
+        {
+            //retrieve an array of all properties and get value from the 2nd property (in all models it will be a name)
+            var entryProperties = selectedEntry.GetType().GetProperties(); 
+            var nameValue = entryProperties[1].GetValue(selectedEntry)?.ToString();
+
+            string message = $"Are you sure you want to delete {nameValue} ?";
+
+            DialogResult dr = new();
+            dr = MessageBox.Show(message,"Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (dr == DialogResult.Yes)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        // Below functions are getters for use in a CreateEdit forms.
         internal static EmployeeModel GetSelectedEmployee()
         {
             return selectedEmployee;
@@ -115,7 +184,7 @@ namespace ProgramUI
             return selectedJobTitle;
         }
 
-        //Functions below will determine whether Save button in a CreateEdit forms will save new entries into SQL or update existing ones.
+        // Functions below will determine whether Save button in a CreateEdit forms will save new entries into SQL or update existing ones.
         internal static void SetEditState(bool state)
         {
             editState = state;

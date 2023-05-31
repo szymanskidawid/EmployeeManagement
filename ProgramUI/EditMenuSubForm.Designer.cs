@@ -33,6 +33,7 @@
             this.editListBox = new System.Windows.Forms.ListBox();
             this.editCategoryDropDown = new System.Windows.Forms.ComboBox();
             this.editCategoryLabel = new System.Windows.Forms.Label();
+            this.deleteMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // editMenuSubFormLabel
@@ -55,7 +56,7 @@
             this.editMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editMenuButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editMenuButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.editMenuButton.Location = new System.Drawing.Point(190, 701);
+            this.editMenuButton.Location = new System.Drawing.Point(60, 693);
             this.editMenuButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editMenuButton.Name = "editMenuButton";
             this.editMenuButton.Size = new System.Drawing.Size(169, 88);
@@ -95,12 +96,31 @@
             this.editCategoryLabel.TabIndex = 31;
             this.editCategoryLabel.Text = "Category";
             // 
+            // deleteMenuButton
+            // 
+            this.deleteMenuButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.deleteMenuButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.deleteMenuButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.deleteMenuButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.deleteMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteMenuButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.deleteMenuButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.deleteMenuButton.Location = new System.Drawing.Point(303, 693);
+            this.deleteMenuButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.deleteMenuButton.Name = "deleteMenuButton";
+            this.deleteMenuButton.Size = new System.Drawing.Size(169, 88);
+            this.deleteMenuButton.TabIndex = 33;
+            this.deleteMenuButton.Text = "Delete";
+            this.deleteMenuButton.UseVisualStyleBackColor = false;
+            this.deleteMenuButton.Click += new System.EventHandler(this.deleteMenuButton_Click);
+            // 
             // EditMenuSubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(542, 828);
+            this.Controls.Add(this.deleteMenuButton);
             this.Controls.Add(this.editCategoryDropDown);
             this.Controls.Add(this.editCategoryLabel);
             this.Controls.Add(this.editListBox);
@@ -120,5 +140,6 @@
         private ListBox editListBox;
         private ComboBox editCategoryDropDown;
         private Label editCategoryLabel;
+        private Button deleteMenuButton;
     }
 }

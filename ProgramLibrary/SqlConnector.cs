@@ -137,6 +137,22 @@ namespace ProgramLibrary
             }
         }
 
+        // Delete an existing employee from the database.
+        public static void DeleteEmployee(EmployeeModel em)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                EmployeeModel model = new()
+                {
+                    Id = em.Id,
+                };
+
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                connection.Execute("dbo.spEmployees_Delete", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
         // Create a new department and save it to the database.
         public static void CreateDepartment(string departmentName, string departmentLocation)
         {
@@ -178,6 +194,22 @@ namespace ProgramLibrary
                 p.Add("@DepartmentLocation", model.DepartmentLocation);
 
                 connection.Execute("dbo.spDepartments_Update", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        // Delete an existing department from the database.
+        public static void DeleteDepartment(DepartmentModel dm)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                DepartmentModel model = new()
+                {
+                    Id = dm.Id,
+                };
+
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                connection.Execute("dbo.spDepartments_Delete", p, commandType: CommandType.StoredProcedure);
             }
         }
 
@@ -227,6 +259,22 @@ namespace ProgramLibrary
                 p.Add("@IsSupervisor", model.IsSupervisor);
 
                 connection.Execute("dbo.spJobTitles_Update", p, commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        // Delete an existing job title from the database.
+        public static void DeleteJobTitle(JobTitleModel jtm)
+        {
+            using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
+            {
+                JobTitleModel model = new()
+                {
+                    Id = jtm.Id,
+                };
+
+                var p = new DynamicParameters();
+                p.Add("@id", model.Id);
+                connection.Execute("dbo.spJobTitles_Delete", p, commandType: CommandType.StoredProcedure);
             }
         }
 
