@@ -29,6 +29,12 @@ namespace ProgramUI
             }
         }
 
+        // Refreshes the table with newly added/updated employees.
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            mainEmployeeView.DataSource = SqlConnector.DisplayEmployees();
+        }
+
         // Function responsible for search engine of DataGridView.
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -51,7 +57,7 @@ namespace ProgramUI
                 foreach (DataGridViewCell cell in row.Cells)
                 {
                     //Check if search imput matches with any cell.
-                    if (cell.Value != null && cell.Value.ToString().Contains(searchValue.Text))
+                    if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchValue.Text.ToLower()))
                     {
                         //Highlight cells that contain the search input.
                         cell.Style.BackColor = Color.Yellow;

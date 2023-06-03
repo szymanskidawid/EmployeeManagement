@@ -81,4 +81,51 @@
         qgAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>USE [EmployeeManagement]
+GO
+/****** Object:  StoredProcedure [dbo].[spEmployees_Insert]    Script Date: 03.06.2023 21:53:44 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[spEmployees_Insert]
+	@FirstName nvarchar(50),
+	@LastName nvarchar(50),
+	@DateOfBirth nvarchar(50),
+	@Gender nvarchar(50),
+	@EmailAddress nvarchar(50),
+	@TelephoneNumber nvarchar(50),
+	@Address1 nvarchar(50),
+	@Postcode nvarchar(50),
+	@Town nvarchar(50),
+	@Country nvarchar(50),
+	@JobTitle nvarchar(50),
+	@ContractStart nvarchar(50),
+	@ContractEnd nvarchar(50),
+	@Salary money,
+	@Currency nchar(10),
+	@id int = 0 output
+AS
+BEGIN
+	SET NOCOUNT ON;
+
+    DECLARE @jobTitleId int;
+
+
+    SELECT @jobTitleId = id
+    FROM dbo.JobTitles
+    WHERE JobTitleName = @JobTitle;
+
+	insert into dbo.Employees (FirstName, LastName, DateOfBirth, Gender, EmailAddress, 
+	TelephoneNumber, Address1, Postcode, Town, Country, JobTitle, ContractStart, 
+	ContractEnd, Salary, Currency, jobTitleId)
+	values (@FirstName, @LastName, @DateOfBirth, @Gender, @EmailAddress, 
+	@TelephoneNumber, @Address1, @Postcode, @Town, @Country, @JobTitle, @ContractStart, 
+	@ContractEnd, @Salary, @Currency, @jobTitleId);
+
+	select @id=SCOPE_IDENTITY();
+
+END</value>
+  </data>
 </root>

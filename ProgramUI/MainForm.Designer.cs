@@ -39,6 +39,7 @@
             this.createDepartmentMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createJobTitleManuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripEditButton = new System.Windows.Forms.ToolStripButton();
+            this.refreshButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).BeginInit();
             this.toolStrip.SuspendLayout();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -62,6 +63,7 @@
             this.mainEmployeeView.RowTemplate.Height = 25;
             this.mainEmployeeView.Size = new System.Drawing.Size(1431, 802);
             this.mainEmployeeView.TabIndex = 0;
+            this.mainEmployeeView.DefaultCellStyle.ForeColor = Color.Black;
             // 
             // searchValue
             // 
@@ -81,7 +83,7 @@
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.searchButton.Location = new System.Drawing.Point(1467, 97);
+            this.searchButton.Location = new System.Drawing.Point(1466, 93);
             this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(169, 65);
@@ -153,6 +155,24 @@
             this.toolStripEditButton.Text = "Edit";
             this.toolStripEditButton.Click += new System.EventHandler(this.toolStripEditButton_Click);
             // 
+            // refreshButton
+            // 
+            this.refreshButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.refreshButton.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.refreshButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Black;
+            this.refreshButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Green;
+            this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.refreshButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.refreshButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.refreshButton.Location = new System.Drawing.Point(204, 139);
+            this.refreshButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(169, 65);
+            this.refreshButton.TabIndex = 7;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = false;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
@@ -160,13 +180,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1819, 1107);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchValue);
             this.Controls.Add(this.mainEmployeeView);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Name = "MainForm";
-            this.Text = "Main View";
+            this.Text = resources.GetString("$this.Text");
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).EndInit();
             this.toolStrip.ResumeLayout(false);
@@ -187,5 +208,6 @@
         private DataGridView mainEmployeeView;
         private ToolStripMenuItem createJobTitleManuItem;
         private ToolStripButton toolStripEditButton;
+        private Button refreshButton;
     }
 }

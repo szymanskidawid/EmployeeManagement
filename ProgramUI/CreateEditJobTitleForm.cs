@@ -117,7 +117,7 @@ namespace ProgramUI
         {
             jobTitleIdValue.Text = model.Id.ToString();
             jobTitleNameValue.Text = model.JobTitleName;
-            jobTitleDepartmentDropDown.Text = model.JobTitleName;
+            jobTitleDepartmentDropDown.Text = model.JobTitleDepartment;
             jobTitleSupervisorDropDown.Text = model.IsSupervisor;
         }
     }
