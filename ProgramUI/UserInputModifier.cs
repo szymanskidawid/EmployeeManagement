@@ -8,7 +8,7 @@ namespace ProgramUI
 {
     internal class UserInputModifier
     {
-        //Function that capitalizes first letter of user input.
+        // Function that capitalizes first letter of user input.
         internal static void CapitalizeFirstLetter(TextBox textBox)
         {
             string input = textBox.Text;

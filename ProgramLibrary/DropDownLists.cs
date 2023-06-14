@@ -9,7 +9,7 @@ namespace ProgramLibrary
 {
     public class DropDownLists
     {
-        // Get a list of Countries that can be added into a DropDown
+        // Get a list of Countries that can be added into a DropDown.
         public static List<string> CountryList()
         {
             List<string> CultureList = new List<string>();
@@ -31,17 +31,16 @@ namespace ProgramLibrary
             return CultureList;
         }
 
-        // String array of Genders that can be added into a DropDown
-        public static string[] GenderList = { "Male", "Female", "Other" };
+        // String array of Genders that can be added into a DropDown.
+        public static string[] GenderList = { "Male", "Female" };
 
-        // String array of Currency symbols that can be added into a DropDown
+        // String array of Currency symbols that can be added into a DropDown.
         public static string[] CurrencyList = { "zł", "$", "€", "£", "CHF", "kr", };
-        //public static string[] CurrencyList = CultureInfo.GetCultures(CultureTypes.SpecificCultures).Select(culture => culture.NumberFormat.CurrencySymbol).Distinct().ToArray();
 
-        // String array of Supervisors that can be added into a DropDown
+        // String array of Yes/No options for the Supervisor DropDown.
         public static string[] IsSupervisorList = { "Yes", "No" };
 
-        // String array of Categories to edit that can be added into a DropDown
+        // String array of Categories to edit that can be added into a DropDown.
         public static string[] EditCategoryList = { "Employee", "Department", "Job Title" };
     }
 }

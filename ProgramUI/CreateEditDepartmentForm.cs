@@ -17,7 +17,7 @@ namespace ProgramUI
 {
     public partial class CreateEditDepartmentForm : Form
     {
-        //Gets a value of a chosen department from EditMenuSubForm.
+        // Gets a value of a chosen department from EditMenuSubForm.
         private DepartmentModel loadedDepartment = EditMenuSubForm.GetSelectedDepartment();
 
         public CreateEditDepartmentForm()
@@ -31,14 +31,14 @@ namespace ProgramUI
             }
         }
 
-        //Function that can be attached to automatically force input to start with capital letter
+        // Function that can be attached to automatically force input to start with capital letter.
         private void Department_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             UserInputModifier.CapitalizeFirstLetter(textBox);
         }
 
-        //Save department using values in the form fields.
+        // Below actions are triggered after Save button is clicked.
         private void departmentSaveButton_Click(object sender, EventArgs e)
         {
             if (DepartmentFormValidation())
@@ -59,9 +59,8 @@ namespace ProgramUI
 
                 ResetDepartmentFormValues();
 
-                //loadedDepartment = null; //Sets value back to null so that this IF does not trigger automatically when form is opened again.
-
-                EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
+                //Sets Edit state back to false as we want Create state to be default.
+                EditMenuSubForm.SetEditState(false); 
 
                 //Closes the form
                 this.Close();
@@ -74,14 +73,14 @@ namespace ProgramUI
             }
         }
 
-        //Values will be set back to default after department is created/edited.
+        // Values will be set back to default after department is created/edited.
         private void ResetDepartmentFormValues()
         { 
             departmentNameValue.Text = "";
             departmentLocationValue.Text = "";
         }
 
-        //Function responsible for validating the form.
+        // Function responsible for validating the form.
         private bool DepartmentFormValidation()
         {
             bool isValid = true;
@@ -89,15 +88,15 @@ namespace ProgramUI
             string nameValue = departmentNameValue.Text;
             string locationValue = departmentLocationValue.Text;
 
-            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
-            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
+            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function.
+            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function.
             ValidationApprover.UserInputValidation(departmentNameValue, 5, 20, departmentNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
             ValidationApprover.UserInputValidation(departmentLocationValue, 5, 15, departmentLocationInfoLabel, locationValue, "LetterSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();
         }
 
-        //Loads a department into fields when Edit is chosen.
+        // Loads a department into fields when Edit is chosen.
         private void LoadDepartment(DepartmentModel model)
         {
             departmentIdValue.Text = model.Id.ToString();

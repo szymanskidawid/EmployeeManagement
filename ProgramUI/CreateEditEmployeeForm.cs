@@ -16,10 +16,10 @@ namespace ProgramUI
 {
     public partial class CreateEditEmployeeForm : Form 
     {
-        //Gets a value of a chosen employee from EditMenuSubForm.
+        // Gets a value of a chosen employee from EditMenuSubForm.
         private EmployeeModel loadedEmployee = EditMenuSubForm.GetSelectedEmployee();
 
-        //Variable that gets values of  all available job titles from Sql Departments table.
+        // Variable that gets values of  all available job titles from Sql Departments table.
         private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
         public CreateEditEmployeeForm()
@@ -44,21 +44,21 @@ namespace ProgramUI
             }
         }
 
-        //Contract End rules will update each time Contract Start changes
+        // Contract End rules will update each time Contract Start changes.
         private void employeeContractStartTimePicker_ValueChanged(object sender, EventArgs e)
         {
             employeeContractEndTimePicker.MinDate = employeeContractStartTimePicker.Value.AddMonths(3);
             employeeContractEndTimePicker.MaxDate = employeeContractStartTimePicker.Value.AddYears(1);
         }
 
-        //Function that can be attached to automatically force input to start with capital letter
+        // Function that can be attached to automatically force input to start with capital letter.
         private void Employee_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             UserInputModifier.CapitalizeFirstLetter(textBox);
         }
 
-        //Fills DropDowns with information from the DropDownLists class.
+        // Fills DropDowns with information from the DropDownLists class.
         private void EmployeeLoadLists()
         {
             employeeJobTitleDropDown.DataSource = availableJobTitles;
@@ -75,7 +75,7 @@ namespace ProgramUI
             employeeCurrencyDropDown.SelectedIndex = -1;
         }
 
-        //Save employee using values in the form fields.
+        // Below actions are triggered after Save button is clicked.
         private void employeeSaveButton_Click(object sender, EventArgs e)
         {
             if (EmployeeFormValidation())
@@ -122,9 +122,8 @@ namespace ProgramUI
 
                 ResetEmployeeFormValues();
 
-                //loadedEmployee = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
-
-                EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
+                //Sets Edit state back to false as we want Create state to be default.
+                EditMenuSubForm.SetEditState(false); 
 
                 //Closes the form
                 this.Close();
@@ -137,7 +136,7 @@ namespace ProgramUI
             }
         }
 
-        //Values will be set back to default after employee is created/edited
+        // Values will be set back to default after employee is created/edited.
         private void ResetEmployeeFormValues()
         {
             employeeFirstNameValue.Text = "";
@@ -153,7 +152,7 @@ namespace ProgramUI
             employeeSalaryValue.Text = "";
         }
 
-        //Function responsible for validating the form.
+        // Function responsible for validating the form.
         private bool EmployeeFormValidation()
         {
             bool isValid = true;
@@ -167,8 +166,8 @@ namespace ProgramUI
             string townValue = employeeTownValue.Text;
             string salaryValue = employeeSalaryValue.Text;
 
-            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
-            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
+            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function.
+            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function.
             ValidationApprover.UserInputValidation(employeeFirstNameValue, 2, 15, employeeNameInfoLabel, firstNameValue, "LetterDash", "Letter");
             ValidationApprover.UserInputValidation(employeeLastNameValue, 2, 15, employeeSurnameInfoLabel, lastNameValue, "LetterDash", "Letter");
             ValidationApprover.UserInputValidation(employeeEmailValue, 7, 30, employeeEmailInfoLabel, emailValue, "LetterDigitSpaceDashDotAt", "LetterAtDot");
@@ -181,7 +180,7 @@ namespace ProgramUI
             return isValid = ValidationApprover.GetIsValid();
         }
 
-        //Loads an employee into fields when Edit is chosen.
+        // Loads an employee into fields when Edit is chosen.
         private void LoadEmployee(EmployeeModel model)
         {
             employeeIdValue.Text = model.Id.ToString();

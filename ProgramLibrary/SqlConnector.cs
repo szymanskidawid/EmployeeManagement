@@ -25,7 +25,7 @@ namespace ProgramLibrary
                 p.Add("@username", login);
                 p.Add("@password", password);
 
-                //count value increases to 1 if passed variables match with any dbo.LoginTable entry
+                //Count value increases to 1 if passed variables match with any dbo.LoginTable entry in my SQL Database.
                 int count = (int)connection.ExecuteScalar(query, p); 
 
                 bool isValid = (count > 0);
@@ -61,7 +61,7 @@ namespace ProgramLibrary
                     Currency = currency
                 };
 
-                //Save data from C# variables into SQL variables
+                //Save data from C# variables into SQL variables.
                 var p = new DynamicParameters();
                 p.Add("@FirstName", model.FirstName);
                 p.Add("@LastName", model.LastName);
@@ -114,7 +114,7 @@ namespace ProgramLibrary
                     Currency = currency
                 };
 
-                //Save data from C# variables into SQL variables
+                //Save data from C# variables into SQL variables.
                 var p = new DynamicParameters();
                 p.Add("@Id", model.Id);
                 p.Add("@FirstName", model.FirstName);
@@ -163,7 +163,7 @@ namespace ProgramLibrary
                     DepartmentName = departmentName,
                     DepartmentLocation = departmentLocation,
                 };
-                //Save data from C# variables into SQL variables
+                //Save data from C# variables into SQL variables.
                 var p = new DynamicParameters();
                 p.Add("@DepartmentName", model.DepartmentName);
                 p.Add("@DepartmentLocation", model.DepartmentLocation);
@@ -187,7 +187,7 @@ namespace ProgramLibrary
                     DepartmentLocation = departmentLocation
                 };
 
-                //Edit data from C# variables into SQL variables
+                //Edit data from C# variables into SQL variables.
                 var p = new DynamicParameters();
                 p.Add("@id", model.Id);
                 p.Add("@DepartmentName", model.DepartmentName);
@@ -225,7 +225,7 @@ namespace ProgramLibrary
                     IsSupervisor = isSupervisor
                 };
 
-                //Save data from C# variables into SQL variables
+                //Save data from C# variables into SQL variables.
                 var p = new DynamicParameters();
                 p.Add("@JobTitleName", model.JobTitleName);
                 p.Add("@JobTitleDepartment", model.JobTitleDepartment);
@@ -251,7 +251,7 @@ namespace ProgramLibrary
                     IsSupervisor = isSupervisor
                 };
 
-                //Edit data from C# variables into SQL variables
+                //Edit data from C# variables into SQL variables.
                 var p = new DynamicParameters();
                 p.Add("@Id", model.Id);
                 p.Add("@JobTitleName", model.JobTitleName);
@@ -317,7 +317,7 @@ namespace ProgramLibrary
             return list;
         }
 
-        //Displays an Employees table from SQL into a DataGridView
+        // Gets Employees table values from SQL that can be displayed in a DataGridView.
         public static DataTable DisplayEmployees()
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))

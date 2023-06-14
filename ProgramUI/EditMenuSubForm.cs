@@ -17,9 +17,9 @@ namespace ProgramUI
     public partial class EditMenuSubForm : Form
     {
         // Creates lists of available entries in each category.
-        private List<EmployeeModel> availableEmployees = SqlConnector.GetEmployees_All();
-        private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
-        private List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
+        private readonly List<EmployeeModel> availableEmployees = SqlConnector.GetEmployees_All();
+        private readonly List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
+        private readonly List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
         // Creates variables that will get a chosen entry to edit.
         private static EmployeeModel selectedEmployee = new();
@@ -63,6 +63,7 @@ namespace ProgramUI
             EditLoadLists();
         }
 
+        // Below actions are triggered after Edit button is clicked.
         private void editMenuButton_Click(object sender, EventArgs e)
         {
             if (editCategoryDropDown.Text == "Employee")
@@ -74,7 +75,8 @@ namespace ProgramUI
                 CreateEditEmployeeForm employerForm = new();
                 employerForm.Show();
 
-                selectedEmployee = null; //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
+                //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
+                selectedEmployee = null; 
             }
             else if (editCategoryDropDown.Text == "Department")
             {
@@ -85,6 +87,7 @@ namespace ProgramUI
                 CreateEditDepartmentForm departmentForm = new();
                 departmentForm.Show();
 
+                //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
                 selectedDepartment = null;
             }
             else if (editCategoryDropDown.Text == "Job Title")
@@ -96,11 +99,12 @@ namespace ProgramUI
                 CreateEditJobTitleForm jobTitleForm = new();
                 jobTitleForm.Show();
 
+                //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
                 selectedJobTitle = null;
             }   
         }
 
-
+        // Below actions are triggered after Delete button is clicked.
         private void deleteMenuButton_Click(object sender, EventArgs e)
         {
             if (editCategoryDropDown.Text == "Employee")
@@ -146,26 +150,31 @@ namespace ProgramUI
             }
         }
 
+        // Message box that pops up when Delete button is clicked.
         internal static bool ConfirmMessageBox<T>(T selectedEntry)
         {
-            //retrieve an array of all properties and get value from the 2nd property (in all models it will be a name)
-            var entryProperties = selectedEntry.GetType().GetProperties(); 
-            var nameValue = entryProperties[1].GetValue(selectedEntry)?.ToString();
-
-            string message = $"Are you sure you want to delete {nameValue} ?";
-
-            DialogResult dr = new();
-            dr = MessageBox.Show(message,"Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (dr == DialogResult.Yes)
+            if (selectedEntry != null)
             {
-                return true;
+                //Retrieve an array of all properties and get value from the 2nd property (in all models it will be a name).
+                var entryProperties = selectedEntry.GetType().GetProperties();
+                var nameValue = entryProperties[1].GetValue(selectedEntry)?.ToString();
+
+                string message = $"Are you sure you want to delete {nameValue} ?";
+
+                DialogResult dr = MessageBox.Show(message, "Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                if (dr == DialogResult.Yes)
+                {
+                    return true;
+                }
+
+                else
+                {
+                    return false;
+                }
             }
 
-            else
-            {
-                return false;
-            }
+            return false;
         }
 
         // Below functions are getters for use in a CreateEdit forms.

@@ -20,22 +20,23 @@ namespace ProgramUI
         {
             InitializeComponent();
 
+            //Displays data from dbo.Employee SQL table into DataGridView.
             mainEmployeeView.DataSource = SqlConnector.DisplayEmployees();       
 
-            //Allows to sort each column in the table
+            //Allows to sort each column in the table.
             foreach (DataGridViewColumn column in mainEmployeeView.Columns)
             {
                 column.SortMode = DataGridViewColumnSortMode.Automatic;
             }
         }
 
-        // Refreshes the table with newly added/updated employees.
+        // Refresh Button that refreshes the table with newly added/updated employees.
         private void refreshButton_Click(object sender, EventArgs e)
         {
             mainEmployeeView.DataSource = SqlConnector.DisplayEmployees();
         }
 
-        // Function responsible for search engine of DataGridView.
+        // Search Button that is responsible for search engine of DataGridView.
         private void searchButton_Click(object sender, EventArgs e)
         {
             //Remove selection box from a current cell.
@@ -50,7 +51,7 @@ namespace ProgramUI
                 }
             }
 
-            // Loops through all rows inside DataGridView
+            //Loops through all rows inside DataGridView
             foreach (DataGridViewRow row in mainEmployeeView.Rows)
             {
                 //Loops through all cells in a row inside DataGridView.
@@ -66,28 +67,28 @@ namespace ProgramUI
             }
         }
 
-        // Opens up Create Employee Form.
+        // Opens up a Create Employee Form.
         private void createEmployeeMenuItem_Click(object sender, EventArgs e)
         {
             CreateEditEmployeeForm employerForm = new();
             employerForm.Show();
         }
 
-        // Opens up Create Department Form.
+        // Opens up a Create Department Form.
         private void createDepartmentMenuItem_Click(object sender, EventArgs e)
         {
             CreateEditDepartmentForm departmentForm = new();
             departmentForm.Show();
         }
 
-        // Opens up Create Job Title Form.
+        // Opens up a Create Job Title Form.
         private void createJobTitleManuItem_Click(object sender, EventArgs e)
         {
             CreateEditJobTitleForm jobTitleForm = new();
             jobTitleForm.Show();
         }
 
-        // Opens up Edit Menu SubForm.
+        // Opens up an Edit Menu SubForm.
         private void toolStripEditButton_Click(object sender, EventArgs e)
         {
             EditMenuSubForm employeeSubForm = new();

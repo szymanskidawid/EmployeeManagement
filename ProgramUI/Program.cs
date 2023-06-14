@@ -11,15 +11,7 @@ namespace ProgramUI
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainForm());
+            Application.Run(new LoginForm());
         }
     }
 }
-
-
-
-
-// Watch Tom why Id is int and not string
-
-
-//1) Add Pay Grade to Job Title, then show reference in Employee Table

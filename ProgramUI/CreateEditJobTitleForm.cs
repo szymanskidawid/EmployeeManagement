@@ -14,10 +14,10 @@ namespace ProgramUI
 {
     public partial class CreateEditJobTitleForm : Form
     {
-        //Gets a value of a chosen job title from EditMenuSubForm.
+        // Gets a value of a chosen job title from EditMenuSubForm.
         private JobTitleModel loadedJobTitle = EditMenuSubForm.GetSelectedJobTitle();
 
-        //Variable that gets values of  all available departments from Sql Departments table.
+        // Variable that gets values of all available departments from Sql Departments table.
         private List<DepartmentModel> availableDepartments = SqlConnector.GetDepartments_All();
 
         public CreateEditJobTitleForm()
@@ -26,21 +26,21 @@ namespace ProgramUI
 
             JobTitleLoadLists();
 
-            //This code will load an existing department ONLY if user accesses Edit mode.
+            //This code will load an existing job title ONLY if user accesses Edit mode.
             if (loadedJobTitle != null)
             {
                 LoadJobTitle(loadedJobTitle);
             }
         }
 
-        //Function that can be attached to automatically force input to start with capital letter
+        // Function that can be attached to automatically force input to start with capital letter.
         private void JobTitle_TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
             UserInputModifier.CapitalizeFirstLetter(textBox);
         }
 
-        //Fills DropDowns with information from the SqlConnector and DropDownLists classes.
+        // Fills DropDowns with information from the SqlConnector and DropDownLists classes.
         private void JobTitleLoadLists()
         {
             jobTitleDepartmentDropDown.DataSource = availableDepartments;
@@ -48,12 +48,12 @@ namespace ProgramUI
 
             jobTitleSupervisorDropDown.DataSource = DropDownLists.IsSupervisorList;
 
-            //Sets all DropDowns to "" when user chooses new job title.
+            //Sets all DropDowns to "" when user chooses a new job title.
             jobTitleDepartmentDropDown.SelectedIndex = -1;
             jobTitleSupervisorDropDown.SelectedIndex = -1;
         }
 
-        //Save job title using values in the form fields.
+        // Below actions are triggered after Save button is clicked.
         private void jobTitleSaveButton_Click(object sender, EventArgs e)
         {
             if (JobTitleFormValidation())
@@ -75,11 +75,8 @@ namespace ProgramUI
 
                 ResetJobTitleFormValues();
 
-                //loadedJobTitle = null; // Sets value back to null so that this IF does not trigger automatically when form is opened again.
-
-                EditMenuSubForm.SetEditState(false); //Sets Edit state back to false as we want Create state to be default.
-
-                //JobTitleLoadLists();
+                //Sets Edit state back to false as we want Create state to be default.
+                EditMenuSubForm.SetEditState(false); 
 
                 //Closes the form
                 this.Close(); 
@@ -92,27 +89,27 @@ namespace ProgramUI
             }
         }
 
-        //Values will be set back to default after department is created/edited.
+        // Values will be set back to default after job title is created/edited.
         private void ResetJobTitleFormValues()
         {
             jobTitleNameValue.Text = "";
         }
 
-        //Function responsible for validating the form.
+        // Function responsible for validating the form.
         private bool JobTitleFormValidation()
         {
             bool isValid = true;
 
             string nameValue = jobTitleNameValue.Text;
 
-            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function
-            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function
+            //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function.
+            //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function.
             ValidationApprover.UserInputValidation(jobTitleNameValue, 5, 20, jobTitleNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
 
             return isValid = ValidationApprover.GetIsValid();
         }
 
-        //Loads a department into fields when Edit is chosen.
+        // Loads a job title into fields when Edit is chosen.
         private void LoadJobTitle(JobTitleModel model)
         {
             jobTitleIdValue.Text = model.Id.ToString();

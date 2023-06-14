@@ -8,7 +8,7 @@ namespace ProgramLibrary.Models
 {
     public class EmployeeModel
     {
-        // Stores id and information about the employee.
+        // Stores id and other information about the employee.
         public int Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }

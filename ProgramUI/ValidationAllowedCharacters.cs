@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProgramUI
 {
-    //Class containing functions that allow certain combination of characters in each field.
+    // Class containing functions that allow certain combination of characters in each field.
     internal class ValidationAllowedCharacters
     {
-        //Only allow letters in a field.
+        // Only allow letters in a field.
         internal static bool AllowLetter(string value)
         {
             bool let = value.All(c => Char.IsLetter(c));
@@ -17,7 +17,7 @@ namespace ProgramUI
             return let;
         }
 
-        //Only allow letters and digits in a field.
+        // Only allow letters and digits in a field.
         internal static bool AllowLetterDigit(string value)
         {
             bool letDig = value.All(c => Char.IsLetterOrDigit(c));
@@ -25,7 +25,7 @@ namespace ProgramUI
             return letDig;
         }
 
-        //Only allow letters, digits and spaces in a field.
+        // Only allow letters, digits and spaces in a field.
         internal static bool AllowLetterDigitSpace(string value)
         {
             bool letDigSpace = value.All(c => Char.IsLetterOrDigit(c) || c == ' ');
@@ -33,7 +33,7 @@ namespace ProgramUI
             return letDigSpace;
         }
 
-        //Only allow letters, digits, spaces and dashes in a field.
+        // Only allow letters, digits, spaces and dashes in a field.
         internal static bool AllowLetterDigitSpaceDash(string value)
         {
             bool letDigSpaceDash = value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-');
@@ -41,7 +41,7 @@ namespace ProgramUI
             return letDigSpaceDash;
         }
 
-        //Only allow letters, digits, spaces, dashes, dots and @ symbol in a field (for email address).
+        // Only allow letters, digits, spaces, dashes, dots and "@" symbol in a field (for email address).
         internal static bool AllowLetterDigitSpaceDashDotAt(string value)
         {
             bool letDigSpaceDashDotAt = value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-' || c == '.' || c == '@');
@@ -49,7 +49,7 @@ namespace ProgramUI
             return letDigSpaceDashDotAt;
         }
 
-        //Only allow letters, spaces and dashes in a field.
+        // Only allow letters, spaces and dashes in a field.
         internal static bool AllowLetterSpaceDash(string value)
         {
             bool letSpaceDash = value.All(c => Char.IsLetter(c) || c == ' ' || c == '-');
@@ -57,7 +57,7 @@ namespace ProgramUI
             return letSpaceDash;
         }
 
-        //Only allow letters and dashes in a field.
+        // Only allow letters and dashes in a field.
         internal static bool AllowLetterDash(string value)
         {
             bool letDigSpaceDash = value.All(c => Char.IsLetter(c) || c == '-');
@@ -65,15 +65,15 @@ namespace ProgramUI
             return letDigSpaceDash;
         }
 
-        //Only allow digits in a field.
+        // Only allow digits in a field.
         internal static bool AllowDigit(string value)
         {
             bool dig = value.All(c => Char.IsDigit(c));
 
             return dig;
         }
-
-        //Only allow digits and spaces in a field.
+        
+        // Only allow digits and spaces in a field.
         internal static bool AllowDigitSpace(string value)
         {
             bool digSpace = value.All(c => Char.IsDigit(c) || c == ' ');
@@ -81,7 +81,7 @@ namespace ProgramUI
             return digSpace;
         }
 
-        //Only allow digits and pluses in a field.
+        // Only allow digits and pluses in a field.
         internal static bool AllowDigitPlus(string value)
         {
             bool digPlus = value.All(c => Char.IsDigit(c) || c == '+');
@@ -89,7 +89,7 @@ namespace ProgramUI
             return digPlus;
         }
 
-        //Function allowing to choose a specific Allow function inside other functions.
+        // Function allowing to choose a specific Allow function inside other functions.
         internal static bool SetAllowFunction(string allow, string textboxValue)
         {
             if (allow == "Letter")

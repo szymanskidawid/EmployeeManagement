@@ -438,10 +438,9 @@
             this.employeeTownInfoLabel.Location = new System.Drawing.Point(795, 319);
             this.employeeTownInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeTownInfoLabel.Name = "employeeTownInfoLabel";
-            this.employeeTownInfoLabel.Size = new System.Drawing.Size(344, 42);
+            this.employeeTownInfoLabel.Size = new System.Drawing.Size(295, 42);
             this.employeeTownInfoLabel.TabIndex = 48;
-            this.employeeTownInfoLabel.Text = "3-20 characters (letters, digits, spaces and \"-\")\r\nRequires at least one letter\r\n" +
-    "";
+            this.employeeTownInfoLabel.Text = "3-20 characters (letters, spaces and \"-\")\r\nRequires at least one letter\r\n";
             // 
             // employeeEmailInfoLabel
             // 
