@@ -58,7 +58,7 @@ namespace ProgramUI
         {
             if (JobTitleFormValidation())
             {
-                if (!EditMenuSubForm.GetEditState())
+                if (!EditMenuSubForm.GetIsEdit())
                 {
                     //Save job title using values in the form fields.
                     SqlConnector.CreateJobTitle(jobTitleNameValue.Text,
@@ -76,7 +76,7 @@ namespace ProgramUI
                 ResetJobTitleFormValues();
 
                 //Sets Edit state back to false as we want Create state to be default.
-                EditMenuSubForm.SetEditState(false); 
+                EditMenuSubForm.IsEdit(false); 
 
                 //Closes the form
                 this.Close(); 

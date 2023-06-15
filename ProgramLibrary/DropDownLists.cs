@@ -32,7 +32,7 @@ namespace ProgramLibrary
         }
 
         // String array of Genders that can be added into a DropDown.
-        public static string[] GenderList = { "Male", "Female" };
+        public static string[] GenderList = { "Male", "Female", "Other" };
 
         // String array of Currency symbols that can be added into a DropDown.
         public static string[] CurrencyList = { "zł", "$", "€", "£", "CHF", "kr", };

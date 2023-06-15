@@ -69,7 +69,7 @@ namespace ProgramUI
             if (editCategoryDropDown.Text == "Employee")
             {
                 selectedEmployee = editListBox.SelectedItem as EmployeeModel;
-                SetEditState(true);
+                IsEdit(true);
 
                 this.Close();
                 CreateEditEmployeeForm employerForm = new();
@@ -81,7 +81,7 @@ namespace ProgramUI
             else if (editCategoryDropDown.Text == "Department")
             {
                 selectedDepartment = editListBox.SelectedItem as DepartmentModel;
-                SetEditState(true);
+                IsEdit(true);
 
                 this.Close();
                 CreateEditDepartmentForm departmentForm = new();
@@ -93,7 +93,7 @@ namespace ProgramUI
             else if (editCategoryDropDown.Text == "Job Title")
             {
                 selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
-                SetEditState(true);
+                IsEdit(true);
 
                 this.Close();
                 CreateEditJobTitleForm jobTitleForm = new();
@@ -159,19 +159,12 @@ namespace ProgramUI
                 var entryProperties = selectedEntry.GetType().GetProperties();
                 var nameValue = entryProperties[1].GetValue(selectedEntry)?.ToString();
 
-                string message = $"Are you sure you want to delete {nameValue} ?";
+                string message = $"Are you sure you want to delete {nameValue}?";
 
                 DialogResult dr = MessageBox.Show(message, "Please Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
-                if (dr == DialogResult.Yes)
-                {
-                    return true;
-                }
+                return dr == DialogResult.Yes;
 
-                else
-                {
-                    return false;
-                }
             }
 
             return false;
@@ -194,12 +187,12 @@ namespace ProgramUI
         }
 
         // Functions below will determine whether Save button in a CreateEdit forms will save new entries into SQL or update existing ones.
-        internal static void SetEditState(bool state)
+        internal static void IsEdit(bool state)
         {
             editState = state;
         }
 
-        internal static bool GetEditState()
+        internal static bool GetIsEdit()
         {
             return editState;
         }

@@ -12,48 +12,37 @@ namespace ProgramUI
         // Require at least one letter in a field.
         internal static bool RequireLetter(string value)
         {
-            bool let = value.Any(c => Char.IsLetter(c));
-
-            return let;
+            return value.Any(c => Char.IsLetter(c));
         }
 
         // Require at least one letter, @ symbol and a dot in a field.
         internal static bool RequireLetterAtDot(string value)
         {
-            bool letAtDot = value.Any(c => Char.IsLetter(c) || c == '@' || c == '.');
-
-            return letAtDot;
+            return value.Any(c => Char.IsLetter(c) || c == '@' || c == '.');
         }
 
         // Require at least one digit in a field.
         internal static bool RequireDigit(string value)
         {
-            bool dig = value.Any(c => Char.IsDigit(c));
-
-            return dig;
+            return value.Any(c => Char.IsDigit(c));
         }
 
         // Function allowing to choose a specific Require function inside other functions.
         internal static bool SetRequireFunction(string require, string textboxValue)
         {
-            if (require == "Letter")
+            switch (require)
             {
-                return RequireLetter(textboxValue);
-            }
+                case "Letter":
+                    return RequireLetter(textboxValue);
 
-            if (require == "LetterAtDot")
-            {
-                return RequireLetterAtDot(textboxValue);
-            }
+                case "LetterAtDot":
+                    return RequireLetterAtDot(textboxValue);
 
-            if (require == "Digit")
-            {
-                return RequireDigit(textboxValue);
-            }
+                case "Digit":
+                    return RequireDigit(textboxValue);
 
-            else
-            {
-                throw new Exception("Incorrect value provided for SetRequireFunction");
+                default:
+                    throw new Exception("Incorrect value provided for SetRequireFunction");
             }
         }
     }

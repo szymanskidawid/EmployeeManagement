@@ -12,139 +12,100 @@ namespace ProgramUI
         // Only allow letters in a field.
         internal static bool AllowLetter(string value)
         {
-            bool let = value.All(c => Char.IsLetter(c));
-
-            return let;
+            return value.All(c => Char.IsLetter(c));
         }
 
         // Only allow letters and digits in a field.
         internal static bool AllowLetterDigit(string value)
         {
-            bool letDig = value.All(c => Char.IsLetterOrDigit(c));
-
-            return letDig;
+            return value.All(c => Char.IsLetterOrDigit(c));
         }
 
         // Only allow letters, digits and spaces in a field.
         internal static bool AllowLetterDigitSpace(string value)
         {
-            bool letDigSpace = value.All(c => Char.IsLetterOrDigit(c) || c == ' ');
-
-            return letDigSpace;
+            return value.All(c => Char.IsLetterOrDigit(c) || c == ' ');
         }
 
         // Only allow letters, digits, spaces and dashes in a field.
         internal static bool AllowLetterDigitSpaceDash(string value)
         {
-            bool letDigSpaceDash = value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-');
-
-            return letDigSpaceDash;
+            return value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-');
         }
 
         // Only allow letters, digits, spaces, dashes, dots and "@" symbol in a field (for email address).
         internal static bool AllowLetterDigitSpaceDashDotAt(string value)
         {
-            bool letDigSpaceDashDotAt = value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-' || c == '.' || c == '@');
-
-            return letDigSpaceDashDotAt;
+            return value.All(c => Char.IsLetterOrDigit(c) || c == ' ' || c == '-' || c == '.' || c == '@');
         }
 
         // Only allow letters, spaces and dashes in a field.
         internal static bool AllowLetterSpaceDash(string value)
         {
-            bool letSpaceDash = value.All(c => Char.IsLetter(c) || c == ' ' || c == '-');
-
-            return letSpaceDash;
+            return value.All(c => Char.IsLetter(c) || c == ' ' || c == '-');
         }
 
         // Only allow letters and dashes in a field.
         internal static bool AllowLetterDash(string value)
         {
-            bool letDigSpaceDash = value.All(c => Char.IsLetter(c) || c == '-');
-
-            return letDigSpaceDash;
+            return value.All(c => Char.IsLetter(c) || c == '-');
         }
 
         // Only allow digits in a field.
         internal static bool AllowDigit(string value)
         {
-            bool dig = value.All(c => Char.IsDigit(c));
-
-            return dig;
+            return value.All(c => Char.IsDigit(c));
         }
         
         // Only allow digits and spaces in a field.
         internal static bool AllowDigitSpace(string value)
         {
-            bool digSpace = value.All(c => Char.IsDigit(c) || c == ' ');
-
-            return digSpace;
+            return value.All(c => Char.IsDigit(c) || c == ' ');
         }
 
         // Only allow digits and pluses in a field.
         internal static bool AllowDigitPlus(string value)
         {
-            bool digPlus = value.All(c => Char.IsDigit(c) || c == '+');
-
-            return digPlus;
+            return value.All(c => Char.IsDigit(c) || c == '+');
         }
 
         // Function allowing to choose a specific Allow function inside other functions.
         internal static bool SetAllowFunction(string allow, string textboxValue)
         {
-            if (allow == "Letter")
+            switch(allow)
             {
-                return AllowLetter(textboxValue);
-            }
+                case "Letter":
+                    return AllowLetter(textboxValue);
 
-            if (allow == "LetterDigit")
-            {
-                return AllowLetterDigit(textboxValue);
-            }
+                case "LetterDigit":
+                    return AllowLetterDigit(textboxValue);
 
-            if (allow == "LetterDigitSpace")
-            {
-                return AllowLetterDigitSpace(textboxValue);
-            }
+                case "LetterDigitSpace":
+                    return AllowLetterDigitSpace(textboxValue);
 
-            if (allow == "LetterDigitSpaceDash")
-            {
-                return AllowLetterDigitSpaceDash(textboxValue);
-            }
+                case "LetterDigitSpaceDash":
+                    return AllowLetterDigitSpaceDash(textboxValue);
 
-            if (allow == "LetterDigitSpaceDashDotAt")
-            {
-                return AllowLetterDigitSpaceDashDotAt(textboxValue);
-            }
+                case "LetterDigitSpaceDashDotAt":
+                    return AllowLetterDigitSpaceDashDotAt(textboxValue);
 
-            if (allow == "LetterSpaceDash")
-            {
-                return AllowLetterSpaceDash(textboxValue);
-            }
+                case "LetterSpaceDash":
+                    return AllowLetterSpaceDash(textboxValue);
 
-            if (allow == "LetterDash")
-            {
-                return AllowLetterDash(textboxValue);
-            }
+                case "LetterDash":
+                    return AllowLetterDash(textboxValue);
 
-            if (allow == "Digit")
-            {
-                return AllowDigit(textboxValue);
-            }
+                case "Digit":
+                    return AllowDigit(textboxValue);
 
-            if (allow == "DigitSpace")
-            {
-                return AllowDigitSpace(textboxValue);
-            }
+                case "DigitSpace":
+                    return AllowDigitSpace(textboxValue);
 
-            if (allow == "DigitPlus")
-            {
-                return AllowDigitPlus(textboxValue);
-            }
+                case "DigitPlus":
+                    return AllowDigitPlus(textboxValue);
 
-            else
-            {
-                throw new Exception("Incorrect value provided for SetAllowFunction");
+                default:
+                    throw new Exception("Incorrect value provided for SetAllowFunction");
             }
         }
     }

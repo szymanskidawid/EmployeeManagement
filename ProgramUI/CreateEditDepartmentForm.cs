@@ -43,7 +43,7 @@ namespace ProgramUI
         {
             if (DepartmentFormValidation())
             {
-                if (!EditMenuSubForm.GetEditState())
+                if (!EditMenuSubForm.GetIsEdit())
                 {
                     //Save department using values in the form fields.
                     SqlConnector.CreateDepartment(departmentNameValue.Text,
@@ -60,7 +60,7 @@ namespace ProgramUI
                 ResetDepartmentFormValues();
 
                 //Sets Edit state back to false as we want Create state to be default.
-                EditMenuSubForm.SetEditState(false); 
+                EditMenuSubForm.IsEdit(false); 
 
                 //Closes the form
                 this.Close();
