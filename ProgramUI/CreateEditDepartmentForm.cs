@@ -60,7 +60,7 @@ namespace ProgramUI
                 ResetDepartmentFormValues();
 
                 //Sets Edit state back to false as we want Create state to be default.
-                EditMenuSubForm.IsEdit(false); 
+                EditMenuSubForm.IsEditing(false); 
 
                 //Closes the form
                 this.Close();
@@ -99,7 +99,6 @@ namespace ProgramUI
         // Loads a department into fields when Edit is chosen.
         private void LoadDepartment(DepartmentModel model)
         {
-            departmentIdValue.Text = model.Id.ToString();
             departmentNameValue.Text = model.DepartmentName;
             departmentLocationValue.Text = model.DepartmentLocation;
         }

@@ -26,7 +26,7 @@ namespace ProgramUI
         private static DepartmentModel selectedDepartment = new();
         private static JobTitleModel selectedJobTitle = new();
 
-        private static bool editState = false;
+        private static bool isEdit = false;
 
         public EditMenuSubForm()
         {
@@ -69,7 +69,7 @@ namespace ProgramUI
             if (editCategoryDropDown.Text == "Employee")
             {
                 selectedEmployee = editListBox.SelectedItem as EmployeeModel;
-                IsEdit(true);
+                IsEditing(true);
 
                 this.Close();
                 CreateEditEmployeeForm employerForm = new();
@@ -81,7 +81,7 @@ namespace ProgramUI
             else if (editCategoryDropDown.Text == "Department")
             {
                 selectedDepartment = editListBox.SelectedItem as DepartmentModel;
-                IsEdit(true);
+                IsEditing(true);
 
                 this.Close();
                 CreateEditDepartmentForm departmentForm = new();
@@ -93,7 +93,7 @@ namespace ProgramUI
             else if (editCategoryDropDown.Text == "Job Title")
             {
                 selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
-                IsEdit(true);
+                IsEditing(true);
 
                 this.Close();
                 CreateEditJobTitleForm jobTitleForm = new();
@@ -187,14 +187,14 @@ namespace ProgramUI
         }
 
         // Functions below will determine whether Save button in a CreateEdit forms will save new entries into SQL or update existing ones.
-        internal static void IsEdit(bool state)
+        internal static void IsEditing(bool state)
         {
-            editState = state;
+            isEdit = state;
         }
 
         internal static bool GetIsEdit()
         {
-            return editState;
+            return isEdit;
         }
     }
 }

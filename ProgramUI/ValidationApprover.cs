@@ -44,7 +44,7 @@ namespace ProgramUI
         }
 
         // Function validating user input for each TextBox.
-        internal static async void UserInputValidation(TextBox text, int minCharacters, int maxCharacters, 
+        internal static void UserInputValidation(TextBox text, int minCharacters, int maxCharacters, 
             Label infoLabel, string textboxToString, string allow, string require)
         {
             if (text.Text.Length < minCharacters || text.Text.Length > maxCharacters || 

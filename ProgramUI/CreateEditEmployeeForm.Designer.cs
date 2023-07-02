@@ -70,8 +70,6 @@
             this.employeeBirthInfoLabel = new System.Windows.Forms.Label();
             this.employeeContractStartInfoLabel = new System.Windows.Forms.Label();
             this.employeeContractEndInfoLabel = new System.Windows.Forms.Label();
-            this.employeeIdLabel = new System.Windows.Forms.Label();
-            this.employeeIdValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // employeeFirstNameValue
@@ -547,37 +545,12 @@
             this.employeeContractEndInfoLabel.TabIndex = 60;
             this.employeeContractEndInfoLabel.Text = "Contract length between 3-12 months";
             // 
-            // employeeIdLabel
-            // 
-            this.employeeIdLabel.AutoSize = true;
-            this.employeeIdLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeIdLabel.ForeColor = System.Drawing.Color.DarkRed;
-            this.employeeIdLabel.Location = new System.Drawing.Point(636, 9);
-            this.employeeIdLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.employeeIdLabel.Name = "employeeIdLabel";
-            this.employeeIdLabel.Size = new System.Drawing.Size(227, 45);
-            this.employeeIdLabel.TabIndex = 61;
-            this.employeeIdLabel.Text = "Employee ID: ";
-            // 
-            // employeeIdValue
-            // 
-            this.employeeIdValue.AutoSize = true;
-            this.employeeIdValue.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.employeeIdValue.ForeColor = System.Drawing.Color.DarkRed;
-            this.employeeIdValue.Location = new System.Drawing.Point(902, 9);
-            this.employeeIdValue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.employeeIdValue.Name = "employeeIdValue";
-            this.employeeIdValue.Size = new System.Drawing.Size(0, 45);
-            this.employeeIdValue.TabIndex = 62;
-            // 
             // CreateEditEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1758, 737);
-            this.Controls.Add(this.employeeIdValue);
-            this.Controls.Add(this.employeeIdLabel);
             this.Controls.Add(this.employeeContractEndInfoLabel);
             this.Controls.Add(this.employeeContractStartInfoLabel);
             this.Controls.Add(this.employeeBirthInfoLabel);
@@ -671,7 +644,5 @@
         private Label employeeBirthInfoLabel;
         private Label employeeContractStartInfoLabel;
         private Label employeeContractEndInfoLabel;
-        private Label employeeIdLabel;
-        private Label employeeIdValue;
     }
 }

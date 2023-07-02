@@ -123,7 +123,7 @@ namespace ProgramUI
                 ResetEmployeeFormValues();
 
                 //Sets Edit state back to false as we want Create state to be default.
-                EditMenuSubForm.IsEdit(false); 
+                EditMenuSubForm.IsEditing(false); 
 
                 //Closes the form
                 this.Close();
@@ -183,7 +183,6 @@ namespace ProgramUI
         // Loads an employee into fields when Edit is chosen.
         private void LoadEmployee(EmployeeModel model)
         {
-            employeeIdValue.Text = model.Id.ToString();
             employeeFirstNameValue.Text = model.FirstName;
             employeeLastNameValue.Text = model.LastName;
             employeeBirthTimePicker.Text = model.DateOfBirth;

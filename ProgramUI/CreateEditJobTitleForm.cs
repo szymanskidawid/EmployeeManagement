@@ -76,7 +76,7 @@ namespace ProgramUI
                 ResetJobTitleFormValues();
 
                 //Sets Edit state back to false as we want Create state to be default.
-                EditMenuSubForm.IsEdit(false); 
+                EditMenuSubForm.IsEditing(false); 
 
                 //Closes the form
                 this.Close(); 
@@ -98,21 +98,19 @@ namespace ProgramUI
         // Function responsible for validating the form.
         private bool JobTitleFormValidation()
         {
-            bool isValid = true;
-
             string nameValue = jobTitleNameValue.Text;
 
             //6th parameter accepts values from "ValidationAllowedCharacters.SetAllowFunction" function.
             //7th parameter accepts values from "ValidationRequiredCharacters.SetRequireFunction" function.
             ValidationApprover.UserInputValidation(jobTitleNameValue, 5, 20, jobTitleNameInfoLabel, nameValue, "LetterDigitSpaceDash", "Letter");
 
+            bool isValid;
             return isValid = ValidationApprover.GetIsValid();
         }
 
         // Loads a job title into fields when Edit is chosen.
         private void LoadJobTitle(JobTitleModel model)
         {
-            jobTitleIdValue.Text = model.Id.ToString();
             jobTitleNameValue.Text = model.JobTitleName;
             jobTitleDepartmentDropDown.Text = model.JobTitleDepartment;
             jobTitleSupervisorDropDown.Text = model.IsSupervisor;
