@@ -4,7 +4,7 @@ This is an employee management app created for Front and Back-End practice of le
 # Status
 Application has been finished according to my plans but there are many ways in which I can add more functionality.
 
-# GIFs highlighting some functionalities
+# GIFs highlighting some functionalities (click for zoom)
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/e71e3b38-e53a-40a5-b858-99f76f87240f" alt="project_GIF_1" width="250">
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/9432d387-9065-40e6-b029-71b2e6e3f2e5" alt="project_GIF_2" width="250">
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/d7aff651-303f-4b04-834c-2eb07e0b660f" alt="project_GIF_3" width="250">
