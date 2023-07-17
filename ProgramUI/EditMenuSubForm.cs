@@ -73,7 +73,7 @@ namespace ProgramUI
 
                 this.Close();
                 CreateEditEmployeeForm employerForm = new();
-                employerForm.Show();
+                employerForm.ShowDialog();
 
                 //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
                 selectedEmployee = null; 
@@ -85,7 +85,7 @@ namespace ProgramUI
 
                 this.Close();
                 CreateEditDepartmentForm departmentForm = new();
-                departmentForm.Show();
+                departmentForm.ShowDialog();
 
                 //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
                 selectedDepartment = null;
@@ -97,7 +97,7 @@ namespace ProgramUI
 
                 this.Close();
                 CreateEditJobTitleForm jobTitleForm = new();
-                jobTitleForm.Show();
+                jobTitleForm.ShowDialog();
 
                 //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
                 selectedJobTitle = null;

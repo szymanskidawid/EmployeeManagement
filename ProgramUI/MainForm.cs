@@ -15,7 +15,6 @@ namespace ProgramUI
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
@@ -71,28 +70,28 @@ namespace ProgramUI
         private void createEmployeeMenuItem_Click(object sender, EventArgs e)
         {
             CreateEditEmployeeForm employerForm = new();
-            employerForm.Show();
+            employerForm.ShowDialog();
         }
 
         // Opens up a Create Department Form.
         private void createDepartmentMenuItem_Click(object sender, EventArgs e)
         {
             CreateEditDepartmentForm departmentForm = new();
-            departmentForm.Show();
+            departmentForm.ShowDialog();
         }
 
         // Opens up a Create Job Title Form.
         private void createJobTitleManuItem_Click(object sender, EventArgs e)
         {
             CreateEditJobTitleForm jobTitleForm = new();
-            jobTitleForm.Show();
+            jobTitleForm.ShowDialog();
         }
 
         // Opens up an Edit Menu SubForm.
         private void toolStripEditButton_Click(object sender, EventArgs e)
         {
             EditMenuSubForm employeeSubForm = new();
-            employeeSubForm.Show();
+            employeeSubForm.ShowDialog();
         }
 
         // Closes the application when MainForm is closed.
