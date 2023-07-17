@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainEmployeeView = new System.Windows.Forms.DataGridView();
             this.searchValue = new System.Windows.Forms.TextBox();
@@ -48,27 +48,26 @@
             // 
             this.mainEmployeeView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.mainEmployeeView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.mainEmployeeView.DefaultCellStyle = dataGridViewCellStyle1;
-            this.mainEmployeeView.Location = new System.Drawing.Point(204, 203);
+            this.mainEmployeeView.Location = new System.Drawing.Point(168, 203);
             this.mainEmployeeView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainEmployeeView.Name = "mainEmployeeView";
             this.mainEmployeeView.RowHeadersWidth = 62;
             this.mainEmployeeView.RowTemplate.Height = 25;
-            this.mainEmployeeView.Size = new System.Drawing.Size(1431, 802);
+            this.mainEmployeeView.Size = new System.Drawing.Size(1431, 624);
             this.mainEmployeeView.TabIndex = 0;
-            this.mainEmployeeView.DefaultCellStyle.ForeColor = Color.Black;
+            this.mainEmployeeView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             // 
             // searchValue
             // 
             this.searchValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.searchValue.Location = new System.Drawing.Point(1221, 110);
+            this.searchValue.Location = new System.Drawing.Point(1185, 110);
             this.searchValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchValue.Name = "searchValue";
             this.searchValue.Size = new System.Drawing.Size(211, 31);
@@ -83,7 +82,7 @@
             this.searchButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.searchButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.searchButton.Location = new System.Drawing.Point(1466, 93);
+            this.searchButton.Location = new System.Drawing.Point(1430, 93);
             this.searchButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(169, 65);
@@ -103,7 +102,7 @@
             this.toolStrip.Location = new System.Drawing.Point(0, 0);
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
-            this.toolStrip.Size = new System.Drawing.Size(1819, 41);
+            this.toolStrip.Size = new System.Drawing.Size(1758, 41);
             this.toolStrip.TabIndex = 6;
             this.toolStrip.Text = "toolStrip1";
             // 
@@ -164,7 +163,7 @@
             this.refreshButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.refreshButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.refreshButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.refreshButton.Location = new System.Drawing.Point(204, 139);
+            this.refreshButton.Location = new System.Drawing.Point(168, 139);
             this.refreshButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.refreshButton.Name = "refreshButton";
             this.refreshButton.Size = new System.Drawing.Size(169, 65);
@@ -179,15 +178,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1819, 1107);
+            this.ClientSize = new System.Drawing.Size(1758, 912);
             this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.toolStrip);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchValue);
             this.Controls.Add(this.mainEmployeeView);
             this.ForeColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = resources.GetString("$this.Text");
+            this.Text = "Main View";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.mainEmployeeView)).EndInit();
             this.toolStrip.ResumeLayout(false);

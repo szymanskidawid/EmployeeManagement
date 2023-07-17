@@ -33,6 +33,7 @@
             this.passwordLabel = new System.Windows.Forms.Label();
             this.usernameValue = new System.Windows.Forms.TextBox();
             this.passwordValue = new System.Windows.Forms.TextBox();
+            this.loginFormLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginButton
@@ -44,7 +45,7 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.loginButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.loginButton.Location = new System.Drawing.Point(261, 523);
+            this.loginButton.Location = new System.Drawing.Point(291, 419);
             this.loginButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(169, 88);
@@ -57,7 +58,7 @@
             // 
             this.usernameLabel.AutoSize = true;
             this.usernameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.usernameLabel.Location = new System.Drawing.Point(141, 237);
+            this.usernameLabel.Location = new System.Drawing.Point(181, 240);
             this.usernameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernameLabel.Name = "usernameLabel";
             this.usernameLabel.Size = new System.Drawing.Size(169, 45);
@@ -68,7 +69,7 @@
             // 
             this.passwordLabel.AutoSize = true;
             this.passwordLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.passwordLabel.Location = new System.Drawing.Point(149, 343);
+            this.passwordLabel.Location = new System.Drawing.Point(187, 315);
             this.passwordLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordLabel.Name = "passwordLabel";
             this.passwordLabel.Size = new System.Drawing.Size(163, 45);
@@ -79,7 +80,7 @@
             // 
             this.usernameValue.BackColor = System.Drawing.SystemColors.Window;
             this.usernameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.usernameValue.Location = new System.Drawing.Point(330, 248);
+            this.usernameValue.Location = new System.Drawing.Point(370, 251);
             this.usernameValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.usernameValue.Name = "usernameValue";
             this.usernameValue.Size = new System.Drawing.Size(211, 31);
@@ -88,24 +89,38 @@
             // passwordValue
             // 
             this.passwordValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.passwordValue.Location = new System.Drawing.Point(330, 358);
+            this.passwordValue.Location = new System.Drawing.Point(368, 330);
             this.passwordValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.passwordValue.Name = "passwordValue";
             this.passwordValue.PasswordChar = '*';
             this.passwordValue.Size = new System.Drawing.Size(211, 31);
             this.passwordValue.TabIndex = 4;
             // 
+            // loginFormLabel
+            // 
+            this.loginFormLabel.AutoSize = true;
+            this.loginFormLabel.Font = new System.Drawing.Font("Segoe UI", 30F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.loginFormLabel.Location = new System.Drawing.Point(29, 97);
+            this.loginFormLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.loginFormLabel.Name = "loginFormLabel";
+            this.loginFormLabel.Size = new System.Drawing.Size(694, 81);
+            this.loginFormLabel.TabIndex = 14;
+            this.loginFormLabel.Text = "Employee Management";
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(690, 682);
+            this.ClientSize = new System.Drawing.Size(736, 552);
+            this.Controls.Add(this.loginFormLabel);
             this.Controls.Add(this.passwordValue);
             this.Controls.Add(this.usernameValue);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.usernameLabel);
             this.Controls.Add(this.loginButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -120,5 +135,6 @@
         private Label passwordLabel;
         private TextBox usernameValue;
         private TextBox passwordValue;
+        private Label loginFormLabel;
     }
 }

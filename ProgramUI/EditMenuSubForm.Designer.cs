@@ -40,7 +40,7 @@
             // 
             this.editMenuSubFormLabel.AutoSize = true;
             this.editMenuSubFormLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.editMenuSubFormLabel.Location = new System.Drawing.Point(13, 23);
+            this.editMenuSubFormLabel.Location = new System.Drawing.Point(47, 40);
             this.editMenuSubFormLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editMenuSubFormLabel.Name = "editMenuSubFormLabel";
             this.editMenuSubFormLabel.Size = new System.Drawing.Size(216, 55);
@@ -56,7 +56,7 @@
             this.editMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editMenuButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.editMenuButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.editMenuButton.Location = new System.Drawing.Point(60, 693);
+            this.editMenuButton.Location = new System.Drawing.Point(110, 702);
             this.editMenuButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editMenuButton.Name = "editMenuButton";
             this.editMenuButton.Size = new System.Drawing.Size(169, 88);
@@ -69,19 +69,19 @@
             // 
             this.editListBox.FormattingEnabled = true;
             this.editListBox.ItemHeight = 25;
-            this.editListBox.Location = new System.Drawing.Point(146, 197);
+            this.editListBox.Location = new System.Drawing.Point(161, 237);
             this.editListBox.Name = "editListBox";
-            this.editListBox.Size = new System.Drawing.Size(271, 429);
+            this.editListBox.Size = new System.Drawing.Size(420, 429);
             this.editListBox.TabIndex = 30;
             // 
             // editCategoryDropDown
             // 
             this.editCategoryDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editCategoryDropDown.FormattingEnabled = true;
-            this.editCategoryDropDown.Location = new System.Drawing.Point(254, 110);
+            this.editCategoryDropDown.Location = new System.Drawing.Point(319, 148);
             this.editCategoryDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.editCategoryDropDown.Name = "editCategoryDropDown";
-            this.editCategoryDropDown.Size = new System.Drawing.Size(171, 33);
+            this.editCategoryDropDown.Size = new System.Drawing.Size(262, 33);
             this.editCategoryDropDown.TabIndex = 32;
             this.editCategoryDropDown.SelectedIndexChanged += new System.EventHandler(this.editCategoryDropDown_SelectedIndexChanged);
             // 
@@ -89,7 +89,7 @@
             // 
             this.editCategoryLabel.AutoSize = true;
             this.editCategoryLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.editCategoryLabel.Location = new System.Drawing.Point(95, 102);
+            this.editCategoryLabel.Location = new System.Drawing.Point(161, 139);
             this.editCategoryLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editCategoryLabel.Name = "editCategoryLabel";
             this.editCategoryLabel.Size = new System.Drawing.Size(157, 45);
@@ -105,7 +105,7 @@
             this.deleteMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteMenuButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.deleteMenuButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.deleteMenuButton.Location = new System.Drawing.Point(303, 693);
+            this.deleteMenuButton.Location = new System.Drawing.Point(454, 702);
             this.deleteMenuButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.deleteMenuButton.Name = "deleteMenuButton";
             this.deleteMenuButton.Size = new System.Drawing.Size(169, 88);
@@ -119,15 +119,17 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(542, 828);
+            this.ClientSize = new System.Drawing.Size(736, 828);
             this.Controls.Add(this.deleteMenuButton);
             this.Controls.Add(this.editCategoryDropDown);
             this.Controls.Add(this.editCategoryLabel);
             this.Controls.Add(this.editListBox);
             this.Controls.Add(this.editMenuButton);
             this.Controls.Add(this.editMenuSubFormLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "EditMenuSubForm";
-            this.Text = "Edit SubForm";
+            this.Text = "Edit / Delete";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -593,6 +593,8 @@
             this.Controls.Add(this.employeeEmailValue);
             this.Controls.Add(this.employeeLastNameValue);
             this.Controls.Add(this.employeeFirstNameValue);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
             this.Name = "CreateEditEmployeeForm";
             this.Text = "Create / Edit Employee";
             this.ResumeLayout(false);

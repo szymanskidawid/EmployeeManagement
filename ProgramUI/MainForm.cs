@@ -56,7 +56,7 @@ namespace ProgramUI
                 //Loops through all cells in a row inside DataGridView.
                 foreach (DataGridViewCell cell in row.Cells)
                 {
-                    //Check if search imput matches with any cell.
+                    //Check if search input matches with any cell.
                     if (cell.Value != null && cell.Value.ToString().ToLower().Contains(searchValue.Text.ToLower()))
                     {
                         //Highlight cells that contain the search input.
