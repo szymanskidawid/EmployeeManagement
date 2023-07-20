@@ -48,7 +48,7 @@
             this.jobTitleSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.jobTitleSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.jobTitleSaveButton.Location = new System.Drawing.Point(283, 414);
+            this.jobTitleSaveButton.Location = new System.Drawing.Point(284, 370);
             this.jobTitleSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleSaveButton.Name = "jobTitleSaveButton";
             this.jobTitleSaveButton.Size = new System.Drawing.Size(169, 88);
@@ -61,7 +61,7 @@
             // 
             this.jobTitleDepartmentLabel.AutoSize = true;
             this.jobTitleDepartmentLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.jobTitleDepartmentLabel.Location = new System.Drawing.Point(83, 243);
+            this.jobTitleDepartmentLabel.Location = new System.Drawing.Point(83, 212);
             this.jobTitleDepartmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleDepartmentLabel.Name = "jobTitleDepartmentLabel";
             this.jobTitleDepartmentLabel.Size = new System.Drawing.Size(201, 45);
@@ -72,7 +72,7 @@
             // 
             this.jobTitleNameLabel.AutoSize = true;
             this.jobTitleNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.jobTitleNameLabel.Location = new System.Drawing.Point(168, 151);
+            this.jobTitleNameLabel.Location = new System.Drawing.Point(168, 120);
             this.jobTitleNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleNameLabel.Name = "jobTitleNameLabel";
             this.jobTitleNameLabel.Size = new System.Drawing.Size(108, 45);
@@ -83,7 +83,7 @@
             // 
             this.createEditJobTitleLabel.AutoSize = true;
             this.createEditJobTitleLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.createEditJobTitleLabel.Location = new System.Drawing.Point(40, 40);
+            this.createEditJobTitleLabel.Location = new System.Drawing.Point(30, 30);
             this.createEditJobTitleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.createEditJobTitleLabel.Name = "createEditJobTitleLabel";
             this.createEditJobTitleLabel.Size = new System.Drawing.Size(435, 55);
@@ -94,7 +94,7 @@
             // 
             this.jobTitleNameValue.BackColor = System.Drawing.SystemColors.Window;
             this.jobTitleNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.jobTitleNameValue.Location = new System.Drawing.Point(301, 163);
+            this.jobTitleNameValue.Location = new System.Drawing.Point(301, 132);
             this.jobTitleNameValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleNameValue.Name = "jobTitleNameValue";
             this.jobTitleNameValue.Size = new System.Drawing.Size(276, 31);
@@ -105,7 +105,7 @@
             // 
             this.jobTitleSupervisorLabel.AutoSize = true;
             this.jobTitleSupervisorLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.jobTitleSupervisorLabel.Location = new System.Drawing.Point(101, 316);
+            this.jobTitleSupervisorLabel.Location = new System.Drawing.Point(101, 285);
             this.jobTitleSupervisorLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleSupervisorLabel.Name = "jobTitleSupervisorLabel";
             this.jobTitleSupervisorLabel.Size = new System.Drawing.Size(181, 45);
@@ -116,7 +116,7 @@
             // 
             this.jobTitleSupervisorDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleSupervisorDropDown.FormattingEnabled = true;
-            this.jobTitleSupervisorDropDown.Location = new System.Drawing.Point(301, 328);
+            this.jobTitleSupervisorDropDown.Location = new System.Drawing.Point(301, 297);
             this.jobTitleSupervisorDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleSupervisorDropDown.Name = "jobTitleSupervisorDropDown";
             this.jobTitleSupervisorDropDown.Size = new System.Drawing.Size(171, 33);
@@ -126,7 +126,7 @@
             // 
             this.jobTitleDepartmentDropDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.jobTitleDepartmentDropDown.FormattingEnabled = true;
-            this.jobTitleDepartmentDropDown.Location = new System.Drawing.Point(301, 255);
+            this.jobTitleDepartmentDropDown.Location = new System.Drawing.Point(301, 224);
             this.jobTitleDepartmentDropDown.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jobTitleDepartmentDropDown.Name = "jobTitleDepartmentDropDown";
             this.jobTitleDepartmentDropDown.Size = new System.Drawing.Size(171, 33);
@@ -137,7 +137,7 @@
             this.jobTitleNameInfoLabel.AutoSize = true;
             this.jobTitleNameInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.jobTitleNameInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.jobTitleNameInfoLabel.Location = new System.Drawing.Point(301, 199);
+            this.jobTitleNameInfoLabel.Location = new System.Drawing.Point(301, 168);
             this.jobTitleNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.jobTitleNameInfoLabel.Name = "jobTitleNameInfoLabel";
             this.jobTitleNameInfoLabel.Size = new System.Drawing.Size(344, 42);
@@ -149,7 +149,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(736, 552);
+            this.ClientSize = new System.Drawing.Size(736, 500);
             this.Controls.Add(this.jobTitleNameInfoLabel);
             this.Controls.Add(this.jobTitleDepartmentDropDown);
             this.Controls.Add(this.jobTitleSupervisorDropDown);

@@ -128,7 +128,7 @@
             // 
             this.createEditEmployeeLabel.AutoSize = true;
             this.createEditEmployeeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.createEditEmployeeLabel.Location = new System.Drawing.Point(17, 30);
+            this.createEditEmployeeLabel.Location = new System.Drawing.Point(30, 30);
             this.createEditEmployeeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.createEditEmployeeLabel.Name = "createEditEmployeeLabel";
             this.createEditEmployeeLabel.Size = new System.Drawing.Size(456, 55);
@@ -232,7 +232,7 @@
             this.employeeSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.employeeSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.employeeSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.employeeSaveButton.Location = new System.Drawing.Point(797, 616);
+            this.employeeSaveButton.Location = new System.Drawing.Point(796, 614);
             this.employeeSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.employeeSaveButton.Name = "employeeSaveButton";
             this.employeeSaveButton.Size = new System.Drawing.Size(169, 88);

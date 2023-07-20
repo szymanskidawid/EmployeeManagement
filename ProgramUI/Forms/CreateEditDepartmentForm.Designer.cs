@@ -47,7 +47,7 @@
             this.departmentSaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.departmentSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.departmentSaveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.departmentSaveButton.Location = new System.Drawing.Point(289, 390);
+            this.departmentSaveButton.Location = new System.Drawing.Point(286, 341);
             this.departmentSaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentSaveButton.Name = "departmentSaveButton";
             this.departmentSaveButton.Size = new System.Drawing.Size(169, 88);
@@ -60,7 +60,7 @@
             // 
             this.departmentLocationLabel.AutoSize = true;
             this.departmentLocationLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.departmentLocationLabel.Location = new System.Drawing.Point(183, 235);
+            this.departmentLocationLabel.Location = new System.Drawing.Point(183, 213);
             this.departmentLocationLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentLocationLabel.Name = "departmentLocationLabel";
             this.departmentLocationLabel.Size = new System.Drawing.Size(148, 45);
@@ -71,7 +71,7 @@
             // 
             this.departmentNameLabel.AutoSize = true;
             this.departmentNameLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.departmentNameLabel.Location = new System.Drawing.Point(42, 146);
+            this.departmentNameLabel.Location = new System.Drawing.Point(42, 124);
             this.departmentNameLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentNameLabel.Name = "departmentNameLabel";
             this.departmentNameLabel.Size = new System.Drawing.Size(298, 45);
@@ -82,7 +82,7 @@
             // 
             this.createEditDepartmentLabel.AutoSize = true;
             this.createEditDepartmentLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.createEditDepartmentLabel.Location = new System.Drawing.Point(34, 40);
+            this.createEditDepartmentLabel.Location = new System.Drawing.Point(30, 30);
             this.createEditDepartmentLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.createEditDepartmentLabel.Name = "createEditDepartmentLabel";
             this.createEditDepartmentLabel.Size = new System.Drawing.Size(501, 55);
@@ -93,7 +93,7 @@
             // 
             this.departmentLocationValue.BackColor = System.Drawing.SystemColors.Window;
             this.departmentLocationValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.departmentLocationValue.Location = new System.Drawing.Point(351, 243);
+            this.departmentLocationValue.Location = new System.Drawing.Point(351, 221);
             this.departmentLocationValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentLocationValue.Name = "departmentLocationValue";
             this.departmentLocationValue.Size = new System.Drawing.Size(280, 31);
@@ -105,7 +105,7 @@
             this.departmentNameValue.BackColor = System.Drawing.SystemColors.Window;
             this.departmentNameValue.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.departmentNameValue.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.departmentNameValue.Location = new System.Drawing.Point(349, 154);
+            this.departmentNameValue.Location = new System.Drawing.Point(349, 132);
             this.departmentNameValue.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.departmentNameValue.Name = "departmentNameValue";
             this.departmentNameValue.Size = new System.Drawing.Size(280, 31);
@@ -117,7 +117,7 @@
             this.departmentLocationInfoLabel.AutoSize = true;
             this.departmentLocationInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.departmentLocationInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.departmentLocationInfoLabel.Location = new System.Drawing.Point(351, 273);
+            this.departmentLocationInfoLabel.Location = new System.Drawing.Point(351, 251);
             this.departmentLocationInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentLocationInfoLabel.Name = "departmentLocationInfoLabel";
             this.departmentLocationInfoLabel.Size = new System.Drawing.Size(292, 42);
@@ -129,7 +129,7 @@
             this.departmentNameInfoLabel.AutoSize = true;
             this.departmentNameInfoLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.departmentNameInfoLabel.ForeColor = System.Drawing.Color.Black;
-            this.departmentNameInfoLabel.Location = new System.Drawing.Point(349, 186);
+            this.departmentNameInfoLabel.Location = new System.Drawing.Point(349, 164);
             this.departmentNameInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departmentNameInfoLabel.Name = "departmentNameInfoLabel";
             this.departmentNameInfoLabel.Size = new System.Drawing.Size(344, 42);
@@ -141,7 +141,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(736, 552);
+            this.ClientSize = new System.Drawing.Size(736, 500);
             this.Controls.Add(this.departmentNameInfoLabel);
             this.Controls.Add(this.departmentLocationInfoLabel);
             this.Controls.Add(this.departmentSaveButton);

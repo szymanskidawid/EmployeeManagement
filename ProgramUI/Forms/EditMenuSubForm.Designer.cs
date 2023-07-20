@@ -40,7 +40,7 @@
             // 
             this.editMenuSubFormLabel.AutoSize = true;
             this.editMenuSubFormLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
-            this.editMenuSubFormLabel.Location = new System.Drawing.Point(47, 40);
+            this.editMenuSubFormLabel.Location = new System.Drawing.Point(30, 30);
             this.editMenuSubFormLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.editMenuSubFormLabel.Name = "editMenuSubFormLabel";
             this.editMenuSubFormLabel.Size = new System.Drawing.Size(216, 55);
