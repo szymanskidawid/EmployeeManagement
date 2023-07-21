@@ -9,13 +9,11 @@ Application has been finished according to my plans but there are many ways in w
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/9432d387-9065-40e6-b029-71b2e6e3f2e5" alt="project_GIF_2" width="250">
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/d7aff651-303f-4b04-834c-2eb07e0b660f" alt="project_GIF_3" width="250">
 
-
 # Installation and Setup
-Clone down this repository and open using MS Visual Studio, preferably 2022 or higher as this is what I have used for development.
-There is one external library Dapper that has been used in this project and need to be added to Extensions.
-
-Folder " " contains created database that can be opened using Microsoft SQL Server Management Studio 18. You can move this database to a different folder if needed.
-
+1) Clone down EmployeeManagement repository and open using MS Visual Studio (preferably 2022 or higher as this is what I have used).
+2) Right click your solution and click "Restore NuGet Packages" to get all extra packages used for this project.
+3) Visit my "SQL Database for EmployeeManagement" repo to clone down Database for this project. (LINK)
+4) Setup the database according to name inside App.config file.
 
 # Reflection
 This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and positions that are available in these departments.
