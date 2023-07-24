@@ -16,9 +16,9 @@ Application has been finished according to my plans but there are many ways in w
 1) Clone down EmployeeManagement repository and open the solution using MS Visual Studio (preferably 2022 as this is what I have used).
 2) Right click your solution and click "Restore NuGet Packages" to get all extra packages used for this project.
 3) Right click ProgramUI and "Set as Startup Project".
-4) Visit my "SQL_DB-EmployeeManagement" repo to clone down Database for this project.
+4) Visit my "SQL_DB-EmployeeManagement" repo to clone down "EmployeeManagement.sql" file for this project.
    
-   <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">LINK to SQL_DB-EmployeeManagement</a>
+   <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">LINK to SQL_DB-EmployeeManagement repository</a>
 6) Run Microsoft SQL Server Management Studio 18 (what I used) and open the database file you have cloned down.
 7) Execute all code contained in the file.
 8) Add your own Username and Password to dbo.LoginTable file, you can do it using example below:
