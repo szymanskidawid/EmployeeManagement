@@ -1,6 +1,9 @@
 # EmployeeManagement
 This is an employee management app created for Front and Back-End practice of learned skills. It works together with an SQL Database that can be found in my repository <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">SQL_DB-EmployeeManagement</a>.
 
+ 
+
+
 # Status
 Application has been finished according to my plans but there are many ways in which I can add more functionality.
 
