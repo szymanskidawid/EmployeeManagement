@@ -10,10 +10,11 @@ Application has been finished according to my plans but there are many ways in w
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/d7aff651-303f-4b04-834c-2eb07e0b660f" alt="project_GIF_3" width="250">
 
 # Installation and Setup
-1) Clone down EmployeeManagement repository and open using MS Visual Studio (preferably 2022 or higher as this is what I have used).
+1) Clone down EmployeeManagement repository and open the solution using MS Visual Studio (preferably 2022 or higher as this is what I have used).
 2) Right click your solution and click "Restore NuGet Packages" to get all extra packages used for this project.
-3) Visit my "SQL Database for EmployeeManagement" repo to clone down Database for this project. (LINK)
-4) Setup the database according to name inside App.config file.
+3) Right click ProgramUI and "Set as Startup Project".
+4) Visit my "SQL Database for EmployeeManagement" repo to clone down Database for this project. (LINK)
+5) Setup the database according to name inside App.config file.
 
 # Reflection
 This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and positions that are available in these departments.
