@@ -1,5 +1,5 @@
 # EmployeeManagement
-This is an employee management app created for Front and Back-End practice of learned skills.
+This is an employee management app created for Front and Back-End practice of learned skills. It works together with an SQL Database that can be found in my repository <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">SQL_DB-EmployeeManagement</a>.
 
 # Status
 Application has been finished according to my plans but there are many ways in which I can add more functionality.
@@ -10,19 +10,21 @@ Application has been finished according to my plans but there are many ways in w
 <img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/d7aff651-303f-4b04-834c-2eb07e0b660f" alt="project_GIF_3" width="250">
 
 # Installation and Setup
-1) Clone down EmployeeManagement repository and open the solution using MS Visual Studio (preferably 2022 or higher as this is what I have used).
+1) Clone down EmployeeManagement repository and open the solution using MS Visual Studio (preferably 2022 as this is what I have used).
 2) Right click your solution and click "Restore NuGet Packages" to get all extra packages used for this project.
 3) Right click ProgramUI and "Set as Startup Project".
-4) Visit my "SQL_DB-EmployeeManagement" repo to clone down Database for this project. (LINK)
-5) Run Microsoft SQL Server Management Studio 18 (what I used) and open the database file you have cloned down.
-6) Execute all code contained in the file.
-7) Add your own Username and Password to dbo.LoginTable file, you can do it using example below:
+4) Visit my "SQL_DB-EmployeeManagement" repo to clone down Database for this project.
+   
+   <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">LINK to SQL_DB-EmployeeManagement</a>
+6) Run Microsoft SQL Server Management Studio 18 (what I used) and open the database file you have cloned down.
+7) Execute all code contained in the file.
+8) Add your own Username and Password to dbo.LoginTable file, you can do it using example below:
    INSERT INTO dbo.LoginTable (username, password) VALUES ('userexample', 'passexample');
    (example above does not contain any hashing, it is just for testing purposes)
-8) Run the app and play around with all functionalities it has.
+9) Run the app and play around with all functionalities it has.
 
 # Reflection
-This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and positions that are available in these departments.
+This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and job titles that are available in these departments.
 
 My goal was to learn how application can work with an external database and properly store data that can be pulled back to application in any required ways.
 
