@@ -13,8 +13,13 @@ Application has been finished according to my plans but there are many ways in w
 1) Clone down EmployeeManagement repository and open the solution using MS Visual Studio (preferably 2022 or higher as this is what I have used).
 2) Right click your solution and click "Restore NuGet Packages" to get all extra packages used for this project.
 3) Right click ProgramUI and "Set as Startup Project".
-4) Visit my "SQL Database for EmployeeManagement" repo to clone down Database for this project. (LINK)
-5) Setup the database according to name inside App.config file.
+4) Visit my "SQL_DB-EmployeeManagement" repo to clone down Database for this project. (LINK)
+5) Run Microsoft SQL Server Management Studio 18 (what I used) and open the database file you have cloned down.
+6) Execute all code contained in the file.
+7) Add your own Username and Password to dbo.LoginTable file, you can do it using example below:
+   INSERT INTO dbo.LoginTable (username, password) VALUES ('userexample', 'passexample');
+   (example above does not contain any hashing, it is just for testing purposes)
+8) Run the app and play around with all functionalities it has.
 
 # Reflection
 This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and positions that are available in these departments.
