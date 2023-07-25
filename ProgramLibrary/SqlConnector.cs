@@ -26,11 +26,9 @@ namespace ProgramLibrary
                 p.Add("@password", password);
 
                 //Count value increases to 1 if passed variables match with any dbo.LoginTable entry in my SQL Database.
-                int count = (int)connection.ExecuteScalar(query, p); 
+                int count = (int)connection.ExecuteScalar(query, p);
 
-                bool isValid = (count > 0);
-
-                return isValid;
+                return count > 0;
             }
         }
 
@@ -245,7 +243,7 @@ namespace ProgramLibrary
         {
             using (SqlConnection connection = new SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
-                JobTitleModel model = new JobTitleModel
+                JobTitleModel model = new()
                 {
                     Id = id,
                     JobTitleName = jobTitleName,
@@ -326,8 +324,7 @@ namespace ProgramLibrary
         {
             using (SqlConnection connection = new System.Data.SqlClient.SqlConnection(ConnectionHelper.CnnString("EmployeeManagement")))
             {
-                SqlDataAdapter adapter = new();
-                adapter.SelectCommand = new SqlCommand("SELECT * FROM dbo.Employees", connection);
+                SqlDataAdapter adapter = new("SELECT * FROM dbo.Employees", connection);
                 DataTable table = new();
                 adapter.Fill(table);
 
