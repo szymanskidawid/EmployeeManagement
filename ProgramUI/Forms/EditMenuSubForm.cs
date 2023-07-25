@@ -22,9 +22,9 @@ namespace ProgramUI
         private readonly List<JobTitleModel> availableJobTitles = SqlConnector.GetJobTitles_All();
 
         // Creates variables that will get a chosen entry to edit.
-        private static EmployeeModel selectedEmployee = new();
-        private static DepartmentModel selectedDepartment = new();
-        private static JobTitleModel selectedJobTitle = new();
+        private static EmployeeModel? selectedEmployee = new();
+        private static DepartmentModel? selectedDepartment = new();
+        private static JobTitleModel? selectedJobTitle = new();
 
         private static bool isEdit = false;
 
@@ -76,8 +76,9 @@ namespace ProgramUI
                 employerForm.ShowDialog();
 
                 //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
-                selectedEmployee = null; 
+                selectedEmployee = null;  
             }
+
             else if (editCategoryDropDown.Text == "Department")
             {
                 selectedDepartment = editListBox.SelectedItem as DepartmentModel;
@@ -90,6 +91,7 @@ namespace ProgramUI
                 //Reset the value inside function back to null so that it does not load when Create/Edit form is reopened.
                 selectedDepartment = null;
             }
+
             else if (editCategoryDropDown.Text == "Job Title")
             {
                 selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
@@ -111,7 +113,7 @@ namespace ProgramUI
             {
                 selectedEmployee = editListBox.SelectedItem as EmployeeModel;
 
-                if (ConfirmMessageBox(selectedEmployee))
+                if (selectedEmployee != null && ConfirmMessageBox(selectedEmployee))
                 {
                     SqlConnector.DeleteEmployee(selectedEmployee);
 
@@ -125,7 +127,7 @@ namespace ProgramUI
             {
                 selectedDepartment = editListBox.SelectedItem as DepartmentModel;
 
-                if (ConfirmMessageBox(selectedDepartment))
+                if (selectedDepartment != null && ConfirmMessageBox(selectedDepartment))
                 {
                     SqlConnector.DeleteDepartment(selectedDepartment);
 
@@ -139,7 +141,7 @@ namespace ProgramUI
             {
                 selectedJobTitle = editListBox.SelectedItem as JobTitleModel;
                 
-                if (ConfirmMessageBox(selectedJobTitle))
+                if (selectedJobTitle != null && ConfirmMessageBox(selectedJobTitle))
                 {
                     SqlConnector.DeleteJobTitle(selectedJobTitle);
 
@@ -171,17 +173,17 @@ namespace ProgramUI
         }
 
         // Below functions are getters for use in a CreateEdit forms.
-        internal static EmployeeModel GetSelectedEmployee()
+        internal static EmployeeModel? GetSelectedEmployee()
         {
             return selectedEmployee;
         }
 
-        internal static DepartmentModel GetSelectedDepartment()
+        internal static DepartmentModel? GetSelectedDepartment()
         {
             return selectedDepartment;
         }
 
-        internal static JobTitleModel GetSelectedJobTitle()
+        internal static JobTitleModel? GetSelectedJobTitle()
         {
             return selectedJobTitle;
         }
