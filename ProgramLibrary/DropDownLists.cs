@@ -7,7 +7,7 @@ using System.Globalization;
 
 namespace ProgramLibrary
 {
-    public class DropDownLists
+    public static class DropDownLists
     {
         // Get a list of Countries that can be added into a DropDown.
         public static List<string> CountryList()

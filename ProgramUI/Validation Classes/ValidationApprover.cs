@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace ProgramUI
 {
     // Contains different possibilities of validation for form fields.
-    internal class ValidationApprover
+    internal static class ValidationApprover
     {
         // Sets a state of a textbox depeding if the field was valid or not.
         private static void SetTextboxState(TextBox value, Label info, bool isValid)

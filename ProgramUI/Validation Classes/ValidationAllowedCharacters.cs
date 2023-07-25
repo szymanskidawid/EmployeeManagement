@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProgramUI
 {
     // Class containing functions that allow certain combination of characters in each field.
-    internal class ValidationAllowedCharacters
+    internal static class ValidationAllowedCharacters
     {
         // Only allow letters in a field.
         internal static bool AllowLetter(string value)

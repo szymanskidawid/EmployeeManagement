@@ -12,7 +12,7 @@ using System.Reflection;
 
 namespace ProgramLibrary
 {
-    public class SqlConnector
+    public static class SqlConnector
     {
         // Login system that accepts user input and returns whether it matches available logins in SQL table.
         public static bool LoginSystem(string login, string password)
@@ -205,10 +205,12 @@ namespace ProgramLibrary
                 DepartmentModel model = new()
                 {
                     Id = dm.Id,
+                    DepartmentName = dm.DepartmentName
                 };
 
                 var p = new DynamicParameters();
                 p.Add("@id", model.Id);
+                p.Add("@DepartmentName", model.DepartmentName);
                 connection.Execute("dbo.spDepartments_Delete", p, commandType: CommandType.StoredProcedure);
             }
         }
@@ -270,10 +272,12 @@ namespace ProgramLibrary
                 JobTitleModel model = new()
                 {
                     Id = jtm.Id,
+                    JobTitleName = jtm.JobTitleName
                 };
 
                 var p = new DynamicParameters();
                 p.Add("@id", model.Id);
+                p.Add("@JobTitleName", model.JobTitleName);
                 connection.Execute("dbo.spJobTitles_Delete", p, commandType: CommandType.StoredProcedure);
             }
         }

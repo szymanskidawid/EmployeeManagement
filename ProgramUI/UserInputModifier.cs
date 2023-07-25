@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProgramUI
 {
-    internal class UserInputModifier
+    internal static class UserInputModifier
     {
         // Function that capitalizes first letter of user input.
         internal static void CapitalizeFirstLetter(TextBox textBox)
