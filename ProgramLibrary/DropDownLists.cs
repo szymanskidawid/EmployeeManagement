@@ -12,13 +12,13 @@ namespace ProgramLibrary
         // Get a list of Countries that can be added into a DropDown.
         public static List<string> CountryList()
         {
-            List<string> CultureList = new List<string>();
+            List<string> CultureList = new();
 
             CultureInfo[] getCultureInfo = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
 
             foreach (CultureInfo getCulture in getCultureInfo)
             {
-                RegionInfo GetRegionInfo = new RegionInfo(getCulture.LCID);
+                RegionInfo GetRegionInfo = new(getCulture.LCID);
 
                 if (!CultureList.Contains(GetRegionInfo.EnglishName))
                 {
