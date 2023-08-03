@@ -20,16 +20,18 @@ Application has been finished according to my plans but there are many ways in w
    
    <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">LINK to SQL_DB-EmployeeManagement repository</a>
 
-5) Download and run SQL Server 2022 from Microsoft website.
+5) Download and run SQL Server Installation Center from Microsoft website and install SQL Server 2022.
 6) Set up a basic server, preferably under name "MyServer" as this is the name used in my application.
-7) Download and run Microsoft SQL Server Management Studio 19.
-8) Open the database file you have cloned down andxecute all code contained in the file.
+   
+   If you have an existing server under different name, you will need to change the name in App.config file inside this project.
+7) Using the same installation wizard, install Microsoft SQL Server Management Studio 19 and log in into the server created above.
+8) Open the database file you have cloned down and execute all code contained in the file.
 9) Add your own Username and Password to dbo.LoginTable file, you can do it using example query below:
    
    INSERT INTO dbo.LoginTable (username, password) VALUES ('userexample', 'passexample');
    
    (example above does not contain any hashing, it is just for testing purposes)
-10) Run the app and play around with all functionalities it has.
+10) You can Run the app and check all functionalities it has.
 
 # Reflection
 This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and job titles that are available in these departments.
