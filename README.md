@@ -4,6 +4,7 @@ This is an employee management app created for Front and Back-End practice of le
  
 
 
+
 # Status
 Application has been finished according to my plans but there are many ways in which I can add more functionality.
 
@@ -21,23 +22,27 @@ Application has been finished according to my plans but there are many ways in w
    <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">LINK to SQL_DB-EmployeeManagement repository</a>
 
 5) Download and run SQL Server Installation Center from Microsoft website and install SQL Server 2022.
-6) Set up a basic server, preferably under name "MyServer" as this is the name used in my application.
+6) Set up a basic server, preferably under the name "MyServer" as this is the name used in my application.
    
-   If you have an existing server under different name, you will need to change the name in App.config file inside this project.
-7) Using the same installation wizard, install Microsoft SQL Server Management Studio 19 and log in into the server created above.
+   If you have an existing server under a different name, you will need to change the name in the App.config file inside this project.
+7) Using the same installation wizard, install Microsoft SQL Server Management Studio 19 and login into the server created above.
 8) Open the database file you have cloned down and execute all code contained in the file.
-9) Add your own Username and Password to dbo.LoginTable file, you can do it using example query below:
+
+   **WARNING: If you use an older version of SQL Server OR the server has a different name, you will need to update file paths inside EmployeeManagement.sql file:**
+   <img width="1181" alt="filepaths" src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/c9ba3ba1-6d13-4986-af2f-1dfd77d24461">
+9) Add your own Username and Password to the dbo.LoginTable file, you can do it using the example query below:
    
-   INSERT INTO dbo.LoginTable (username, password) VALUES ('userexample', 'passexample');
+   **INSERT INTO dbo.LoginTable (username, password) VALUES ('userexample', 'passexample');**
    
-   (example above does not contain any hashing, it is just for testing purposes)
-10) You can Run the app and check all functionalities it has.
+   *(example above does not contain any hashing, it is just for testing purposes)*
+   
+10) You can now Run the app and check all functionalities it has.
 
 # Reflection
-This application has been created to use my .NET and SQL knowledge. It is an simple version of an application that could be used in places such as HR Department. It allows to create/edit/delete data about employees, departments and job titles that are available in these departments.
+This application has been created to use my .NET and SQL knowledge. It is a simple version of an application that could be used in places such as the HR Department. It allows to create/edit/delete data about employees, departments and job titles that are available in these departments.
 
-My goal was to learn how application can work with an external database and properly store data that can be pulled back to application in any required ways.
+My goal was to learn how the application can work with an external database and properly store data that can be pulled back to the application in any required way.
 
 I have struggled the most with implementing an Edit feature. I could not figure out why data did not get loaded into fields and then updated properly in SQL tables. There were also issues with updates in multiple tables at once using foreign keys that required me to create extra Triggers that would make them work. 
 
-For this project I have used C# programming language with Dapper extension to use dynamic parameters and Windows Forms. This combination created and app that communicates with an SQL database.
+For this project, I have used C# programming language with Dapper extension to use dynamic parameters and Windows Forms. This combination created an app that communicates with an SQL database.
