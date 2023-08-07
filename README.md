@@ -22,9 +22,9 @@ Application has been finished according to my plans but there are many ways in w
    <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">LINK to SQL_DB-EmployeeManagement repository</a>
 
 5) Download and run SQL Server Installation Center from Microsoft website and install SQL Server 2022.
-6) Set up a basic server, preferably under the name "MyServer" as this is the name used in my application.
+6) Set up a basic server, preferably under the name "MyServer" as this is the server name used in my application.
    
-   If you have an existing server under a different name, you will need to change the name in the App.config file inside this project.
+   **If you have an existing server under a different name, you will need to change the name in the App.config file inside this project.**
 7) Using the same installation wizard, install Microsoft SQL Server Management Studio 19 and login into the server created above.
 8) Open the database file you have cloned down and execute all code contained in the file.
 
@@ -34,7 +34,7 @@ Application has been finished according to my plans but there are many ways in w
    
    **INSERT INTO dbo.LoginTable (username, password) VALUES ('userexample', 'passexample');**
    
-   *(example above does not contain any hashing, it is just for testing purposes)*
+   *(example above does not contain any password hashing, it is just for testing purposes)*
    
 10) You can now Run the app and check all functionalities it has.
 
