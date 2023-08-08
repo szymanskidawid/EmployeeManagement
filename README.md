@@ -1,17 +1,13 @@
 # EmployeeManagement
 This is an employee management app created for Front and Back-End practice of learned skills. It works together with an SQL Database that can be found in my repository <a href="https://github.com/szymanskidawid/SQL_DB-EmployeeManagement" target="_blank">SQL_DB-EmployeeManagement</a>.
 
- 
-
-
-
 # Status
 Application has been finished according to my plans but there are many ways in which I can add more functionality.
 
 # GIFs highlighting some functionalities (click for zoom)
-<img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/e71e3b38-e53a-40a5-b858-99f76f87240f" alt="project_GIF_1" width="250">
-<img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/9432d387-9065-40e6-b029-71b2e6e3f2e5" alt="project_GIF_2" width="250">
-<img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/d7aff651-303f-4b04-834c-2eb07e0b660f" alt="project_GIF_3" width="250">
+<img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/4c4a5bbb-df14-4f0f-9e3d-fd6881a532af" alt="project_GIF_1" width="250">
+<img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/9865a20f-aaf3-4aa1-adf3-9cbf4624a348" alt="project_GIF_2" width="250">
+<img src="https://github.com/szymanskidawid/EmployeeManagement/assets/17786383/bd7b31d3-bf88-4dca-998a-54a1a18b4868" alt="project_GIF_3" width="250">
 
 # Installation and Setup
 1) Clone down EmployeeManagement repository and open the solution using MS Visual Studio (preferably 2022 as this is what I have used).
