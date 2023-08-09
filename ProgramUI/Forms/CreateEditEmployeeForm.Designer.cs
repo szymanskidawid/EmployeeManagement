@@ -517,9 +517,9 @@
             this.employeeBirthInfoLabel.Location = new System.Drawing.Point(259, 326);
             this.employeeBirthInfoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.employeeBirthInfoLabel.Name = "employeeBirthInfoLabel";
-            this.employeeBirthInfoLabel.Size = new System.Drawing.Size(322, 21);
+            this.employeeBirthInfoLabel.Size = new System.Drawing.Size(318, 21);
             this.employeeBirthInfoLabel.TabIndex = 58;
-            this.employeeBirthInfoLabel.Text = "Employee needs to be at least 18 years old.";
+            this.employeeBirthInfoLabel.Text = "Employee needs to be at least 18 years old";
             // 
             // employeeContractStartInfoLabel
             // 

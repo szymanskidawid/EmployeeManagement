@@ -122,7 +122,7 @@
             this.departmentLocationInfoLabel.Name = "departmentLocationInfoLabel";
             this.departmentLocationInfoLabel.Size = new System.Drawing.Size(292, 42);
             this.departmentLocationInfoLabel.TabIndex = 40;
-            this.departmentLocationInfoLabel.Text = "5-15 characters (letters, spaces and \"-\")\r\nRequire at least one letter";
+            this.departmentLocationInfoLabel.Text = "5-15 characters (letters, spaces and \"-\")\r\nRequires at least one letter";
             // 
             // departmentNameInfoLabel
             // 
@@ -134,7 +134,8 @@
             this.departmentNameInfoLabel.Name = "departmentNameInfoLabel";
             this.departmentNameInfoLabel.Size = new System.Drawing.Size(344, 42);
             this.departmentNameInfoLabel.TabIndex = 41;
-            this.departmentNameInfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequire at least one letter\r\n";
+            this.departmentNameInfoLabel.Text = "5-20 characters (letters, digits, spaces and \"-\")\r\nRequires at least one letter\r\n" +
+    "";
             // 
             // CreateEditDepartmentForm
             // 
